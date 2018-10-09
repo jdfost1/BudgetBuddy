@@ -1,3 +1,0 @@
-INDEX VERSION 1.131
-C:\Users\Josh\Desktop\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\620500372.index
-\budgetbuddy\src\main\java
