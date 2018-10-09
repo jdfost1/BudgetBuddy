@@ -1,0 +1,5 @@
+package com.budgetBuddy.controller;
+
+public class LoginController {
+
+}

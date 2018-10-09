@@ -1,0 +1,130 @@
+<html>
+<!--calculate using budget template based on %55 for necessities, %30 rent/mortgage, %10 savings, %10 retirement, %10 education, 
+       %10 fun account, and %5 for donations. calculate using the input from the annual income text field -->
+              <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+
+
+function calculateBudget(){
+income = document.getElementById("monthlyIncome").value;
+
+
+document.getElementById("rent").innerHTML = "$"+ income * .3;
+document.getElementById("retirement").innerHTML = "$"+ income * .1;
+document.getElementById("otherBills").innerHTML = "$"+ income * .25;
+document.getElementById("savings").innerHTML = "$"+ income * .1;
+document.getElementById("fun").innerHTML = "$"+ income * .1;
+document.getElementById("donations").innerHTML = "$"+ income * .05;
+document.getElementById("education").innerHTML = "$"+ income * .1;
+
+}//end of calculateBudget Function
+</script> 
+
+<style>
+body{
+background-color:black;
+color:white;
+font-size:30px;
+}
+form{
+display:grid;
+
+}
+#form2 input{
+color:lime;
+background-color:black;
+}
+#logo{
+    background-color:black;
+}
+p{
+    color:lime;
+}
+input{
+    width:25%;
+    color:black;
+}
+button{
+    width:25%;
+    height:40px;
+    font-size:20px;
+    font-weight: bold;
+    background-color:green;
+}
+h1{
+    background-color:green;
+}
+
+</style>
+
+<body>
+                  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="welcome.html">BudgetBuddy.com</a>
+    </div>
+    <ul class="nav navbar-nav">
+      
+      
+      <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Budget Tools
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li><a href="quickBudget.html">Quick Budget</a></li>
+              <li><a href="401k.html">401k Calculator</a></li>
+              <li><a href="compoundInterest.html">Compound Interest Calculator</a></li>
+              </ul></li>
+      
+              
+                <li class="active">
+          <a  href="login.html">Login
+         </a>
+          </li>
+               <li class="active">
+          <a  href="signUp.html">Sign Up
+         </a>
+          </li>
+    </ul>
+  </div>
+</nav>
+ 
+   
+
+    <h1>Create a Budget</h1>
+<label>What is your monthly gross income? </label><br>
+<input type="number" id="monthlyIncome"><br>
+<button onclick="calculateBudget()">Calculate Budget</button>
+
+
+
+<p id="rentp"> </p>
+
+<form name="form2">
+<label>Monthly Budget for Rent/Mortgage </label>
+<p  id="rent"></p>
+<label>Monthly Budget for Savings</label>
+<p  id="savings"></p>
+<label>Monthly Budget for Retirement Accounts </label>
+<p  id="retirement"></p>
+<label>Monthly Budget for Other Bills (Car, Insurance, Utilities, Healthcare, etc.)</label>
+<p  id="otherBills"></p>
+<label>Monthly Budget for Education </label>
+<p  id="education"></p>
+<label>Monthly Budget for Donations </label>
+<p  id="donations"></p>
+<label>Monthly Budget for Entertainment (Restaraunts,Movies,Bars,Bowling, etc.)</label>
+<p  id="fun"></p>
+
+
+
+</form>
+
+</body>
+</html>
