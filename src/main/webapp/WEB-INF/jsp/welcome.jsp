@@ -50,9 +50,9 @@ ul{
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Budget Tools
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-              <li><a href="quickBudget.html">Quick Budget</a></li>
+              <li><a href="tools/budgetCalculator">Quick Budget</a></li>
               <li><a href="401k.html">401k Calculator</a></li>
-              <li><a href="compoundInterest.html">Compound Interest Calculator</a></li>
+              <li><a href="tools/compound-interest-calculator">Compound Interest Calculator</a></li>
               </ul></li>
       
               

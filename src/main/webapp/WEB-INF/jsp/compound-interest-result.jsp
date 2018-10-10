@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>401k calculator</title>
+<title>Compound Interest Calculator Result - Budget Buddy</title>
 </head>
 <body>
-
-
-
+	<h1>Compound Interest Result</h1>
+	<p>Resulting balance after ${interest.timeYears} years: $${interestResult.value}</p>
 </body>
 </html>

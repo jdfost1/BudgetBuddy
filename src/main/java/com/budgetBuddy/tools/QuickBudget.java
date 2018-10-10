@@ -3,7 +3,17 @@ package com.budgetBuddy.tools;
 public class QuickBudget {
 	
 	
-	
+	private double income;
+	public double getIncome() {
+		return income;
+	}
+
+	public void setIncome(double income) {
+		this.income = income;
+	}
+
+
+
 	private double rent;
 	private double savings;
 	private double donations;
