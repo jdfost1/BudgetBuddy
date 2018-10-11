@@ -20,6 +20,10 @@
 body{
 background-color:green;
 }
+
+#panelBody{
+background-color:black;
+}
 #header{
 background-color:black;
 color:white;
@@ -39,6 +43,13 @@ ul{
     text-align:center;
     background-color:black;
 }
+#loginButton{
+color:white;
+font-weight:bold;
+background-color:green;}
+#incomeLabel{
+background-color:green;
+color:white;}
 
 </style>
 <body>
@@ -86,7 +97,7 @@ ul{
 	<form:form action="budget/result" modelAttribute="budget">
 		 
 		 <div class="input-group input-sm">
-		 <label class="input-group-addon" for="income">
+		 <label id="incomeLabel"class="input-group-addon" for="income">
 		 <i class="fa fa-user">Enter Monthly Income:</i></label> 
 		 <form:input path="income"/>
 		</div><br>

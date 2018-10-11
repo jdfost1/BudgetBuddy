@@ -33,7 +33,8 @@ algin:center;
    
 }
 #bottom{
-background-color:green;}
+background-color:green;
+}
 #form1{
 color:black;
 text-align:center;
@@ -46,6 +47,13 @@ color:white;
 background-color:black;
 color:white;
 }
+#yearsLabel{background-color:green; color:white;}
+#returnLabel{background-color:green; color:white;}
+#balanceLabel{background-color:green; color:white;}
+#panelBody{
+background-color:black;
+}
+label{background-color:green;}
 h1{
 text-align:center;
 color:white;
@@ -62,6 +70,7 @@ ul{
     background-color:black;
 }
 .panelTitle{font-weight:bold;}
+
 
 </style>
 
@@ -108,19 +117,19 @@ ul{
 	<form:form action="compound-interest-calculator/result" modelAttribute="interest" >
 		 
 		 <div class="input-group input-sm">
-		 <label class="input-group-addon" for="Starting Balance:">
+		 <label id="balanceLabel"class="input-group-addon" for="Starting Balance:">
 		 <i class="fa fa-user">Starting Balance:</i></label> 
 		 <form:input path="startingBalance"/>
 		</div><br>
 		
 		 <div class="input-group input-sm">
-		 <label class="input-group-addon" for="Starting Balance:">
+		 <label id="returnLabel"class="input-group-addon" for="Starting Balance:">
 		 <i class="fa fa-user">Annual Rate of Return:</i></label> 
 		 <form:input path="annualRateOfReturn"/>
 		</div><br>
 		
 		 <div class="input-group input-sm">
-		 <label class="input-group-addon" for="Starting Balance:">
+		 <label id="yearsLabel"class="input-group-addon" for="Starting Balance:">
 		 <i class="fa fa-user">Number of Years:</i></label> 
 		 <form:input path="timeYears"/>
 		 </div>
