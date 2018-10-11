@@ -2,42 +2,68 @@ package com.budgetBuddy.tools;
 
 public class Quick401k {
 
-	private double nestEgg;
-
-	public double getNestEgg() {
-		return nestEgg;
+	private double salary;
+	private int age;
+	private int retireAge;
+	private double currentBalance;
+	private double contribution;
+	private double rate;
+	private double employerMatchEnd;
+	private double employerMatch;
+	
+	public double getSalary() {
+		return salary;
 	}
-
-	public void setNestEgg(double nestEgg) {
-		this.nestEgg = nestEgg;
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public int getRetireAge() {
+		return retireAge;
+	}
+	public void setRetireAge(int retireAge) {
+		this.retireAge = retireAge;
+	}
+	public double getCurrentBalance() {
+		return currentBalance;
+	}
+	public void setCurrentBalance(double currentBalance) {
+		this.currentBalance = currentBalance;
+	}
+	public double getContribution() {
+		return contribution;
+	}
+	public void setContribution(double contribution) {
+		this.contribution = contribution;
+	}
+	public double getRate() {
+		return rate;
+	}
+	public void setRate(double rate) {
+		this.rate = rate;
+	}
+	public double getEmployerMatchEnd() {
+		return employerMatchEnd;
+	}
+	public void setEmployerMatchEnd(double employerMatchEnd) {
+		this.employerMatchEnd = employerMatchEnd;
+	}
+	public double getEmployerMatch() {
+		return employerMatch;
+	}
+	public void setEmployerMatch(double employerMatch) {
+		this.employerMatch = employerMatch;
 	}
 	
-	public double calculate401k(int salary, double contribution, int age, int retireAge,
-			double currentBalance, double rate, double employerMatchEnd, double employerMatch)
-	{
-		int years = retireAge - age;
-		double totalEmployerMatch;
-		double newBalance = 0;
-		
-		 rate = rate/100;
-	        employerMatchEnd = employerMatchEnd/100;
-	        employerMatch= employerMatch/100;
-	        contribution = contribution/100;
-	        for(int i = 0; i< years; i++)
-	        {
-	            if(contribution >= employerMatchEnd){
-	                totalEmployerMatch = employerMatchEnd*salary*employerMatch;
-	            }
-	            else 
-	            totalEmployerMatch = contribution * salary * employerMatch;
-	       
-	          currentBalance =  (currentBalance)+ (currentBalance * rate) + (salary * contribution);
-	          
-	          newBalance = currentBalance+totalEmployerMatch;
-	          
-	        }//end of loop
-	        return newBalance;
-	}//end of method
+
+
+
+	
 	
 
 }//end of class

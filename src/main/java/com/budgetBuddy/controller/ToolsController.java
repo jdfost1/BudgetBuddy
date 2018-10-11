@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.budgetBuddy.tools.CompoundInterest;
 import com.budgetBuddy.tools.CompoundInterestResult;
 import com.budgetBuddy.tools.Quick401k;
+import com.budgetBuddy.tools.Quick401kResult;
 import com.budgetBuddy.tools.QuickBudget;
 import com.budgetBuddy.tools.QuickBudgetResult;
 
@@ -40,7 +41,13 @@ public class ToolsController {
 	
 	@RequestMapping("/401k")
 	public String show401kCalculator(Model model) {
-		model.addAttribute("balance", new Quick401k());
+		model.addAttribute("account", new Quick401k());
 		return "401k";
 	}
-}
+	@RequestMapping("/401kResult")
+		public String show401kResult(Model model, @ModelAttribute("account") Quick401k account) {
+			model.addAttribute("Quick401kResult", new Quick401kResult(account));
+			return "Quick401kResult";
+		}
+	}//end of class
+

@@ -51,7 +51,7 @@ ul{
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
               <li><a href="tools/budgetCalculator">Quick Budget</a></li>
-              <li><a href="401k.html">401k Calculator</a></li>
+              <li><a href="401k">401k Calculator</a></li>
               <li><a href="tools/compound-interest-calculator">Compound Interest Calculator</a></li>
               </ul></li>
       
