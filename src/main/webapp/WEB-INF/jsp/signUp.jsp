@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html>
 <style type="text/css">
+h3{
+font-weight:bold;}
 #section{
 background-color:black;
 }
@@ -29,7 +31,8 @@ background-color:black;}
 #bottom{
 background-color:black;}
 #loginButton{
-background-color:green;}
+background-color:green;
+}
 </style>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -75,6 +78,7 @@ background-color:green;}
          </div>
       </div>
    </section>
+   
    <div id="bottom"class="container">
       <div class="row">
          <div class="col-md-4 col-md-offset-4">
@@ -84,7 +88,7 @@ background-color:green;}
                </div>
                <div id="panelBody" class="panel-body">
 <c:url var="loginUrl" value="/login" />
-                  <form action="${loginUrl}" method="post" class="form-horizontal">
+                  <form action="${loginUrl}" method="post" >
                      
                   
                      

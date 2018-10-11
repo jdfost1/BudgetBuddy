@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
     <!-- Latest compiled and minified CSS -->
@@ -19,6 +20,27 @@
 <style type="text/css">
 body{
 background-color:green;
+}
+
+#theForm{
+font-weight:bold;
+algin:center;
+  width: 650px;
+    font-size: 18px;
+    background: white;
+    padding: 30px 30px 15px 30px;
+    border: 5px solid black;
+   
+}
+#bottom{
+background-color:green;}
+#form1{
+color:black;
+text-align:center;
+font-size:25px;}
+#loginButton{
+background-color:green;
+color:white;
 }
 #header{
 background-color:black;
@@ -39,6 +61,7 @@ ul{
     text-align:center;
     background-color:black;
 }
+.panelTitle{font-weight:bold;}
 
 </style>
 <body>
@@ -73,20 +96,44 @@ ul{
 </nav>
    
     
-<div id="logo"class="container">
-<div>
-<img src="resources/images/budget buddy logo.PNG">
-</div>
-</div>
-	<h1>Calculate Compound Interest</h1>
-	<form:form action="compound-interest-calculator/result" modelAttribute="interest">
-		Starting Balance: <form:input path="startingBalance"/>
+
+	<div id="bottom"class="container">
+      <div class="row">
+         <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <h3 class="panel-title"><strong>Calculate Compound Interest</strong></h3>
+               </div>
+               <div id="panelBody" class="panel-body">
+	<form:form action="compound-interest-calculator/result" modelAttribute="interest" >
+		 
+		 <div class="input-group input-sm">
+		 <label class="input-group-addon" for="Starting Balance:">
+		 <i class="fa fa-user">Starting Balance:</i></label> 
+		 <form:input path="startingBalance"/>
+		</div><br>
+		
+		 <div class="input-group input-sm">
+		 <label class="input-group-addon" for="Starting Balance:">
+		 <i class="fa fa-user">Annual Rate of Return:</i></label> 
+		 <form:input path="annualRateOfReturn"/>
+		</div><br>
+		
+		 <div class="input-group input-sm">
+		 <label class="input-group-addon" for="Starting Balance:">
+		 <i class="fa fa-user">Number of Years:</i></label> 
+		 <form:input path="timeYears"/>
+		 </div>
 		<br>
-		Annual Rate of Return: <form:input path="annualRateOfReturn"/>
-		<br>
-		Number of Years: <form:input path="timeYears"/>
-		<br>
-		<input type="submit" value="Calculate"/>
+		
+		<div class="form-actions">
+		<input id="loginButton"type="submit" value="Calculate"/></div>
 	</form:form>
+	</div>
+	 </div>
+            </div>
+         </div>
+      </div>
+   
 </body>
 </html>
