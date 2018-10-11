@@ -1,7 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html>
 <html>
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,14 +7,16 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Quick Budget</title>
+<link rel="stylesheet" type="text/css" href="BudgetBuddy.css">
 </head>
-<body>
+
 <style type="text/css">
 body{
 background-color:green;
+color:white;
+font-size:35px;
 }
 #header{
 background-color:black;
@@ -74,35 +72,13 @@ ul{
    
     
 
-
-<div id="bottom"class="container">
-      <div class="row">
-         <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default">
-               <div class="panel-heading">
-                  <h3 class="panel-title"><strong>Calculate Monthly Budget</strong></h3>
-               </div>
-               <div id="panelBody" class="panel-body">
-	<form:form action="budget/result" modelAttribute="budget">
-		 
-		 <div class="input-group input-sm">
-		 <label class="input-group-addon" for="income">
-		 <i class="fa fa-user">Enter Monthly Income:</i></label> 
-		 <form:input path="income"/>
-		</div><br>
-		
-		
-		
-		
-		
-		<div class="form-actions">
-		<input id="loginButton"type="submit" value="CalculateBudget"/></div>
-	</form:form>
-	</div>
-	 </div>
-            </div>
-         </div>
-      </div>
-
+<body>
+	<h1>Budget Result</h1>
+	<p>Rent: $${budgetResult.rentValue }</p>
+	<p>Other Bills: $${budgetResult.otherBillsValue }</p>
+	<p>Savings: $${budgetResult.rentValue }</p>
+	<p>Retirement: $${budgetResult.retirementValue }</p>
+	<p>Education: $${budgetResult.educationValue }</p>
+	<p>Spending: $${budgetResult.funValue }</p>
 </body>
 </html>

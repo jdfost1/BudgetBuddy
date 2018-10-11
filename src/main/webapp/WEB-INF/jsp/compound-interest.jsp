@@ -64,7 +64,7 @@ ul{
 .panelTitle{font-weight:bold;}
 
 </style>
-<body>
+
    <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">

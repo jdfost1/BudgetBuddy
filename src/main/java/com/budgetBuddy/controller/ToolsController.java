@@ -9,6 +9,7 @@ import com.budgetBuddy.tools.CompoundInterest;
 import com.budgetBuddy.tools.CompoundInterestResult;
 import com.budgetBuddy.tools.Quick401k;
 import com.budgetBuddy.tools.QuickBudget;
+import com.budgetBuddy.tools.QuickBudgetResult;
 
 @Controller
 @RequestMapping("/tools")
@@ -30,6 +31,12 @@ public class ToolsController {
 		model.addAttribute("budget", new QuickBudget());
 		return "budget";
 	}
+	@RequestMapping("/budget/result")
+		public String showBudgetCalculatorResult(Model model, @ModelAttribute("budget") QuickBudget budget) {
+		model.addAttribute("budgetResult", new QuickBudgetResult(budget));
+		return "budgetResult";
+	}
+	
 	
 	@RequestMapping("/401k")
 	public String show401kCalculator(Model model) {
