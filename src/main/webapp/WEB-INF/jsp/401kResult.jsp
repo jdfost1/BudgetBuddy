@@ -74,7 +74,7 @@ ul{
 
 <body>
 	<h1>401k Calculator Result</h1>
-	<p>Rent: $${NestEggResult.nestEgg }</p>
+	<p>Nest Egg: $${NestEggResult.nestEgg }</p>
 	
 </body>
 </html>
