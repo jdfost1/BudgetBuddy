@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
@@ -119,19 +117,25 @@ ul{
 		 <div class="input-group input-sm">
 		 <label id="balanceLabel"class="input-group-addon" for="Starting Balance:">
 		 <i class="fa fa-user">Starting Balance:</i></label> 
-		 <form:input path="startingBalance"/>
+		 <form:input path="principal"/>
 		</div><br>
 		
 		 <div class="input-group input-sm">
 		 <label id="returnLabel"class="input-group-addon" for="Starting Balance:">
-		 <i class="fa fa-user">Annual Rate of Return:</i></label> 
-		 <form:input path="annualRateOfReturn"/>
+		 <i class="fa fa-user">Interest Rate:</i></label> 
+		 <form:input path="interestRate"/>
+		</div><br>
+		
+		<div class="input-group input-sm">
+		 <label id="returnLabel"class="input-group-addon" for="Starting Balance:">
+		 <i class="fa fa-user">Number of Times Compounded Per Year:</i></label>
+		 <form:input path="compoundsPerYear"/>
 		</div><br>
 		
 		 <div class="input-group input-sm">
 		 <label id="yearsLabel"class="input-group-addon" for="Starting Balance:">
 		 <i class="fa fa-user">Number of Years:</i></label> 
-		 <form:input path="timeYears"/>
+		 <form:input path="years"/>
 		 </div>
 		<br>
 		

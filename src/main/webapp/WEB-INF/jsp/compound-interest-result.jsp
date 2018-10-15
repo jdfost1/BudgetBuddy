@@ -1,3 +1,6 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
 <html>
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -78,6 +81,6 @@ ul{
 </div>
 <body>
 	<h1>Compound Interest Result</h1>
-	<p>Resulting balance after ${interest.timeYears} years: $${interestResult.value}</p>
+	<p>Resulting balance after ${interest.years} years: <fmt:formatNumber type="currency" value="${interestResult.amount}"/></p>
 </body>
 </html>
