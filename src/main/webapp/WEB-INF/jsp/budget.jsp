@@ -99,7 +99,7 @@ color:white;}
 		 <div class="input-group input-sm">
 		 <label id="incomeLabel"class="input-group-addon" for="income">
 		 <i class="fa fa-user">Enter Monthly Income:</i></label> 
-		 <form:input path=""/>
+		 <form:input path="income"/>
 		</div><br>
 		
 		

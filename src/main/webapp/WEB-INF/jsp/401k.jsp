@@ -97,11 +97,16 @@ color:white;}
 	<form:form action="401kResult" modelAttribute="account">
 		 
 		 <div class="input-group input-sm">
-		 <label id="incomeLabel"class="input-group-addon" for="income">
+		 <label id="incomeLabel"class="input-group-addon" for="salary">
 		 <i class="fa fa-user">Enter annual salary:</i></label> 
-		 <form:input path="salary"/>
+		 <form:input path= "salary"/>
 		</div><br>
 		
+		<div class="input-group input-sm">
+		 <label id="incomeLabel"class="input-group-addon" for="income">
+		 <i class="fa fa-user">Enter the percent of your paycheck that you contribute:</i></label> 
+		 <form:input path="contribution"/>
+		</div><br>
 		<div class="input-group input-sm">
 		 <label id="incomeLabel"class="input-group-addon" for="income">
 		 <i class="fa fa-user">Enter expected rate of return:</i></label> 
