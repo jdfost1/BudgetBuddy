@@ -2,15 +2,14 @@ package com.budgetBuddy.tools;
 
 public class CompoundInterestResult {
 
-	private double value;
+	private Double amount;
 	
-	public CompoundInterestResult(CompoundInterest compoundInterest) {
-		value = compoundInterest.getStartingBalance() 
-				* Math.pow(1 + compoundInterest.getAnnualRateOfReturn()/100,
-						compoundInterest.getTimeYears());
+	public CompoundInterestResult(CompoundInterest interest) {
+		int n = interest.getCompoundsPerYear();
+		amount = interest.getPrincipal() * Math.pow(1 + interest.getInterestRate()/n, n*interest.getYears());
 	}
 	
-	public double getValue() {
-		return value;
+	public double getAmount() {
+		return amount;
 	}
 }

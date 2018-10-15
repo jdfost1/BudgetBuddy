@@ -1,32 +1,50 @@
 package com.budgetBuddy.tools;
 
+import javax.validation.constraints.NotNull;
+
 public class CompoundInterest {
+		
+	@NotNull(message="is required")
+	private Double principal;
 	
-	private double startingBalance;
-	private double annualRateOfReturn;
-	private int timeYears;
+	@NotNull(message="is required")
+	private Double interestRate;
 	
-	public double getStartingBalance() {
-		return startingBalance;
+	@NotNull(message="is required")
+	private Integer compoundsPerYear;
+	
+	@NotNull(message="is required")
+	private Integer years;
+
+	public Double getPrincipal() {
+		return principal;
+	}
+
+	public void setPrincipal(Double principal) {
+		this.principal = principal;
+	}
+
+	public Double getInterestRate() {
+		return interestRate;
+	}
+
+	public void setInterestRate(Double interestRate) {
+		this.interestRate = interestRate;
 	}
 	
-	public void setStartingBalance(double startingBalance) {
-		this.startingBalance = startingBalance;
+	public Integer getCompoundsPerYear() {
+		return compoundsPerYear;
 	}
 	
-	public double getAnnualRateOfReturn() {
-		return annualRateOfReturn;
+	public void setCompoundsPerYear(Integer compoundsPerYear) {
+		this.compoundsPerYear = compoundsPerYear;
 	}
-	
-	public void setAnnualRateOfReturn(double annualRateOfReturn) {
-		this.annualRateOfReturn = annualRateOfReturn;
+
+	public Integer getYears() {
+		return years;
 	}
-	
-	public int getTimeYears() {
-		return timeYears;
-	}
-	
-	public void setTimeYears(int timeYears) {
-		this.timeYears = timeYears;
+
+	public void setYears(Integer years) {
+		this.years = years;
 	}
 }

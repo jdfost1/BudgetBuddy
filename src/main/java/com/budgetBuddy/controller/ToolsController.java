@@ -24,14 +24,18 @@ public class ToolsController {
 	
 	@RequestMapping("/compound-interest-calculator/result")
 	public String showCompoundInterestResult(Model model, @ModelAttribute("interest") CompoundInterest interest) {
-		model.addAttribute("interestResult", new CompoundInterestResult(interest));
+		CompoundInterestResult interestResult = new CompoundInterestResult(interest);
+		model.addAttribute("interestResult", interestResult);
 		return "compound-interest-result";
 	}
+	
+	
 	@RequestMapping("/budgetCalculator")
 	public String showBudgetCalculator(Model model) {
 		model.addAttribute("budget", new QuickBudget());
 		return "budget";
 	}
+	
 	@RequestMapping("/budget/result")
 		public String showBudgetCalculatorResult(Model model, @ModelAttribute("budget") QuickBudget budget) {
 		model.addAttribute("budgetResult", new QuickBudgetResult(budget));
@@ -44,10 +48,11 @@ public class ToolsController {
 		model.addAttribute("account", new Quick401k());
 		return "401k";
 	}
+	
 	@RequestMapping("/401kResult")
-		public String show401kResult(Model model, @ModelAttribute("account") Quick401k account) {
-			model.addAttribute("Quick401kResult", new Quick401kResult(account));
-			return "Quick401kResult";
-		}
-	}//end of class
+	public String show401kResult(Model model, @ModelAttribute("account") Quick401k account) {
+		model.addAttribute("Quick401kResult", new Quick401kResult(account));
+		return "Quick401kResult";
+	}
+}
 
