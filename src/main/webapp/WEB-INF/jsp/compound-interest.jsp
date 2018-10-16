@@ -5,9 +5,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Compound Interest Calculator - Budget Buddy</title>
+	<%@ include file="template/css-include.html" %>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/compound-interest.css"/>
 </head>
-
 <body>
 
 <!-- 
@@ -40,70 +40,43 @@
     </ul>
   </div>
 </nav>
-   
-    
-
-	<div id="bottom"class="container">
-      <div class="row">
-         <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default">
-               <div class="panel-heading">
-                  <h3 class="panel-title"><strong>Calculate Compound Interest</strong></h3>
-               </div>
-               <div id="panelBody" class="panel-body">
-	<form:form action="compound-interest-result" modelAttribute="interest" >
-		 
-		 <div class="input-group input-sm">
-		 <label id="balanceLabel"class="input-group-addon" for="Starting Balance:">
-		 <i class="fa fa-user">Starting Balance:</i></label> 
-		 <form:input path="principal"/>
-		</div><br>
-		
-		 <div class="input-group input-sm">
-		 <label id="returnLabel"class="input-group-addon" for="Starting Balance:">
-		 <i class="fa fa-user">Interest Rate (%):</i></label> 
-		 <form:input path="interestRate"/>
-		</div><br>
-		
-		<div class="input-group input-sm">
-		 <label id="returnLabel"class="input-group-addon" for="Starting Balance:">
-		 <i class="fa fa-user">Number of Times Compounded Per Year:</i></label>
-		 <form:input path="compoundsPerYear"/>
-		</div><br>
-		
-		 <div class="input-group input-sm">
-		 <label id="yearsLabel"class="input-group-addon" for="Starting Balance:">
-		 <i class="fa fa-user">Number of Years:</i></label> 
-		 <form:input path="years"/>
-		 </div>
-		<br>
-		
-		<div class="form-actions">
-		<input id="loginButton"type="submit" value="Calculate"/></div>
-	</form:form>
-	</div>
-	 </div>
-            </div>
-         </div>
-      </div>
-      
        -->
-  	 <form:form action="compound-interest-result" modelAttribute="interest" >
-		Starting Balance: <form:input path="principal"/>
-		<form:errors path="principal" cssClass="error"/>
-		<br>
-		Interest Rate (%): <form:input path="interestRate"/>
-		<form:errors path="interestRate" cssClass="error"/>
-		<br>
-		Number of Times Compounded Per Year: <form:input path="compoundsPerYear"/>
-		<form:errors path="compoundsPerYear" cssClass="error"/>
-		<br>
-		Number of Years: <form:input path="years"/>
-		<form:errors path="years" cssClass="error"/>
-		<br>
-		<input type="submit" value="Calculate"/>
-	</form:form>
-	
-	
+     
+     <div class="container">
+     	<div class="row">
+     		<div class="col-md-6 offset-md-3">
+	     		<div id="card" class="card">
+				  <h5 class="card-header">Calculate Compound Interest</h5>
+				  <div class="card-body">
+				    <form:form action="compound-interest-result" modelAttribute="interest">
+					 	<div class="form-group">
+							<label for="principalInput">Starting Balance</label>
+						    <form:input path="principal" id="principalInput" cssClass="form-control"/>
+						    <form:errors path="principal" element="div" cssClass="invalid-feedback"/>
+						</div>
+						<div class="form-group">
+							<label for="interestRateInput">Interest Rate (%)</label>
+						    <form:input path="interestRate" id="interestRateInput" cssClass="form-control"/>
+						    <form:errors path="interestRate" cssClass="error"/>
+						</div>
+						<div class="form-group">
+							<label for="compoundsPerYearInput">Number of Times Compounded Per Year</label>
+							<form:input path="compoundsPerYear" id="compoundsPerYearInput" cssClass="form-control"/>
+							<form:errors path="compoundsPerYear" cssClass="error"/>
+						</div>
+						<div class="form-group">
+							<label for="yearsInput">Number of Years</label>
+							<form:input path="years" id="yearsInput" cssClass="form-control"/>
+							<form:errors path="years" cssClass="error"/>
+						</div>
+						<button type="submit" class="btn btn-primary">Calculate</button>
+					</form:form>
+				  </div>
+				</div>
+     		</div>
+     	</div>
+     </div>
+  	 
+	<%@ include file="template/js-include.html" %>
 </body>
 </html>
