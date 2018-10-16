@@ -2,46 +2,10 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <head>
-<link rel="stylesheet" type="text/css" href="BudgetBuddy.css">
+	<meta charset="UTF-8">
+	<title>Compound Interest Result - Budget Buddy</title>
 </head>
-
-<style type="text/css">
-body{
-background-color:green;
-color:white;
-font-size:35px;
-}
-#header{
-background-color:black;
-color:white;
-}
-h1{
-text-align:center;
-color:white;
-}
-a{
-color:white;
-}
-
-ul{
-    list-style-type: none;
-}
-#logo{
-    text-align:center;
-    background-color:black;
-}
-
-</style>
 <body>
    <nav class="navbar navbar-inverse">
   <div class="container-fluid">
