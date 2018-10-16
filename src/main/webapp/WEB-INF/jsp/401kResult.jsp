@@ -16,12 +16,14 @@
 body{
 background-color:green;
 color:white;
-font-size:35px;
+
 }
 #header{
 background-color:black;
 color:white;
 }
+#result{
+font-size:35px;}
 h1{
 text-align:center;
 color:white;
@@ -73,8 +75,9 @@ ul{
     
 
 <body>
+<div class="container"id="result">
 	<h1>401k Calculator Result</h1>
-	<p>Nest Egg: $${NestEggResult.nestEgg }</p>
-	
+	<p>Nest Egg after ${NestEggResult.years}  years: $${NestEggResult.nestEgg }</p>
+	</div>
 </body>
 </html>
