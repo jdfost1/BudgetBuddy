@@ -2,77 +2,15 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <head>
-<meta charset="ISO-8859-1">
-<title>Compound Interest Calculator - Budget Buddy</title>
-<style type="text/css">
-body{
-background-color:green;
-}
-
-#theForm{
-font-weight:bold;
-algin:center;
-  width: 650px;
-    font-size: 18px;
-    background: white;
-    padding: 30px 30px 15px 30px;
-    border: 5px solid black;
-   
-}
-#bottom{
-background-color:green;
-}
-#form1{
-color:black;
-text-align:center;
-font-size:25px;}
-#loginButton{
-background-color:green;
-color:white;
-}
-#header{
-background-color:black;
-color:white;
-}
-#yearsLabel{background-color:green; color:white;}
-#returnLabel{background-color:green; color:white;}
-#balanceLabel{background-color:green; color:white;}
-#panelBody{
-background-color:black;
-}
-label{background-color:green;}
-h1{
-text-align:center;
-color:white;
-}
-a{
-color:white;
-}
-
-ul{
-    list-style-type: none;
-}
-#logo{
-    text-align:center;
-    background-color:black;
-}
-.panelTitle{font-weight:bold;}
-
-
-</style>
+	<meta charset="UTF-8">
+	<title>Compound Interest Calculator - Budget Buddy</title>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/compound-interest.css"/>
 </head>
+
 <body>
 
-
+<!-- 
    <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -148,6 +86,24 @@ ul{
             </div>
          </div>
       </div>
-   
+      
+       -->
+  	 <form:form action="compound-interest-result" modelAttribute="interest" >
+		Starting Balance: <form:input path="principal"/>
+		<form:errors path="principal" cssClass="error"/>
+		<br>
+		Interest Rate (%): <form:input path="interestRate"/>
+		<form:errors path="interestRate" cssClass="error"/>
+		<br>
+		Number of Times Compounded Per Year: <form:input path="compoundsPerYear"/>
+		<form:errors path="compoundsPerYear" cssClass="error"/>
+		<br>
+		Number of Years: <form:input path="years"/>
+		<form:errors path="years" cssClass="error"/>
+		<br>
+		<input type="submit" value="Calculate"/>
+	</form:form>
+	
+	
 </body>
 </html>

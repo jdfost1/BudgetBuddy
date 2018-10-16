@@ -1,0 +1,56 @@
+.error {color: red;}
+
+
+body{
+background-color:green;
+}
+
+#theForm{
+font-weight:bold;
+algin:center;
+  width: 650px;
+    font-size: 18px;
+    background: white;
+    padding: 30px 30px 15px 30px;
+    border: 5px solid black;
+   
+}
+#bottom{
+background-color:green;
+}
+#form1{
+color:black;
+text-align:center;
+font-size:25px;}
+#loginButton{
+background-color:green;
+color:white;
+}
+#header{
+background-color:black;
+color:white;
+}
+#yearsLabel{background-color:green; color:white;}
+#returnLabel{background-color:green; color:white;}
+#balanceLabel{background-color:green; color:white;}
+#panelBody{
+background-color:black;
+}
+label{background-color:green;}
+h1{
+text-align:center;
+color:white;
+}
+a{
+color:white;
+}
+
+ul{
+    list-style-type: none;
+}
+#logo{
+    text-align:center;
+    background-color:black;
+}
+.panelTitle{font-weight:bold;}
+
