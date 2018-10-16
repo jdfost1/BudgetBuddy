@@ -21,6 +21,11 @@ public class ToolsController {
 		model.addAttribute("interest", new CompoundInterest());
 		return "compound-interest";
 	}
+	@RequestMapping("/welcome")
+	public String returnToHome() {
+		
+		return "welcome";
+	}
 	
 	@RequestMapping("/compound-interest-calculator/result")
 	public String showCompoundInterestResult(Model model, @ModelAttribute("interest") CompoundInterest interest) {

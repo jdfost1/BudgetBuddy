@@ -98,7 +98,7 @@ color:white;}
 		 
 		 <div class="input-group input-sm">
 		 <label id="incomeLabel"class="input-group-addon" for="salary">
-		 <i class="fa fa-user">Enter annual salary:</i></label> 
+		 <i class="fa fa-user">Enter your annual salary:</i></label> 
 		 <form:input path= "salary"/>
 		</div><br>
 		
@@ -109,13 +109,13 @@ color:white;}
 		</div><br>
 		<div class="input-group input-sm">
 		 <label id="incomeLabel"class="input-group-addon" for="income">
-		 <i class="fa fa-user">Enter expected rate of return:</i></label> 
+		 <i class="fa fa-user">Enter the percent of expected annual rate of return:</i></label> 
 		 <form:input path="rate"/>
 		</div><br>
 		
 		<div class="input-group input-sm">
 		 <label id="incomeLabel"class="input-group-addon" for="income">
-		 <i class="fa fa-user">Enter age:</i></label> 
+		 <i class="fa fa-user">Enter your current age:</i></label> 
 		 <form:input path="age"/>
 		</div><br>
 		
@@ -127,13 +127,13 @@ color:white;}
 		
 		<div class="input-group input-sm">
 		 <label id="incomeLabel"class="input-group-addon" for="income">
-		 <i class="fa fa-user">Enter the percent of contribution your employer will match up to:</i></label> 
+		 <i class="fa fa-user">Enter the percent of your contribution your employer will match:</i></label> 
 		 <form:input path="employerMatch"/>
 		</div><br>
 		
 		<div class="input-group input-sm">
 		 <label id="incomeLabel"class="input-group-addon" for="income">
-		 <i class="fa fa-user">Enter your employer match:</i></label> 
+		 <i class="fa fa-user">Enter the percent at which your employer match ends:</i></label> 
 		 <form:input path="employerMatchEnd"/>
 		</div><br>
 		

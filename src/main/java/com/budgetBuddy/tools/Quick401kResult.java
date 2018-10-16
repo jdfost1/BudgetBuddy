@@ -3,7 +3,10 @@ package com.budgetBuddy.tools;
 public class Quick401kResult {
 	
 	private double nestEgg;
+	private int years;
 	
+
+
 	public Quick401kResult(Quick401k account) {
 		 double salary = account.getSalary();
 		 double contribution = account.getContribution();
@@ -16,7 +19,7 @@ public class Quick401kResult {
 		 
 	       
 	        
-	        int years = retireAge - age;
+	        years = retireAge - age;
 	        rate = rate/100;
 	        employerMatchEnd = employerMatchEnd/100;
 	        employerMatch= employerMatch/100;
@@ -34,11 +37,19 @@ public class Quick401kResult {
 	       
 	          currentBalance =  currentBalance+ (currentBalance * rate) + salary * contribution;
 	          
-	          nestEgg = currentBalance+totalEmployerMatch;
+	          currentBalance = currentBalance+totalEmployerMatch;
 	          
 	          
 	          
 	        }//end of loop
+	        nestEgg = currentBalance;
+	}
+	public int getYears() {
+		return years;
+	}
+
+	public void setYears(int years) {
+		this.years = years;
 	}
 
 	public double getNestEgg() {
