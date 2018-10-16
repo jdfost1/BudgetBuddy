@@ -1,1 +1,3 @@
+.card { margin-top: 50px; }
 .error { color: red; }
+.invalid-feedback { display: block; }

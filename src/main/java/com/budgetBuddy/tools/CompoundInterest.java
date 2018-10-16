@@ -19,7 +19,7 @@ public class CompoundInterest {
 	/**
 	 * Amount of money at the beginning.
 	 */
-	@NotNull(message = REQUIRED)
+	@NotNull
 	@Min(value = 0, message = MIN_0)
 	private Double principal;
 	
