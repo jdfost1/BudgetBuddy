@@ -39,7 +39,10 @@ ul{
 }
 }
 </style>
+
 <body>
+
+
    <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -64,6 +67,10 @@ ul{
           </li>
                <li class="active">
           <a  href="signUp.html">Sign Up
+         </a>
+          </li>
+              <li class="active">
+          <a href="<c:url value="/logout" />"/> Logout
          </a>
           </li>
     </ul>

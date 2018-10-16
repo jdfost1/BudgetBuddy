@@ -1,19 +1,18 @@
 package com.budgetBuddy.controller;
 
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 
 @Controller
 public class AccountController {
+	@RequestMapping(value ="/account", method =RequestMethod.GET)
+	public String showAccount() {
+		return "account";
+	}
 	
-@RequestMapping("/account")
-public String account(Model model) {
-	model.addAttribute("firstName", "Josh");
-	model.addAttribute("lastName", "Foster");
-	model.addAttribute("age", "27");
-	return "account";
-}
-
 
 }

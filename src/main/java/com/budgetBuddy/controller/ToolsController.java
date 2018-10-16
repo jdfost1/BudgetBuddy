@@ -27,7 +27,7 @@ public class ToolsController {
 	@RequestMapping("/welcome")
 	public String returnToHome() {
 		
-		return "welcome";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/compound-interest-result")

@@ -13,12 +13,15 @@ public class HomeController {
 
     return "welcome";
   }
+  
   @RequestMapping("/welcome")
   public String welcomeAgain() {
    
 
     return "welcome";
   }
+ 
+  
   
  @RequestMapping("/401k")
  public String calculate401k() {
