@@ -16,12 +16,14 @@
 body{
 background-color:green;
 color:white;
-font-size:35px;
+
 }
 #header{
 background-color:black;
 color:white;
 }
+#summary{
+font-size:35px;}
 h1{
 text-align:center;
 color:white;
@@ -73,12 +75,14 @@ ul{
     
 
 <body>
-	<h1>Budget Result</h1>
-	<p>Rent: $${budgetResult.rentValue }</p>
+<div id="summary">
+	<h1>Suggested Monthly Budget</h1>
+	<p>Rent/Mortgage: $${budgetResult.rentValue }</p>
 	<p>Other Bills: $${budgetResult.otherBillsValue }</p>
-	<p>Savings: $${budgetResult.rentValue }</p>
+	<p>Savings: $${budgetResult.savingsValue }</p>
 	<p>Retirement: $${budgetResult.retirementValue }</p>
 	<p>Education: $${budgetResult.educationValue }</p>
 	<p>Spending: $${budgetResult.funValue }</p>
+	</div>
 </body>
 </html>
