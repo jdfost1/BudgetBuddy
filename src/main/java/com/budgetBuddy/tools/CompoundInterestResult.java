@@ -6,7 +6,7 @@ public class CompoundInterestResult {
 	
 	public CompoundInterestResult(CompoundInterest interest) {
 		int n = interest.getCompoundsPerYear();
-		amount = interest.getPrincipal() * Math.pow(1 + interest.getInterestRate()/n, n*interest.getYears());
+		amount = interest.getPrincipal() * Math.pow(1 + interest.getInterestRate()/(100*n), n*interest.getYears());
 	}
 	
 	public double getAmount() {

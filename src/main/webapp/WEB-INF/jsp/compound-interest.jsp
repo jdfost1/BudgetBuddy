@@ -13,8 +13,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Compound Interest Calculator - Budget Buddy</title>
-</head>
-<body>
 <style type="text/css">
 body{
 background-color:green;
@@ -71,6 +69,9 @@ ul{
 
 
 </style>
+</head>
+<body>
+
 
    <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -112,7 +113,7 @@ ul{
                   <h3 class="panel-title"><strong>Calculate Compound Interest</strong></h3>
                </div>
                <div id="panelBody" class="panel-body">
-	<form:form action="compound-interest-calculator/result" modelAttribute="interest" >
+	<form:form action="compound-interest-result" modelAttribute="interest" >
 		 
 		 <div class="input-group input-sm">
 		 <label id="balanceLabel"class="input-group-addon" for="Starting Balance:">
@@ -122,7 +123,7 @@ ul{
 		
 		 <div class="input-group input-sm">
 		 <label id="returnLabel"class="input-group-addon" for="Starting Balance:">
-		 <i class="fa fa-user">Interest Rate:</i></label> 
+		 <i class="fa fa-user">Interest Rate (%):</i></label> 
 		 <form:input path="interestRate"/>
 		</div><br>
 		
