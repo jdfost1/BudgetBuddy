@@ -1,4 +1,4 @@
-package com.budgetbuddy.bank;
+package com.budgetBuddy.bank;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;

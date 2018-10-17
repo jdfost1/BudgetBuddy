@@ -1,4 +1,4 @@
-package com.budgetbuddy.bank;
+package com.budgetBuddy.bank;
 
 public class BankTransaction {
 
