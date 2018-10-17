@@ -12,8 +12,6 @@ public class QuickBudget {
 		this.income = income;
 	}
 
-
-
 	
 }
 
