@@ -81,5 +81,17 @@
 		<artifactId>commons-csv</artifactId>
 		<version>1.6</version>
 	</dependency>
+	
+	<!-- Database -->
+	<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-jdbc</artifactId>
+	<version>4.3.0.RELEASE</version>
+	</dependency>
+	<dependency>
+	<groupId>org.hsqldb</groupId>
+	<artifactId>hsqldb</artifactId>
+	<version>2.3.2</version>
+	</dependency>
   </dependencies>
 </project>
