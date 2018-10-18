@@ -9,6 +9,10 @@
   <properties>
 	<maven.compiler.source>1.8</maven.compiler.source>
   	<maven.compiler.target>1.8</maven.compiler.target>
+  	<downloadSources>true</downloadSources>
+  <downloadJavadocs>true</downloadJavadocs>
+ 
+  
   </properties>
   
   <build>
@@ -74,6 +78,7 @@
 	  <artifactId>hibernate-validator-annotation-processor</artifactId>
 	  <version>6.0.13.Final</version>
 	</dependency>
+	
 
 	<!-- Apache Commons CSV Parser -->
 	<dependency>
@@ -88,10 +93,21 @@
 	<artifactId>spring-jdbc</artifactId>
 	<version>4.3.0.RELEASE</version>
 	</dependency>
-	<dependency>
-	<groupId>org.hsqldb</groupId>
-	<artifactId>hsqldb</artifactId>
-	<version>2.3.2</version>
-	</dependency>
+	
+	  <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>5.2.11.Final</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>6.0.5</version>
+    </dependency>
+
+   
+ 
+	
   </dependencies>
 </project>
