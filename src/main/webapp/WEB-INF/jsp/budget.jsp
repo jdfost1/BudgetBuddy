@@ -82,38 +82,26 @@ color:white;}
     </ul>
   </div>
 </nav>
-   
-    
 
-
-<div id="bottom"class="container">
-      <div class="row">
-         <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default">
-               <div class="panel-heading">
-                  <h3 class="panel-title"><strong>Calculate Monthly Budget</strong></h3>
-               </div>
-               <div id="panelBody" class="panel-body">
-	<form:form action="budget/result" modelAttribute="budget">
-		 
-		 <div class="input-group input-sm">
-		 <label id="incomeLabel"class="input-group-addon" for="income">
-		 <i class="fa fa-user">Enter Monthly Income:</i></label> 
-		 <form:input path="income"/>
-		</div><br>
-		
-		
-		
-		
-		
-		<div class="form-actions">
-		<input id="loginButton"type="submit" value="CalculateBudget"/></div>
-	</form:form>
-	</div>
-	 </div>
-            </div>
-         </div>
-      </div>
-
+ <div class="container">
+     	<div class="row">
+     		<div class="col-md-6 offset-md-3">
+	     		<div id="card" class="card">
+				  <h5 class="card-header">Quick Monthly Budget Calculator</h5>
+				  <div class="card-body">
+				    <form:form action="budget/result" modelAttribute="budget">
+					 	<div class="form-group">
+							<label for="principalInput">Enter annual income</label>
+						    <form:input path="income" id="principalInput" cssClass="form-control"/>
+						    <form:errors path="income" element="div" cssClass="invalid-feedback"/>
+						</div>		
+						
+						<button type="submit" class="btn btn-primary">Calculate</button>
+					</form:form>
+				  </div>
+				</div>
+     		</div>
+     	</div>
+     </div>
 </body>
 </html>

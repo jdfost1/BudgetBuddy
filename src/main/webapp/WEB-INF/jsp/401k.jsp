@@ -19,7 +19,10 @@
 <style type="text/css">
 body{
 background-color:green;
+text-align:center;
 }
+button{
+background-color:black;}
 
 #panelBody{
 background-color:black;
@@ -32,6 +35,9 @@ h1{
 text-align:center;
 color:white;
 }
+h5{
+color:white;
+font-size:30px;}
 a{
 color:white;
 }
@@ -83,79 +89,70 @@ color:white;}
   </div>
 </nav>
    
-    
-
-
-<div id="bottom"class="container">
-      <div class="row">
-         <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default">
-               <div class="panel-heading">
-                  <h3 class="panel-title"><strong>Calculate 401k Balance</strong></h3>
-               </div>
-               <div id="panelBody" class="panel-body">
-	<form:form action="401kResult" modelAttribute="account">
-		 
-		 <div class="input-group input-sm">
+      
+       <div class="container">
+     	<div class="row">
+     		<div class="col-md-6 offset-md-3">
+	     		<div id="card" class="card">
+				  <h5 class="card-header">401k Calculator</h5>
+				  <div class="card-body">
+				   <form:form action="401kResult" modelAttribute="account">
+					 	
+						
+						 <div class="form-group">
 		 <label id="incomeLabel"class="input-group-addon" for="salary">
 		 <i class="fa fa-user">Enter your annual salary:</i></label> 
-		 <form:input path= "salary"/>
+		 <form:input path= "salary"  cssClass="form-control"/>
 		</div><br>
 		
-		<div class="input-group input-sm">
+		<div class="form-group">
 		 <label id="incomeLabel"class="input-group-addon" for="income">
 		 <i class="fa fa-user">Enter the percent of your paycheck that you contribute:</i></label> 
-		 <form:input path="contribution"/>
+		 <form:input path="contribution"  cssClass="form-control"/>
 		</div><br>
-		<div class="input-group input-sm">
+		<div class="form-group">
 		 <label id="incomeLabel"class="input-group-addon" for="income">
 		 <i class="fa fa-user">Enter the percent of expected annual rate of return:</i></label> 
-		 <form:input path="rate"/>
+		 <form:input path="rate"  cssClass="form-control"/>
 		</div><br>
 		
-		<div class="input-group input-sm">
+		<div class="form-group">
 		 <label id="incomeLabel"class="input-group-addon" for="income">
 		 <i class="fa fa-user">Enter your current age:</i></label> 
-		 <form:input path="age"/>
+		 <form:input path="age"  cssClass="form-control"/>
 		</div><br>
 		
-		<div class="input-group input-sm">
+		<div class="form-group">
 		 <label id="incomeLabel"class="input-group-addon" for="income">
 		 <i class="fa fa-user">Enter age you want to retire:</i></label> 
-		 <form:input path="retireAge"/>
+		 <form:input path="retireAge"  cssClass="form-control"/>
 		</div><br>
 		
-		<div class="input-group input-sm">
+		<div class="form-group">
 		 <label id="incomeLabel"class="input-group-addon" for="income">
 		 <i class="fa fa-user">Enter the percent of your contribution your employer will match:</i></label> 
-		 <form:input path="employerMatch"/>
+		 <form:input path="employerMatch"  cssClass="form-control"/>
 		</div><br>
 		
-		<div class="input-group input-sm">
+		<div class="form-group">
 		 <label id="incomeLabel"class="input-group-addon" for="income">
 		 <i class="fa fa-user">Enter the percent at which your employer match ends:</i></label> 
-		 <form:input path="employerMatchEnd"/>
+		 <form:input path="employerMatchEnd"  cssClass="form-control"/>
 		</div><br>
 		
-		<div class="input-group input-sm">
+		<div class="form-group">
 		 <label id="incomeLabel"class="input-group-addon" for="income">
 		 <i class="fa fa-user">Enter your current balance:</i></label> 
-		 <form:input path="currentBalance"/>
-		</div><br>
-		
-	
-		
-		
-		
-		
-		<div class="form-actions">
-		<input id="loginButton"type="submit" value="Calculate Nest Egg"/></div>
-	</form:form>
-	</div>
-	 </div>
-            </div>
-         </div>
-      </div>
+		 <form:input path="currentBalance"  cssClass="form-control"/>
+		 </div><br>	
+						
+						<button type="submit" class="btn btn-primary">Calculate</button>
+					</form:form>
+				  </div>
+				</div>
+     		</div>
+     	</div>
+     </div>
 
 </body>
 </html>
