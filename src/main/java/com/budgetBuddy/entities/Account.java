@@ -1,7 +1,7 @@
 package com.budgetBuddy.entities;
 
 
-	import javax.persistence.Column;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -13,12 +13,16 @@ import javax.persistence.Table;
 		@Id
 		@Column(name="email",unique=true,length=100,nullable=false)
 		private String email; //primary key
+		
 		@Column(name="firstname",length=100,nullable=false)
 		private String firstName;
+		
 		@Column(name="lastname",length=100,nullable=false)
 		private String lastName;
+		
 		@Column(name="salary",length=100,nullable=false)
 		private String salary;
+		
 		@Column(name="age",length=100,nullable=false)
 		private int age;
 		

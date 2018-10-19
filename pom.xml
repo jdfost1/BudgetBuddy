@@ -79,6 +79,12 @@
 	  <version>6.0.13.Final</version>
 	</dependency>
 	
+	<dependency>
+    <groupId>org.hsqldb</groupId>
+    <artifactId>hsqldb</artifactId>
+    <version>2.2.4</version>
+</dependency>
+	
 
 	<!-- Apache Commons CSV Parser -->
 	<dependency>
@@ -103,7 +109,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>6.0.5</version>
+      <version>8.0.11</version>
     </dependency>
 
    
