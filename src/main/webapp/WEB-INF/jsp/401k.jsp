@@ -20,6 +20,7 @@
 body{
 background-color:green;
 text-align:center;
+color:black;
 }
 button{
 background-color:black;}

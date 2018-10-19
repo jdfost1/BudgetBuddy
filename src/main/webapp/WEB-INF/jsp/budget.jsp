@@ -32,6 +32,9 @@ h1{
 text-align:center;
 color:white;
 }
+h5{
+color:white;
+font-size:30px;}
 a{
 color:white;
 }
