@@ -1,17 +1,19 @@
 package com.budgetBuddy.bank;
 
+import java.util.Map;
+
 public class BankTransaction {
 
     private final String date;
     private final String description;
-    private final double debit;
-    private final double credit;
+    private final double amount;
+    private final Map<String, String> metadata;
 
-    public BankTransaction(String date, String description, double debit, double credit) {
+    public BankTransaction(String date, String description, double amount, Map<String, String> metadata) {
         this.date = date;
         this.description = description;
-        this.debit = debit;
-        this.credit = credit;
+        this.amount = amount;
+        this.metadata = metadata;
     }
 
     public String getDate() {
@@ -22,12 +24,12 @@ public class BankTransaction {
         return description;
     }
 
-    public double getDebit() {
-        return debit;
+    public double getAmount() {
+        return amount;
     }
 
-    public double getCredit() {
-        return credit;
+    public Map<String, String> getMetadata() {
+        return metadata;
     }
 
     @Override
@@ -35,8 +37,8 @@ public class BankTransaction {
         return "BankTransaction{" +
                 "date='" + date + '\'' +
                 ", description='" + description + '\'' +
-                ", debit=" + debit +
-                ", credit=" + credit +
+                ", amount=" + amount +
+                ", metadata=" + metadata +
                 '}';
     }
 }
