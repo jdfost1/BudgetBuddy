@@ -53,6 +53,6 @@
 </div>
 <body>
 	<h1>Compound Interest Result</h1>
-	<p>Resulting balance after ${interest.years} years: <fmt:formatNumber type="currency" value="${interestResult.amount}"/></p>
+	<p>Resulting balance after ${compoundInterest.years} years: <fmt:formatNumber type="currency" value="${compoundInterestResult.amount}"/></p>
 </body>
 </html>

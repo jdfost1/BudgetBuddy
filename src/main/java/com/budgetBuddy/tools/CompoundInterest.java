@@ -3,10 +3,6 @@ package com.budgetBuddy.tools;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import static com.budgetBuddy.validation.CompoundInterestValidation.REQUIRED;
-import static com.budgetBuddy.validation.CompoundInterestValidation.MIN_0;
-import static com.budgetBuddy.validation.CompoundInterestValidation.MIN_1;
-
 /**
  * CompoundInterest has fields for everything necessary to calculate compound interest,
  * including: the principal amount, the annual interest rate, the number of times per
@@ -15,33 +11,33 @@ import static com.budgetBuddy.validation.CompoundInterestValidation.MIN_1;
  * of CompoundInterestResult.
  */
 public class CompoundInterest {
-	
+		
 	/**
 	 * Amount of money at the beginning.
 	 */
 	@NotNull
-	@Min(value = 0, message = MIN_0)
+	@Min(0)
 	private Double principal;
 	
 	/**
 	 * Annual interest rate as a percentage.
 	 */
-	@NotNull(message = REQUIRED)
-	@Min(value = 0, message = MIN_0)
+	@NotNull
+	@Min(0)
 	private Double interestRate;
 	
 	/**
 	 * Number of times that interest is compound per year.
 	 */
-	@NotNull(message = REQUIRED)
-	@Min(value = 1, message = MIN_1)
+	@NotNull
+	@Min(1)
 	private Integer compoundsPerYear;
 	
 	/**
 	 * Number of years that interest is compounded for.
 	 */
-	@NotNull(message = REQUIRED)
-	@Min(value = 0, message = MIN_0)
+	@NotNull
+	@Min(0)
 	private Integer years;
 
 	/**

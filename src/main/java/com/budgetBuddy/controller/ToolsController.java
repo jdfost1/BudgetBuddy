@@ -19,29 +19,30 @@ import com.budgetBuddy.tools.QuickBudgetResult;
 @RequestMapping("/tools")
 public class ToolsController {
 
-	@RequestMapping("/compound-interest-calculator")
-	public String showCompoundInterestCalculator(Model model) {
-		model.addAttribute("interest", new CompoundInterest());
-		return "compound-interest";
-	}
 	@RequestMapping("/welcome")
 	public String returnToHome() {
 		
 		return "redirect:/";
 	}
 	
+	@RequestMapping("/compound-interest-calculator")
+	public String showCompoundInterestCalculator(Model model) {
+		model.addAttribute("compoundInterest", new CompoundInterest());
+		return "compound-interest";
+	}
+	
 	@RequestMapping("/compound-interest-result")
 	public String showCompoundInterestResult(Model model, 
-			@Valid @ModelAttribute("interest") CompoundInterest interest,
+			@Valid @ModelAttribute("compoundInterest") CompoundInterest interest,
 			BindingResult bindingResult) {
+		System.out.println(bindingResult);
 		if (bindingResult.hasErrors()) 
 			return "compound-interest";
 		
 		CompoundInterestResult interestResult = new CompoundInterestResult(interest);
-		model.addAttribute("interestResult", interestResult);
+		model.addAttribute("compoundInterestResult", interestResult);
 		return "compound-interest-result";
 	}
-	
 	
 	@RequestMapping("/budgetCalculator")
 	public String showBudgetCalculator(Model model) {
@@ -55,7 +56,6 @@ public class ToolsController {
 		return "budgetResult";
 	}
 	
-	
 	@RequestMapping("/401k")
 	public String show401kCalculator(Model model) {
 		model.addAttribute("account", new Quick401k());
@@ -63,13 +63,10 @@ public class ToolsController {
 	}
 	
 	@RequestMapping("/401kResult")
-
-		public String show401kResult(Model model, @ModelAttribute("account") Quick401k account) {
-			model.addAttribute("NestEggResult", new Quick401kResult(account));
-			return "401kResult";
-		}
-	
-
+	public String show401kResult(Model model, @ModelAttribute("account") Quick401k account) {
+		model.addAttribute("NestEggResult", new Quick401kResult(account));
+		return "401kResult";
+	}
 }
 
 

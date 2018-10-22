@@ -34,8 +34,10 @@
 	<mvc:resources mapping="/resources/**" location="/resources/"/>
 	
 	<!-- Load custom error validation messages -->
-	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basenames" value="resources/messages"/>
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename">
+			<value>classpath:messages</value>
+		</property>
 	</bean>
 
 	<!-- TODO: hibernate stuff 
