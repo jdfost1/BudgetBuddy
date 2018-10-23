@@ -59,7 +59,10 @@ public class ToolsController {
 	}
 	
 	@RequestMapping("/401k-result")
-	public String show401kResult(Model model, @ModelAttribute("account") Quick401k account) {
+	public String show401kResult(Model model, @Valid @ModelAttribute("account") Quick401k account,
+			BindingResult bindingResult) {
+		if (bindingResult.hasErrors())
+			return "401k";
 		model.addAttribute("NestEggResult", new Quick401kResult(account));
 		return "401k-result";
 	}

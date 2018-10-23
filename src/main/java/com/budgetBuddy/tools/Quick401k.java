@@ -1,69 +1,104 @@
 package com.budgetBuddy.tools;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class Quick401k {
 
-	private double salary;
-	private int age;
-	private int retireAge;
-	private double currentBalance;
-	private double contribution;
-	private double rate;
-	private double employerMatchEnd;
-	private double employerMatch;
+	@NotNull
+	@Min(0)
+	private Double salary;
 	
-	public double getSalary() {
+	@NotNull
+	@Min(0)
+	private Integer age;
+	
+	@NotNull
+	@Min(0)
+	private Integer retireAge;
+	
+	@NotNull
+	@Min(0)
+	private Double currentBalance;
+	
+	@NotNull
+	@Min(0)
+	private Double contribution;
+	
+	@NotNull
+	@Min(0)
+	private Double rate;
+	
+	@NotNull
+	@Min(0)
+	private Double employerMatch;
+	
+	@NotNull
+	@Min(0)
+	private Double employerMatchEnd;
+	
+	
+	public Double getSalary() {
 		return salary;
 	}
-	public void setSalary(double salary) {
+	
+	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
-	public int getAge() {
+	
+	public Integer getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	
+	public void setAge(Integer age) {
 		this.age = age;
 	}
-	public int getRetireAge() {
+	
+	public Integer getRetireAge() {
 		return retireAge;
 	}
-	public void setRetireAge(int retireAge) {
+	
+	public void setRetireAge(Integer retireAge) {
 		this.retireAge = retireAge;
 	}
-	public double getCurrentBalance() {
+	
+	public Double getCurrentBalance() {
 		return currentBalance;
 	}
-	public void setCurrentBalance(double currentBalance) {
+	
+	public void setCurrentBalance(Double currentBalance) {
 		this.currentBalance = currentBalance;
 	}
-	public double getContribution() {
+	
+	public Double getContribution() {
 		return contribution;
 	}
-	public void setContribution(double contribution) {
+	
+	public void setContribution(Double contribution) {
 		this.contribution = contribution;
 	}
-	public double getRate() {
+	
+	public Double getRate() {
 		return rate;
 	}
-	public void setRate(double rate) {
+	
+	public void setRate(Double rate) {
 		this.rate = rate;
 	}
-	public double getEmployerMatchEnd() {
-		return employerMatchEnd;
-	}
-	public void setEmployerMatchEnd(double employerMatchEnd) {
-		this.employerMatchEnd = employerMatchEnd;
-	}
-	public double getEmployerMatch() {
+	
+	public Double getEmployerMatch() {
 		return employerMatch;
 	}
-	public void setEmployerMatch(double employerMatch) {
+	
+	public void setEmployerMatch(Double employerMatch) {
 		this.employerMatch = employerMatch;
 	}
 	
-
-
-
+	public Double getEmployerMatchEnd() {
+		return employerMatchEnd;
+	}
 	
-	
-
-}//end of class
+	public void setEmployerMatchEnd(Double employerMatchEnd) {
+		this.employerMatchEnd = employerMatchEnd;
+	}
+}
