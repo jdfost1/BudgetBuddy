@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<title>Compound Interest Calculator - Budget Buddy</title>
 	<%@ include file="template/css-include.html"%>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/compound-interest.css" />
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css" />
 </head>
 <body>
 	<%@ include file="template/header.html"%>
@@ -13,7 +13,7 @@
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<div id="card" class="card">
-					<h5 class="card-header">Calculate Compound Interest</h5>
+					<h5 class="card-header">Compound Interest Calculator</h5>
 					<div class="card-body">
 						<form:form action="compound-interest-result" modelAttribute="compoundInterest">
 							<div class="form-group">

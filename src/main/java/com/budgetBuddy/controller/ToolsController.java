@@ -18,12 +18,6 @@ import com.budgetBuddy.tools.QuickBudgetResult;
 @Controller
 @RequestMapping("/tools")
 public class ToolsController {
-
-	@RequestMapping("/welcome")
-	public String returnToHome() {
-		
-		return "redirect:/";
-	}
 	
 	@RequestMapping("/compound-interest-calculator")
 	public String showCompoundInterestCalculator(Model model) {
@@ -35,7 +29,6 @@ public class ToolsController {
 	public String showCompoundInterestResult(Model model, 
 			@Valid @ModelAttribute("compoundInterest") CompoundInterest interest,
 			BindingResult bindingResult) {
-		System.out.println(bindingResult);
 		if (bindingResult.hasErrors()) 
 			return "compound-interest";
 		
@@ -44,28 +37,31 @@ public class ToolsController {
 		return "compound-interest-result";
 	}
 	
-	@RequestMapping("/budgetCalculator")
+	@RequestMapping("/quick-budget")
 	public String showBudgetCalculator(Model model) {
 		model.addAttribute("budget", new QuickBudget());
-		return "budget";
+		return "quick-budget";
 	}
 	
-	@RequestMapping("/budget/result")
-		public String showBudgetCalculatorResult(Model model, @ModelAttribute("budget") QuickBudget budget) {
+	@RequestMapping("/quick-budget-result")
+	public String showBudgetCalculatorResult(Model model, @Valid @ModelAttribute("budget") QuickBudget budget,
+			BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) 
+			return "quick-budget";
 		model.addAttribute("budgetResult", new QuickBudgetResult(budget));
-		return "budgetResult";
+		return "quick-budget-result";
 	}
 	
-	@RequestMapping("/401k")
+	@RequestMapping("/401k-calculator")
 	public String show401kCalculator(Model model) {
 		model.addAttribute("account", new Quick401k());
 		return "401k";
 	}
 	
-	@RequestMapping("/401kResult")
+	@RequestMapping("/401k-result")
 	public String show401kResult(Model model, @ModelAttribute("account") Quick401k account) {
 		model.addAttribute("NestEggResult", new Quick401kResult(account));
-		return "401kResult";
+		return "401k-result";
 	}
 }
 

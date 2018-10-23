@@ -1,0 +1,5 @@
+.card { 
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.invalid-feedback { display: block; }
