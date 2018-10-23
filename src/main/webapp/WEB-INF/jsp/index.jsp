@@ -6,7 +6,7 @@
 	<%@ include file="template/css-include.html"%>
 </head>
 <body>
-   <%@ include file="template/header.html"%>
+    <%@ include file="template/header.html"%>
 	<div id="logo"class="container">
 		<div>
 			<h1>Welcome to Budget Buddy!</h1>

@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <style type="text/css">
@@ -32,41 +31,13 @@ background-color:black;}
 background-color:green;}
 </style>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet"
-   href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<title>Budget Buddy Login</title>
+	<meta charset="UTF-8">
+	<title>Login - Budget Buddy</title>
+	<%@ include file="template/css-include.html"%>
 </head>
-<body id="body">
- <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/budgetbuddy">BudgetBuddy.com</a>
-    </div>
-    <ul class="nav navbar-nav">
-      
-      
-      <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Budget Tools
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><a href="quickBudget.html">Quick Budget</a></li>
-              <li><a href="401k.html">401k Calculator</a></li>
-              <li><a href="compoundInterest.html">Compound Interest Calculator</a></li>
-              </ul></li>
-      
-              
-                <li class="active">
-          <a  href="login.html">Login
-         </a>
-          </li>
-               <li class="active">
-          <a  href="signUp.html">Sign Up
-         </a>
-          </li>
-    </ul>
-  </div>
-</nav>
+<body>
+	<%@ include file="template/header.html"%>
+ 
    <section>
       <div id="jumbo"class="jumbotron">
          <div id="head1"class="container">
@@ -83,7 +54,7 @@ background-color:green;}
                   <h3 class="panel-title">Please sign in</h3>
                </div>
                <div id="panelBody" class="panel-body">
-<c:url var="loginUrl" value="/login" />
+				<c:url var="loginUrl" value="/login" />
                   <form action="${loginUrl}" method="post" class="form-horizontal">
                      
                      <c:if test="${param.error != null}">
@@ -127,4 +98,6 @@ background-color:green;}
          </div>
       </div>
    </div>
+   <%@ include file="template/js-include.html"%>
 </body>
+</html>
