@@ -3,11 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Sign Up - Budget Buddy</title>
-<%@ include file="template/css-include.html"%>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/common.css" />
+	<meta charset="UTF-8">
+	<title>Sign Up - Budget Buddy</title>
+	<%@ include file="template/css-include.html"%>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css" />
 </head>
 <body>
 	<%@ include file="template/header.html"%>

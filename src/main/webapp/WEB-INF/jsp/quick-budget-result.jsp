@@ -1,88 +1,26 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <head>
-<link rel="stylesheet" type="text/css" href="BudgetBuddy.css">
+<meta charset="UTF-8">
+	<title>Quick Budget Result - Budget Buddy</title>
+	<%@ include file="template/css-include.html"%>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css" />
+	<style>
+		body { text-align: center;}
+	</style>
 </head>
-
-<style type="text/css">
-body{
-background-color:green;
-color:white;
-
-}
-#header{
-background-color:black;
-color:white;
-}
-#summary{
-font-size:35px;}
-h1{
-text-align:center;
-color:white;
-}
-a{
-color:white;
-}
-
-ul{
-    list-style-type: none;
-}
-#logo{
-    text-align:center;
-    background-color:black;
-}
-
-</style>
 <body>
-   <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="welcome.html">BudgetBuddy.com</a>
-    </div>
-    <ul class="nav navbar-nav">
-      
-      
-      <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Budget Tools
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><a href="tools/budgetCalculator">Quick Budget</a></li>
-              <li><a href="401k.html">401k Calculator</a></li>
-              <li><a href="tools/compound-interest-calculator">Compound Interest Calculator</a></li>
-              </ul></li>
-      
-              
-                <li class="active">
-          <a  href="login.html">Login
-         </a>
-          </li>
-               <li class="active">
-          <a  href="signUp.html">Sign Up
-         </a>
-          </li>
-    </ul>
-  </div>
-</nav>
-   
-    
-
+	<%@ include file="template/header.html"%>
 <body>
-<div id="summary">
-	<h1>Suggested Monthly Budget</h1>
-	<p>Rent/Mortgage: $${budgetResult.rentValue }</p>
-	<p>Other Bills: $${budgetResult.otherBillsValue }</p>
-	<p>Savings: $${budgetResult.savingsValue }</p>
-	<p>Retirement: $${budgetResult.retirementValue }</p>
-	<p>Education: $${budgetResult.educationValue }</p>
-	<p>Spending: $${budgetResult.funValue }</p>
+	<div>
+		<h1>Suggested Monthly Budget</h1>
+		<p>Rent/Mortgage: <fmt:formatNumber type="currency" value="${budgetResult.rentValue}"/></p>
+		<p>Other Bills: <fmt:formatNumber type="currency" value="${budgetResult.otherBillsValue}"/></p>
+		<p>Savings: <fmt:formatNumber type="currency" value="${budgetResult.savingsValue}"/></p>
+		<p>Retirement: <fmt:formatNumber type="currency" value="${budgetResult.retirementValue}"/></p>
+		<p>Education: <fmt:formatNumber type="currency" value="${budgetResult.educationValue}"/></p>
+		<p>Spending: <fmt:formatNumber type="currency" value="${budgetResult.funValue}"/></p>
 	</div>
+	<%@ include file="template/js-include.html"%>
 </body>
 </html>
