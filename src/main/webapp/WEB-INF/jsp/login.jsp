@@ -14,7 +14,6 @@
 		}
 		
 		#passwordInput { border-top: none; }
-		#submitButton {	margin-bottom: 20px; }
 	</style>
 </head>
 <body>
