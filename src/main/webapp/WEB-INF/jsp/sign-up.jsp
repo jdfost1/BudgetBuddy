@@ -4,21 +4,19 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Sign Up - Budget Buddy</title>
 	<%@ include file="template/css-include.html"%>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css" />
 </head>
 <body>
 	<%@ include file="template/header.html"%>
-
-	<div id="bottom" class="container">
+	<div class="container">
 		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Create New Account</h3>
-					</div>
-					<div id="panelBody" class="panel-body">
+			<div class="col-sm-8 col-lg-6 offset-sm-2 offset-lg-3">
+				<div id="card" class="card">
+					<h5 class="card-header">Create Account</h5>
+					<div class="card-body">
 						<c:url var="loginUrl" value="/login" />
 						<form action="${loginUrl}" method="post">
 							<div class="input-group input-sm">
@@ -69,7 +67,6 @@
 			</div>
 		</div>
 	</div>
-
 	<%@ include file="template/js-include.html"%>
 </body>
 </html>

@@ -3,6 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Quick Budget - Budget Buddy</title>
 	<%@ include file="template/css-include.html"%>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css" />
@@ -11,7 +12,7 @@
     <%@ include file="template/header.html"%>
 	<div class="container">
      	<div class="row">
-     		<div class="col-md-6 offset-md-3">
+     		<div class="col-sm-8 col-lg-6 offset-sm-2 offset-lg-3">
 	     		<div id="card" class="card">
 				  <h5 class="card-header">Quick Monthly Budget Calculator</h5>
 				  <div class="card-body">

@@ -1,7 +1,15 @@
 .card { 
-	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
+	
 .card-header { text-align: center; }
 .invalid-feedback { display: block; }
 #submitButton {	margin-bottom: 20px; }
+
+@media (min-width: 576px) {
+	.card { 
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+}
