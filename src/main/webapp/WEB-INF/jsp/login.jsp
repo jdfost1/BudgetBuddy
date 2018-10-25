@@ -13,15 +13,8 @@
 			border-bottom-right-radius: 0;
 		}
 		
-		#passwordInput {
-			border-top: none;
-			border-top-left-radius: 0;
-			border-top-right-radius: 0;
-		}
-		
-		#submitButton {
-			margin-bottom: 20px;
-		}
+		#passwordInput { border-top: none; }
+		#submitButton {	margin-bottom: 20px; }
 	</style>
 </head>
 <body>
@@ -58,7 +51,7 @@
 							    <input type="password" id="passwordInput" class="form-control form-control-lg"name="password" placeholder="Password">
 							</div>
 							<button type="submit" id="submitButton" class="btn btn-lg btn-block btn-success">Log In</button>
-							<a href="signup">Don't have an account? Sign Up</a>
+							<a href="sign-up">Don't have an account? Sign Up</a>
 						</form>
 					</div>
 				</div>

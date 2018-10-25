@@ -11,9 +11,4 @@ public class HomeController {
 	public String showHomepage() {
 		return "index";
 	}
-
-	@RequestMapping("/signUp")
-	public String signUp() {
-		return "signUp";
-	}
 }
