@@ -18,35 +18,31 @@
 					<h5 class="card-header">Create Account</h5>
 					<div class="card-body">
 						<c:url var="loginUrl" value="/login" />
-						<form action="${loginUrl}" method="post">
+						<form  action="new-account-confirmation"  modelAttribute="newAccount">
 							<div class="input-group input-sm">
-								<label class="input-group-addon" for="username"><i
+								<label class="input-group-addon" for="firstName"><i
 									class="fa fa-user"></i></label> <input type="text" class="form-control"
-									id="userId" name="userId" placeholder="Enter First Name"
+									id="firstName" path="firstName" placeholder="Enter First Name"
 									required>
 							</div>
 							<div class="input-group input-sm">
-								<label class="input-group-addon" for="username"><i
+								<label class="input-group-addon" for="lastName"><i
 									class="fa fa-user"></i></label> <input type="text" class="form-control"
-									id="userId" name="userId" placeholder="Enter Last Name"
+									id="lastName" path="lastName" placeholder="Enter Last Name"
 									required>
 							</div>
 							<div class="input-group input-sm">
-								<label class="input-group-addon" for="username"><i
+								<label class="input-group-addon" for="email"><i
 									class="fa fa-user"></i></label> <input type="text" class="form-control"
-									id="userId" name="userId" placeholder="Enter Email Address"
+									id="email" name="email" path = "email"placeholder="Enter Email Address"
 									required>
 							</div>
 							<div class="input-group input-sm">
-								<label class="input-group-addon" for="username"><i
+								<label class="input-group-addon" for="birthday"><i
 									class="fa fa-user"></i></label> <input type="text" class="form-control"
-									id="userId" name="userId" placeholder="Enter Birthday" required>
+									id="birthday" path="age" placeholder="Enter Birthday" required>
 							</div>
-							<div class="input-group input-sm">
-								<label class="input-group-addon" for="username"><i
-									class="fa fa-user"></i></label> <input type="text" class="form-control"
-									id="userId" name="userId" placeholder="Enter Username" required>
-							</div>
+						
 							<div class="input-group input-sm">
 								<label class="input-group-addon" for="password"><i
 									class="fa fa-lock"></i></label> <input type="password"

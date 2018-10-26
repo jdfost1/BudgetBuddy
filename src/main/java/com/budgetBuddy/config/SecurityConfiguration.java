@@ -22,7 +22,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("jf_foster05").password("password05").roles("USER");
+        auth.inMemoryAuthentication().withUser("jf_foster05@yahoo.com").password("password05").roles("USER");
         auth.inMemoryAuthentication().withUser("admin").password("budgetbuddy123").roles("USER","ADMIN");
     }
      
@@ -30,8 +30,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
   
        httpSecurity.formLogin().loginPage("/login")
-                   .usernameParameter("userId")
-                   .passwordParameter("password");
+                   .usernameParameter("emailInput")
+                   .passwordParameter("passwordInput");
        
        httpSecurity.formLogin().defaultSuccessUrl("/account")
                     .failureUrl("/login?error");

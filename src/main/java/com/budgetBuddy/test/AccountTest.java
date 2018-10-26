@@ -24,6 +24,7 @@ public class AccountTest {
 			//create account object
 			System.out.println("Creating new account object");
 			Account account1 = getAccount();
+			Account account2 = getAccount2();
 			
 			//start transaction
 			session.beginTransaction();
@@ -32,6 +33,7 @@ public class AccountTest {
 			//save the account object
 			System.out.println("save the account object..");
 			session.save(account1);
+			session.save(account2);
 			
 			//commit transaction
 			session.getTransaction().commit();
@@ -47,7 +49,17 @@ public class AccountTest {
 	//method to create dummy account to test in database save above
 	 private static Account getAccount() {
 		 Account account = new Account();
-		 account.setEmail("jf_foster05@yahoo.com");
+		 account.setEmail("johndoe6@gmail.com");
+		 account.setFirstName("Jimmy");
+		 account.setLastName("Foster");
+		 account.setAge(27);
+		 account.setSalary("40000");
+		 
+		 return account;
+	 }//end of get account
+	 private static Account getAccount2() {
+		 Account account = new Account();
+		 account.setEmail("jf_foster05@gmail.com");
 		 account.setFirstName("Josh");
 		 account.setLastName("Foster");
 		 account.setAge(27);
