@@ -6,10 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-
 	@Entity
 	@Table(name="accounts")
 	public class Account {
@@ -62,38 +58,5 @@ import org.hibernate.cfg.Configuration;
 		public void setAge(int age) {
 			this.age = age;
 		}
-		public static void addAccount(Account newAccount) {
-
-			//create session factory
-			SessionFactory factory = new Configuration()
-					.configure("hibernate.cfg.xml")
-					.addAnnotatedClass(Account.class)
-					.buildSessionFactory();
-			
-			//create session
-			Session session = factory.getCurrentSession();
-			try {
-				//use the session object to save Java object
-				
-	
-				
-				
-				//start transaction
-				session.beginTransaction();
-				
-				
-				//save the account object
-				System.out.println("save the account object..");
-				session.save(newAccount);
-				
-				
-				//commit transaction
-				session.getTransaction().commit();
-				System.out.println("done");
-			}
-			finally{
-				factory.close();
-				}
-		}//end of add account
-
+		
 	}

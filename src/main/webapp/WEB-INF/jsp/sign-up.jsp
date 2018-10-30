@@ -20,6 +20,12 @@
 						
 						<form  action="new-account-confirmation"  modelAttribute="newAccount">
 							<div class="input-group input-sm">
+								<label class="input-group-addon" for="email"><i
+									class="fa fa-user"></i></label> <input type="text" class="form-control"
+									id="email" name="email" path = "email"placeholder="Enter Email Address"
+									required>
+							</div>
+							<div class="input-group input-sm">
 								<label class="input-group-addon" for="firstName"><i
 									class="fa fa-user"></i></label> <input type="text" class="form-control"
 									id="firstName" name="firstName" path="firstName" placeholder="Enter First Name"
@@ -31,12 +37,7 @@
 									id="lastName" name="lastName"path="lastName" placeholder="Enter Last Name"
 									required>
 							</div>
-							<div class="input-group input-sm">
-								<label class="input-group-addon" for="email"><i
-									class="fa fa-user"></i></label> <input type="text" class="form-control"
-									id="email" name="email" path = "email"placeholder="Enter Email Address"
-									required>
-							</div>
+						
 							<div class="input-group input-sm">
 								<label class="input-group-addon" for="birthday"><i
 									class="fa fa-user"></i></label> <input type="text" class="form-control"
@@ -47,11 +48,11 @@
 									class="fa fa-user"></i></label> <input type="text" class="form-control"
 									id="salary" name="salary" path="salary" placeholder="Enter Annual Salary" required>
 							</div>
-						
+							
 							<div class="input-group input-sm">
 								<label class="input-group-addon" for="password"><i
 									class="fa fa-lock"></i></label> <input type="password"
-									class="form-control" id="password" name="password"
+									class="form-control" id="password" name="password" 
 									placeholder="Enter Password" required>
 							</div>
 							<div class="input-group input-sm">

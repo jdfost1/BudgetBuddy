@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.budgetBuddy.entities.Account;
+import com.budgetBuddy.entities.AccountCredentials;
 import com.budgetBuddy.tools.QuickBudget;
 import com.budgetBuddy.tools.QuickBudgetResult;
+import com.budgetBuddy.DAO.AccountDA;
 
 
 @Controller
@@ -38,16 +40,15 @@ public class AccountController {
 	public String signUp(Model model) {
 		
 		model.addAttribute("newAccount", new Account());
+		model.addAttribute("newCredentials", new AccountCredentials());
 		
 		return "sign-up";
 	}
 	@RequestMapping("/new-account-confirmation")
-	public String showBudgetCalculatorResult(Model model,@Valid @ModelAttribute("newAccount") Account newAccount,
+	public String showAccountConfirmationResult(Model model,@Valid @ModelAttribute("newAccount") Account newAccount,
 			BindingResult bindingResult) {
 		
-		
-		System.out.println("firstName:"+newAccount.getFirstName());
-		Account.addAccount(newAccount);
+		AccountDA.addAccount(newAccount);
 		return "new-account-confirmation";
 	}
 }
