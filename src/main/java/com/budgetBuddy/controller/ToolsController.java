@@ -48,6 +48,7 @@ public class ToolsController {
 			BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) 
 			return "quick-budget";
+		
 		model.addAttribute("budgetResult", new QuickBudgetResult(budget));
 		return "quick-budget-result";
 	}

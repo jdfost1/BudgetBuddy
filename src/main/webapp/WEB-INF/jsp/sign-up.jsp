@@ -17,18 +17,18 @@
 				<div id="card" class="card">
 					<h5 class="card-header">Create Account</h5>
 					<div class="card-body">
-						<c:url var="loginUrl" value="/login" />
+						
 						<form  action="new-account-confirmation"  modelAttribute="newAccount">
 							<div class="input-group input-sm">
 								<label class="input-group-addon" for="firstName"><i
 									class="fa fa-user"></i></label> <input type="text" class="form-control"
-									id="firstName" path="firstName" placeholder="Enter First Name"
+									id="firstName" name="firstName" path="firstName" placeholder="Enter First Name"
 									required>
 							</div>
 							<div class="input-group input-sm">
 								<label class="input-group-addon" for="lastName"><i
 									class="fa fa-user"></i></label> <input type="text" class="form-control"
-									id="lastName" path="lastName" placeholder="Enter Last Name"
+									id="lastName" name="lastName"path="lastName" placeholder="Enter Last Name"
 									required>
 							</div>
 							<div class="input-group input-sm">
@@ -40,7 +40,12 @@
 							<div class="input-group input-sm">
 								<label class="input-group-addon" for="birthday"><i
 									class="fa fa-user"></i></label> <input type="text" class="form-control"
-									id="birthday" path="age" placeholder="Enter Birthday" required>
+									id="birthday" name="age"path="age" placeholder="Enter Birthday" required>
+							</div>
+								<div class="input-group input-sm">
+								<label class="input-group-addon" for="salary"><i
+									class="fa fa-user"></i></label> <input type="text" class="form-control"
+									id="salary" name="salary" path="salary" placeholder="Enter Annual Salary" required>
 							</div>
 						
 							<div class="input-group input-sm">

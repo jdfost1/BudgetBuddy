@@ -38,14 +38,16 @@ public class AccountController {
 	public String signUp(Model model) {
 		
 		model.addAttribute("newAccount", new Account());
+		
 		return "sign-up";
 	}
 	@RequestMapping("/new-account-confirmation")
-	public String showBudgetCalculatorResult(Model model, @Valid @ModelAttribute("newAccount") Account newAccount,
+	public String showBudgetCalculatorResult(Model model,@Valid @ModelAttribute("newAccount") Account newAccount,
 			BindingResult bindingResult) {
-		if (bindingResult.hasErrors()) 
-			return "quick-budget";
-		model.addAttribute("budgetResult", new QuickBudgetResult(budget));
+		
+		
+		System.out.println("firstName:"+newAccount.getFirstName());
+		Account.addAccount(newAccount);
 		return "new-account-confirmation";
 	}
 }
