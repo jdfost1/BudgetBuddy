@@ -1,16 +1,24 @@
 package com.budgetBuddy.controller;
 
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.budgetBuddy.entities.Account;
+import com.budgetBuddy.tools.QuickBudget;
+import com.budgetBuddy.tools.QuickBudgetResult;
 
 
 @Controller
 @RequestMapping("/account")
 public class AccountController {
 	
-	@RequestMapping("/")
+	@RequestMapping("")
 	public String showAccount() {
 		return "account";
 	}
@@ -27,7 +35,17 @@ public class AccountController {
     }
 	
 	@RequestMapping("/sign-up")
-	public String signUp() {
+	public String signUp(Model model) {
+		
+		model.addAttribute("newAccount", new Account());
 		return "sign-up";
+	}
+	@RequestMapping("/new-account-confirmation")
+	public String showBudgetCalculatorResult(Model model, @Valid @ModelAttribute("newAccount") Account newAccount,
+			BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) 
+			return "quick-budget";
+		model.addAttribute("budgetResult", new QuickBudgetResult(budget));
+		return "new-account-confirmation";
 	}
 }

@@ -29,7 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
   
-       httpSecurity.formLogin().loginPage("/login")
+       httpSecurity.formLogin().loginPage("/account/login")
                    .usernameParameter("emailInput")
                    .passwordParameter("passwordInput");
        
