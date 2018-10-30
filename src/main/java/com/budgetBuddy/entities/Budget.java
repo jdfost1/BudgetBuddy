@@ -1,8 +1,9 @@
 package com.budgetBuddy.entities;
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Column;
 @Entity
 @Table(name="budgets")
 public class Budget {
@@ -13,13 +14,23 @@ public class Budget {
 	@Column(name="salary")
 	private String salary;
 	
-	@Column(name="rent")
-	private String rent;
+	@Column(name="savingsGoal")
+	private String savingsGoal;
 	
-	@Column(name="otherBills")
-	private String otherBills;
+	@Column(name="fixedRent")
+	private String fixedRent;
 	
-	@Column(name="savings")
-	private String savings;
+	@Column(name="fixedBills")
+	private String fixedBills;
+	
+	public void calculateSavings() {
+		//calculate money leftover after monthly fixed expenses
+	}
+	public void calculateSavingsGoalMonths() {
+		//calculate number of months to hit goal
+	}
+	public void calculateBudget(double income, double savingsGoal, double fixedRent, double fixedBills) {
+		//calculate monthly budget based on user's savings goal and fixed expenses
+	}
 
 }

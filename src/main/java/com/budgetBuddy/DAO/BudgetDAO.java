@@ -5,10 +5,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.budgetBuddy.entities.Account;
-import com.budgetBuddy.entities.Budget;
+import com.budgetBuddy.entities.SuggestedBudget;
 
 public class BudgetDAO {
-	public static void addBudget(Budget budget) {
+	public static void addBudget(SuggestedBudget budget) {
 
 		//create session factory
 		SessionFactory factory = new Configuration()

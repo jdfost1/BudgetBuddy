@@ -13,6 +13,7 @@ package com.budgetBuddy.entities;
 			@Id
 			@Column(name="email",unique=true,length=100,nullable=false)
 			private String email; //primary key
+			
 			@Column(name="password",length=100,nullable=false)
 			private String password;
 			
