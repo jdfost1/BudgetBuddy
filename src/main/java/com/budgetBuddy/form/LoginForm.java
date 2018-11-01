@@ -1,5 +1,7 @@
 package com.budgetBuddy.form;
 
+
+//not using this object at the moment
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 public class LoginForm {

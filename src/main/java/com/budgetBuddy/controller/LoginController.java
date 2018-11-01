@@ -16,11 +16,11 @@ import org.springframework.validation.ObjectError;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Map;
 import javax.validation.Valid;
+
 @Controller
 @RequestMapping("/account/login")
 public class LoginController {
 
-	
 	@Autowired
 	public LoginService loginService;
 
@@ -28,26 +28,24 @@ public class LoginController {
 	public String showForm(Model model) {
 
 		model.addAttribute("loginForm", new Users());
-		
+
 		return "login";
-	}
+	}//end of login mapping
 
-	@RequestMapping(value="/loginValidate",method=RequestMethod.POST)
-	public String processForm(Model model,@Valid @ModelAttribute("loginForm") Users loginForm, BindingResult result
-			) {
-		System.out.println("user:"+ loginForm.getUserName());
+	@RequestMapping(value = "/loginValidate", method = RequestMethod.POST)
+	public String validateLogin(Model model, @Valid @ModelAttribute("loginForm") Users loginForm, BindingResult result) {
+		System.out.println("user:" + loginForm.getUserName());
 
-	//pass username and password to check login to check database
-		boolean userExists = loginService.checkLogin(loginForm.getUserName(),
-                loginForm.getPassword());
-		if(userExists){
+		// pass username and password to check login to check database
+		boolean userExists = loginService.checkLogin(loginForm.getUserName(), loginForm.getPassword());
+		if (userExists) {
 //			model.put("loginForm", loginForm);
-			return "loginsuccess";
-		}else{
-			result.rejectValue("userName","invaliduser");
+			return "accountPage";
+		} else {
+			result.rejectValue("userName", "invaliduser");
 			return "loginform";
-		}
+		}//end of else
 
-	}
+	}//end of validate login
 
 }
