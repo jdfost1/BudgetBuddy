@@ -6,15 +6,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.budgetBuddy.entities.Account;
 import com.budgetBuddy.entities.Users;
-import com.budgetBuddy.form.LoginForm;
 import com.budgetBuddy.service.LoginService;
-
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.Map;
+
 import javax.validation.Valid;
 
 @Controller
@@ -43,7 +39,7 @@ public class LoginController {
 			return "accountPage";
 		} else {
 			result.rejectValue("userName", "invaliduser");
-			return "loginform";
+			return "login";
 		}//end of else
 
 	}//end of validate login

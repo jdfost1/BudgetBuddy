@@ -1,7 +1,7 @@
 package com.budgetBuddy.config;
 
 
-
+//not using this class at the moment
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
