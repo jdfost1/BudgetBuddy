@@ -30,7 +30,7 @@
 					<h5 class="card-header">Please Sign In</h5>
 					<div class="card-body">
 						<c:url var="loginUrl" value="/account/login" />
-						<form action="${loginUrl}" method="post" class="form-horizontal">
+						<form:form action="login/loginValidate" modelAttribute="loginForm" class="form-horizontal">
 
 							<c:if test="${param.error != null}">
 								<div class="alert alert-danger">
@@ -51,12 +51,12 @@
 							</c:if>
 							
 							<div class="form-group">
-							    <input type="email" id="emailInput" class="form-control form-control-lg" name="emailInput" placeholder="Email" autofocus>
-							    <input type="password" id="passwordInput" class="form-control form-control-lg"name="passwordInput" placeholder="Password">
+							    <form:input type="email" id="emailInput" path="userName" class="form-control form-control-lg" name="emailInput" placeholder="Email" />
+							    <form:input type="password" id="passwordInput" path="password" class="form-control form-control-lg" name="passwordInput" placeholder="Password"/>
 							</div>
 							<button type="submit" id="submitButton" class="btn btn-lg btn-block btn-success">Log In</button>
 							<a href="sign-up">Don't have an account? Sign Up</a>
-						</form>
+						</form:form>
 					</div>
 				</div>
 			</div>
