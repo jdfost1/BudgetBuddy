@@ -18,7 +18,7 @@
 					<h5 class="card-header">Create Account</h5>
 					<div class="card-body">
 						
-						<form  action="new-account-confirmation"  modelAttribute="newAccount">
+						<form  action="new-account-confirmation"  modelAttribute="newAccount" modelAttribute="newCredentials">
 							<div class="input-group input-sm">
 								<label class="input-group-addon" for="email"><i
 									class="fa fa-user"></i></label> <input type="text" class="form-control"
@@ -52,13 +52,14 @@
 							<div class="input-group input-sm">
 								<label class="input-group-addon" for="password"><i
 									class="fa fa-lock"></i></label> <input type="password"
-									class="form-control" id="password" name="password" 
+									class="form-control" id="password" name="password" path="password"
 									placeholder="Enter Password" required>
 							</div>
+							
 							<div class="input-group input-sm">
 								<label class="input-group-addon" for="password"><i
 									class="fa fa-lock"></i></label> <input type="password"
-									class="form-control" id="password" name="password"
+									class="form-control" 
 									placeholder="Confirm Password" required>
 							</div>
 							<button type="submit" id="submitButton" class="btn btn-block btn-success">Sign Up</button>

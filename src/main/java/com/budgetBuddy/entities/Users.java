@@ -12,7 +12,6 @@ import javax.persistence.Table;
 @Table(name="users")
 public class Users {
 	@Id
-	@GeneratedValue
 	@Column(name="userName",length=100,nullable=false)
 	private String userName;
 	

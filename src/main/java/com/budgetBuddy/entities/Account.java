@@ -27,7 +27,16 @@ import javax.persistence.Table;
 		@Column(name="age",length=100,nullable=false)
 		private int age;
 		
+		//do not map password to account table in database
+		private String password;
 		
+		
+		public String getPassword() {
+			return password;
+		}
+		public void setPassword(String password) {
+			this.password = password;
+		}
 		public String getFirstName() {
 			return firstName;
 		}

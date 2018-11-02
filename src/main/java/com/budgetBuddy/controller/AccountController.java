@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.budgetBuddy.entities.Account;
-import com.budgetBuddy.entities.AccountCredentials;
-import com.budgetBuddy.tools.QuickBudget;
-import com.budgetBuddy.tools.QuickBudgetResult;
+import com.budgetBuddy.entities.Users;
 import com.budgetBuddy.DAO.AccountDA;
 
 
@@ -30,7 +28,7 @@ public class AccountController {
 	public String signUp(Model model) {
 		
 		model.addAttribute("newAccount", new Account());
-		model.addAttribute("newCredentials", new AccountCredentials());
+		
 		
 		return "sign-up";
 	}
@@ -39,6 +37,13 @@ public class AccountController {
 			BindingResult bindingResult) {
 		
 		AccountDA.addAccount(newAccount);
+		Users accountCredentials = new Users();
+		
+		accountCredentials.setPassword(newAccount.getPassword());
+		accountCredentials.setUserName(newAccount.getEmail());
+		
+		AccountDA.addLogin(accountCredentials);
+		
 		return "new-account-confirmation";
 	}
 }

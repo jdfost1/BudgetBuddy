@@ -17,6 +17,8 @@
  	<property name="hibernate.format_sql">true</property>
  	<property name="current_session_context_class">thread</property>
  	
+ 	 <mapping class="com.budgetBuddy.entities.Users"/>
+ 	
  	
   </session-factory>
 </hibernate-configuration>
