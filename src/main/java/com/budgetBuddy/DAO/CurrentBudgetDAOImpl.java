@@ -5,11 +5,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.budgetBuddy.entities.Account;
-import com.budgetBuddy.entities.Budget;
+import com.budgetBuddy.entities.CurrentBudget;
 
 
-public class BudgetDA {
-	public static void addBudget(Budget budget) {
+public class CurrentBudgetDAOImpl {
+	public static void addBudget(CurrentBudget budget) {
 
 		//create session factory
 		SessionFactory factory = new Configuration()

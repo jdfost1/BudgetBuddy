@@ -6,7 +6,7 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 @Entity
 @Table(name="budgets")
-public class Budget {
+public class CurrentBudget {
 	@Id
 	@Column(name="email",unique=true,length=100,nullable=false)
 	private String email; //primary key

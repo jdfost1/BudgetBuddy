@@ -1,85 +1,106 @@
+<!DOCTYPE html>
 <html>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <head>
-<link rel="stylesheet" type="text/css" href="BudgetBuddy.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Budget Buddy</title>
+	<%@ include file="template/css-include.html"%>
 </head>
+<body>
+    <%@ include file="template/header.html"%>
+	<div id="logo"class="container">
+		<div>
+			<h1>Welcome to your Account Page!</h1>
+			<img src="${pageContext.request.contextPath}/resources/img/logo.png">
+		</div>
+	</div>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
 
-<style type="text/css">
-body{
-background-color:green;
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
 }
-#header{
-background-color:black;
-color:white;
+
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
 }
-h1{
-text-align:center;
+
+.tablink:hover {
+    background-color: #777;
 }
-a{
-color:white;
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: black;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
 }
-#photo{
-text-align:center;
-background-color:white;
-font-size:30px;
-}
-ul{
-    list-style-type: none;
-}
-#logo{
-    background-color:white;
-}
-}
+
+#currentBudget {background-color: white;}
+#suggestedBudget {background-color: white;}
+#budgetAdvice {background-color: white;}
+#estimated401k {background-color: white;}
 </style>
-
+</head>
 <body>
 
+<button class="tablink" onclick="openPage('currentBudget', this, 'green')">Current Budget</button>
+<button class="tablink" onclick="openPage('suggestedBudget', this, 'green')" id="defaultOpen">Suggested Budget</button>
+<button class="tablink" onclick="openPage('budgetAdvice', this, 'green')">Budget Advice</button>
+<button class="tablink" onclick="openPage('estimated401k', this, 'green')">Estimated 401k</button>
 
-   <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">BudgetBuddy.com</a>
-    </div>
-    <ul class="nav navbar-nav">
-      
-      
-      <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Budget Tools
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><a href="budget.html">Quick Budget</a></li>
-              <li><a href="401k.html">401k Calculator</a></li>
-              <li><a href="compoundInterest.html">Compound Interest Calculator</a></li>
-              </ul></li>
-      
-              
-                <li class="active">
-          <a  href="login.html">Login
-         </a>
-          </li>
-               <li class="active">
-          <a  href="signUp.html">Sign Up
-         </a>
-          </li>
-              <li class="active">
-          <a href="<c:url value="/logout" />"/> Logout
-         </a>
-          </li>
-    </ul>
-  </div>
-</nav>
-   
-    
+<div id="currentBudget" class="tabcontent">
+  <h3>Current Budget</h3>
+  <p>Home is where the heart is..</p>
+</div>
 
+<div id="suggestedBudget" class="tabcontent">
+  <h3>Suggest Budget</h3>
+  <p>Some news this fine day!</p> 
+</div>
 
-<h1>Hello ${firstName}! Welcome to your account page </h1>
+<div id="budgetAdvice" class="tabcontent">
+  <h3>Budget Advice</h3>
+  <p>Get in touch, or swing by for a cup of coffee.</p>
+</div>
+
+<div id="estimated401k" class="tabcontent">
+  <h3>Estimated 401k</h3>
+  <p>Who we are and what we do.</p>
+</div>
+
+<script>
+function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+	<%@ include file="template/js-include.html"%>
 </body>
 </html>

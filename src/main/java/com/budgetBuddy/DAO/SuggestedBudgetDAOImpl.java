@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 import com.budgetBuddy.entities.Account;
 import com.budgetBuddy.entities.SuggestedBudget;
 
-public class SuggestedBudgetDA {
+public class SuggestedBudgetDAOImpl {
 	public static void addBudget(SuggestedBudget budget) {
 
 		//create session factory
