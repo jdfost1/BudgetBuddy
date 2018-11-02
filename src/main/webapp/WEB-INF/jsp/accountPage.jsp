@@ -65,22 +65,22 @@ body, html {
 
 <div id="currentBudget" class="tabcontent">
   <h3>Current Budget</h3>
-  <p>Home is where the heart is..</p>
+  <p>Budget calculated with user income, fixed expenses, and savings target</p>
 </div>
 
 <div id="suggestedBudget" class="tabcontent">
   <h3>Suggest Budget</h3>
-  <p>Some news this fine day!</p> 
+  <p>Budget calculated with only user income (quick budget)</p> 
 </div>
 
 <div id="budgetAdvice" class="tabcontent">
   <h3>Budget Advice</h3>
-  <p>Get in touch, or swing by for a cup of coffee.</p>
+  <p>Advice based off suggested budget and current budget.Is the user's fixed expenses too high? for what categories?</p>
 </div>
 
 <div id="estimated401k" class="tabcontent">
   <h3>Estimated 401k</h3>
-  <p>Who we are and what we do.</p>
+  <p>Estimated 401k calculated with quick 401k calculator</p>
 </div>
 
 <script>
