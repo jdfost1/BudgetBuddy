@@ -4,10 +4,10 @@ import org.springframework.stereotype.Service;
 
 import com.budgetBuddy.DAO.LoginDAO;
 
-@Service("loginService")
+//@Service("loginService")
 public class LoginServiceImpl implements LoginService {
 
-	 @Autowired
+	 //@Autowired
 	 private LoginDAO loginDAO;
 
 	   public void setLoginDAO(LoginDAO loginDAO) {

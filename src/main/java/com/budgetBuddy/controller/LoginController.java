@@ -17,7 +17,7 @@ import javax.validation.Valid;
 @RequestMapping("/account/login")
 public class LoginController {
 
-	@Autowired
+	//@Autowired
 	public LoginService loginService;
 
 	@RequestMapping(method = RequestMethod.GET)

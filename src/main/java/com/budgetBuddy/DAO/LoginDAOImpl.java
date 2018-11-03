@@ -8,11 +8,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
-@Repository("loginDAO")
+//@Repository("loginDAO")
 public class LoginDAOImpl implements LoginDAO{
      
 			 
-       @Resource(name="sessionFactory")
+       //@Resource(name="sessionFactory")
        protected SessionFactory sessionFactory;
 
        public void setSessionFactory(SessionFactory sessionFactory) {

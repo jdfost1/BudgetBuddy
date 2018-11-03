@@ -7,11 +7,9 @@
         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-   
-    <!-- Base package for checking the annoted classes -->
+   <!--  
       <context:component-scan base-package="com.budgetBuddy"></context:component-scan>
 
-      <!-- Configure JDBC Connection-->
       <bean id="dataSource"
             class="org.springframework.jdbc.datasource.DriverManagerDataSource">
             <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
@@ -20,9 +18,8 @@
             <property name="password" value="password" />
       </bean>
 
-      <!-- Configure Hibernate 4 Session Facotry -->
       <bean id="sessionFactory"
-            class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+            class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 
 			<property name="dataSource">
 			  <ref bean="dataSource" />
@@ -36,10 +33,10 @@
 			</property>
 			<property name="annotatedClasses">
 			<list>
-				  <value>com.budgetBuddy.entities.Users</value> <!-- Entity classes-->
+				  <value>com.budgetBuddy.entities.Users</value>
 				  <value>com.budgetBuddy.entities.Account</value>
 			</list>
 			</property>
 
-      </bean>
+      </bean> -->
 </beans>
