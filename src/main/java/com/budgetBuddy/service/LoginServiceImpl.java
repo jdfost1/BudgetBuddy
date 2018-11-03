@@ -1,5 +1,4 @@
 package com.budgetBuddy.service;
-import com.budgetBuddy.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

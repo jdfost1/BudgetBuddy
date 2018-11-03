@@ -1,14 +1,12 @@
 package com.budgetBuddy.DAO;
-import com.budgetBuddy.entities.*;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Query;
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
 @Repository("loginDAO")
 public class LoginDAOImpl implements LoginDAO{
