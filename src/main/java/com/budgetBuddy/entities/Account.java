@@ -11,9 +11,9 @@ import javax.persistence.Table;
 	public class Account {
 	
 		
-		@Id
-		@Column(name="email",unique=true,length=100,nullable=false)
-		private String email; //primary key
+	@Id
+	@Column(name = "email", unique = true, length = 100, nullable = false)
+	private String email; // primary key
 		
 		@Column(name="firstName",length=100,nullable=false)
 		private String firstName;

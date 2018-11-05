@@ -8,8 +8,8 @@ import com.budgetBuddy.entities.Account;
 import com.budgetBuddy.entities.CurrentBudget;
 
 
-public class CurrentBudgetDAOImpl {
-	public static void addBudget(CurrentBudget budget) {
+public class CurrentBudgetDAOImpl implements CurrentBudgetDAO{
+	public void addCurrentBudget(CurrentBudget budget) {
 
 		//create session factory
 		SessionFactory factory = new Configuration()

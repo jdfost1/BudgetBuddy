@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.budgetBuddy.entities.Account;
 import com.budgetBuddy.entities.Users;
-import com.budgetBuddy.DAO.AccountDAO;
+import com.budgetBuddy.DAO.AccountDAOImpl;
 
 
 @Controller
@@ -36,13 +36,13 @@ public class AccountController {
 	public String showAccountConfirmationResult(Model model,@Valid @ModelAttribute("newAccount") Account newAccount,
 			BindingResult bindingResult) {
 		
-		AccountDAO.addAccount(newAccount);
+		AccountDAOImpl.addAccount(newAccount);
 		Users accountCredentials = new Users();
 		
 		accountCredentials.setPassword(newAccount.getPassword());
 		accountCredentials.setUserName(newAccount.getEmail());
 		
-		AccountDAO.addLogin(accountCredentials);
+		AccountDAOImpl.addLogin(accountCredentials);
 		
 		return "new-account-confirmation";
 	}

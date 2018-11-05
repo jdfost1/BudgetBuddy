@@ -7,8 +7,8 @@ import org.hibernate.cfg.Configuration;
 import com.budgetBuddy.entities.Account;
 import com.budgetBuddy.entities.SuggestedBudget;
 
-public class SuggestedBudgetDAOImpl {
-	public static void addBudget(SuggestedBudget budget) {
+public class SuggestedBudgetDAOImpl implements SuggestedBudgetDAO{
+	public void addBudget(SuggestedBudget budget) {
 
 		//create session factory
 		SessionFactory factory = new Configuration()
@@ -38,6 +38,7 @@ public class SuggestedBudgetDAOImpl {
 			factory.close();
 			}
 	}//end of add account
+	
 
 }
 

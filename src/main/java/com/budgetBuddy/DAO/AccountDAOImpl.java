@@ -7,7 +7,7 @@ import com.budgetBuddy.entities.Account;
 
 import com.budgetBuddy.entities.Users;
 
-public class AccountDAO {
+public class AccountDAOImpl {
 	public static void addAccount(Account newAccount) {
 
 		//create session factory
