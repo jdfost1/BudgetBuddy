@@ -67,22 +67,6 @@ public class AccountController {
 		userService.save(registration);
 		
 		// Bring the user to the home page
-		return "redirect:/index";
+		return "redirect:/";
 	}
-	
-	/*
-	@RequestMapping("/new-account-confirmation")
-	public String showAccountConfirmationResult(Model model,@Valid @ModelAttribute("newAccount") Account newAccount,
-			BindingResult bindingResult) {
-		
-		AccountDAO.addAccount(newAccount);
-		User accountCredentials = new User();
-		
-		accountCredentials.setPassword(newAccount.getPassword());
-		accountCredentials.setUserName(newAccount.getEmail());
-		
-		AccountDAO.addLogin(accountCredentials);
-		
-		return "new-account-confirmation";
-	} */
 }
