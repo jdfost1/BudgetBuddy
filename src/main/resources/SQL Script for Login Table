@@ -1,4 +1,0 @@
-CREATE TABLE `users` ( `id` int(11) NOT NULL AUTO_INCREMENT,  `userName` varchar(50) NOT NULL,   `password` varchar(50) NOT NULL,      
-      PRIMARY KEY (`id`)                      ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-insert into users (userName,password) values ('jf_foster05@yahoo.com','password')

@@ -1,71 +1,56 @@
 package com.budgetBuddy.entities;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-	@Entity
-	@Table(name="accounts")
-	public class Account {
+@Entity
+@Table(name = "account")
+public class Account {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long id;
+
+	@Column(name = "name", length = 50, nullable = false)
+	private String name;
+
+	@Column(name = "age", nullable = false)
+	private int age;
 	
-		
-		@Id
-		@Column(name="email",unique=true,length=100,nullable=false)
-		private String email; //primary key
-		
-		@Column(name="firstName",length=100,nullable=false)
-		private String firstName;
-		
-		@Column(name="lastName",length=100,nullable=false)
-		private String lastName;
-		
-		@Column(name="salary",length=100,nullable=false)
-		private String salary;
-		
-		@Column(name="age",length=100,nullable=false)
-		private int age;
-		
-		//do not map password to account table in database
-		private String password;
-		
-		
-		public String getPassword() {
-			return password;
-		}
-		public void setPassword(String password) {
-			this.password = password;
-		}
-		public String getFirstName() {
-			return firstName;
-		}
-		public void setFirstName(String firstName) {
-			this.firstName = firstName;
-		}
-		public String getLastName() {
-			return lastName;
-		}
-		public void setLastName(String lastName) {
-			this.lastName = lastName;
-		}
-		public String getEmail() {
-			return email;
-		}
-		public void setEmail(String email) {
-			this.email = email;
-		}
-		public String getSalary() {
-			return salary;
-		}
-		public void setSalary(String salary) {
-			this.salary = salary;
-		}
-		public int getAge() {
-			return age;
-		}
-		public void setAge(int age) {
-			this.age = age;
-		}
-		
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
+	private User user;
+
+
+	public String getName() {
+		return name;
 	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+	
+	public void setUser(User user) {
+		this.user = user;
+	}
+}

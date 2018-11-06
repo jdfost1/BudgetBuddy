@@ -1,3 +1,7 @@
+# Other Files #
+# src/main/resources/persistence-mysql.properties
+
+
 # Directories #
 build/
 bin/

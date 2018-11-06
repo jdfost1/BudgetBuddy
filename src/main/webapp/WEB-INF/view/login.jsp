@@ -30,29 +30,29 @@
 					<h5 class="card-header">Please Sign In</h5>
 					<div class="card-body">
 						<c:url var="loginUrl" value="/account/login" />
-						<form:form action="login/loginValidate" modelAttribute="loginForm" class="form-horizontal">
+						<form:form action="process-login">
 
 							<c:if test="${param.error != null}">
-								<div class="alert alert-danger">
-									<p>Invalid username and password.</p>
+								<div class="alert alert-danger" role="alert">
+									The email or password you have entered is invalid.
 								</div>
 							</c:if>
 
 							<c:if test="${param.logout != null}">
 								<div class="alert alert-success">
-									<p>You have been logged out successfully.</p>
+									You have been logged out successfully.
 								</div>
 							</c:if>
 
 							<c:if test="${param.accessDenied != null}">
 								<div class="alert alert-danger">
-									<p>Access Denied: You are not authorized!</p>
+									Please log in to access that page.
 								</div>
 							</c:if>
 							
 							<div class="form-group">
-							    <form:input type="email" id="emailInput" path="userName" class="form-control form-control-lg" name="emailInput" placeholder="Email" />
-							    <form:input type="password" id="passwordInput" path="password" class="form-control form-control-lg" name="passwordInput" placeholder="Password"/>
+							    <input type="email" id="emailInput" class="form-control form-control-lg" name="email" placeholder="Email" />
+							    <input type="password" id="passwordInput" class="form-control form-control-lg" name="password" placeholder="Password"/>
 							</div>
 							<button type="submit" id="submitButton" class="btn btn-lg btn-block btn-success">Log In</button>
 							<a href="sign-up">Don't have an account? Sign Up</a>

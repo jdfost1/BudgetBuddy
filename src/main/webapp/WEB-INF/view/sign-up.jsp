@@ -20,61 +20,33 @@
 					<h5 class="card-header">Create Account</h5>
 					<div class="card-body">
 
-						<form:form action="new-account-confirmation"
-							modelAttribute="newAccount" modelAttribute="newCredentials">
-							<div class="input-group input-sm">
-								<label class="input-group-addon" for="email"><i
-									class="fa fa-user"></i></label>
-								<form:input type="text" class="form-control" id="email"
-									name="email" path="email" placeholder="Enter Email Address"
-									required />
+						<form:form action="${userActionUrl}" modelAttribute="userRegistration">
+							<div class="form-group">
+								<label for="emailInput">Email Address</label>
+								<form:input type="email" path="email" id="emailInput" cssClass="form-control"/>
+								<form:errors path="email" element="div"	cssClass="invalid-feedback"/>
 							</div>
-							<div class="input-group input-sm">
-								<label class="input-group-addon" for="firstName"><i
-									class="fa fa-user"></i></label> 
-								<form:input type="text" class="form-control"
-									id="firstName" name="firstName" path="firstName"
-									placeholder="Enter First Name" required />
+							<div class="form-group">
+								<label for="nameInput">Name</label>
+								<form:input path="name" id="nameInput" cssClass="form-control"/>
+								<form:errors path="name" element="div" cssClass="invalid-feedback"/>
 							</div>
-							<div class="input-group input-sm">
-								<label class="input-group-addon" for="lastName"><i
-									class="fa fa-user"></i></label> 
-								<form:input type="text" class="form-control"
-									id="lastName" name="lastName" path="lastName"
-									placeholder="Enter Last Name" required />
+							<div class="form-group">
+								<label for="ageInput">Age</label>
+								<form:input path="age" id="ageInput" cssClass="form-control"/>
+								<form:errors path="age" element="div" cssClass="invalid-feedback"/>
 							</div>
-
-							<div class="input-group input-sm">
-								<label class="input-group-addon" for="birthday"><i
-									class="fa fa-user"></i></label> 
-								<form:input type="text" class="form-control"
-									id="birthday" name="age" path="age"
-									placeholder="Enter Birthday" required />
+							<div class="form-group">
+								<label for="passwordInput">Password</label>
+								<form:input type="password" path="password" id="passwordInput" cssClass="form-control"/>
+								<form:errors path="password" element="div" cssClass="invalid-feedback"/>
 							</div>
-							<div class="input-group input-sm">
-								<label class="input-group-addon" for="salary"><i
-									class="fa fa-user"></i></label> 
-								<form:input type="text" class="form-control"
-									id="salary" name="salary" path="salary"
-									placeholder="Enter Annual Salary" required/>
+							<div class="form-group">
+								<label for="confirmPasswordInput">Confirm Password</label>
+								<form:input type="password" path="matchingPassword" id="confirmPasswordInput" cssClass="form-control"/>
+								<form:errors path="matchingPassword" element="div" cssClass="invalid-feedback"/>
 							</div>
-
-							<div class="input-group input-sm">
-								<label class="input-group-addon" for="password"><i
-									class="fa fa-lock"></i></label> 
-								<form:input type="password"
-									class="form-control" id="password" name="password"
-									path="password" placeholder="Enter Password" required />
-							</div>
-
-							<div class="input-group input-sm">
-								<label class="input-group-addon" for="password"><i
-									class="fa fa-lock"></i>
-								</label> <input type="password"
-									class="form-control" placeholder="Confirm Password" required>
-							</div>
-							<button type="submit" id="submitButton"
-								class="btn btn-block btn-success">Sign Up</button>
+							<button type="submit" id="submitButton" class="btn btn-block btn-success">Sign Up</button>
 							<a href="login">Already have an account? Log In</a>
 						</form:form>
 					</div>
