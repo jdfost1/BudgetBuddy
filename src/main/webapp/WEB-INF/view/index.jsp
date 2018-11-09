@@ -14,6 +14,7 @@
 			<img src="${pageContext.request.contextPath}/resources/img/logo.png">
 		</div>
 	</div>
+	
 	<%@ include file="template/js-include.html"%>
 </body>
 </html>

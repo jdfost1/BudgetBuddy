@@ -2,71 +2,42 @@ package com.budgetBuddy.DAO;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.budgetBuddy.entities.Account;
+import com.budgetBuddy.entities.User;
 
-import com.budgetBuddy.entities.Users;
-
-public class AccountDAOImpl {
-	public static void addAccount(Account newAccount) {
-
-		//create session factory
-		SessionFactory factory = new Configuration()
-				.configure("hibernate.cfg.xml")
-				.addAnnotatedClass(Account.class)
-				.buildSessionFactory();
+@Repository
+public class AccountDAOImpl implements AccountDAO {
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	@Override
+	public User findByEmail(String email) {
+		// Get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
 		
-		//create session
-		Session session = factory.getCurrentSession();
+		// Read from the database using the given email
+		Query<User> query = currentSession.createQuery("from User where email=:email", User.class);
+		query.setParameter("email", email);
+		User user = null;
 		try {
-			
-			
-			//start transaction
-			session.beginTransaction();
-			
-			
-			//save the account object
-			System.out.println("save the account object..");
-			session.save(newAccount);
-			
-			
-			//commit transaction
-			session.getTransaction().commit();
-			System.out.println("done");
+			user = query.getSingleResult();
+		} catch (Exception e) {
+			user = null;
 		}
-		finally{
-			factory.close();
-			}
-	}//end of add account
-	public static void addLogin(Users newCredentials) {
-		
-		//create session factory
-				SessionFactory factory = new Configuration()
-						.configure("hibernate.cfg.xml")
-						.addAnnotatedClass(Users.class)
-						.buildSessionFactory();
-				
-				//create session
-				Session session = factory.getCurrentSession();
-				try {
-					
-					
-					//start transaction
-					session.beginTransaction();
-					
-					
-					//save the account object
-					System.out.println("save the User object..");
-					session.save(newCredentials);
-					
-					
-					//commit transaction
-					session.getTransaction().commit();
-					System.out.println("done");
-				}
-				finally{
-					factory.close();
-					}
+		return user;
 	}
-
+	
+	@Override
+	public void save(Account account) {
+		// Get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		// Save the user account
+		currentSession.saveOrUpdate(account);
+	}
 }
