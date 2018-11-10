@@ -4,7 +4,9 @@
 ### Required Software
 * [Java Development Kit 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Apache Tomcat](https://tomcat.apache.org/download-90.cgi) (Preferred latest version 9.0.x)
-   - Note: Be sure to install Tomcat as a service
+* [MySQL](https://dev.mysql.com/downloads/)
+   - MySQL Server is required
+   - MySQL Workbench is recommended
 * [Eclipse IDE for Java EE Developers](https://www.eclipse.org/downloads/packages/)
 
 ### Connecting Tomcat to Eclipse
@@ -18,6 +20,11 @@
    - Leave the rest of the options as their defaults and **click Finish**
 5. You should now see *Tomcat v9.0 Server at localhost* as an option in the Servers tab
 
+### Setting Up the MySQL Database
+1. Make sure that MySQL Server is installed.
+2. **Log in** to your MySQL Server instance using the command line or MySQL Workbench.
+3. **Execute** the database schema file called *budget_buddy_dev_schema.sql* located at *src/main/resources*.
+
 ### Project Setup
 1. **Clone** this project to your machine in a directory separate from your eclipse workspace.
    - Example: C:\dev\ or C:\Projects\
@@ -27,8 +34,12 @@
 4. **Browse to and select the root folder** where you cloned this project to
    - Example: C:\dev\BudgetBuddy
 5. **Click Finish** and wait for Maven to build the workspace.
-6. **Right click** the project in the Project Explorer and **select Run As > Run on Server**
-7. When prompted for the server to use, make sure **Tomcat v9.0 Server at localhost is selected**
-8. Optionally click the checkbox that says *Always use this server when running this project*
-9. **Click Finish**
-10. If everything went well, you should see a web browser open to the root of the project and "Hello World!" should be displayed.
+6. **Open** the *persistence-mysql.properties* file located at *src/main/resources*
+   - Modify the property *jdbc.user* and change it to the username for your MySQL Server instance.
+   - Modify the property *jdbc.password* and change it to the password for your MySQL Server instance.
+7. In git bash, **execute the command:** `git update-index --assume-unchanged src/main/resources/persistence-mysql.properties` so that you don't commit your changes to the database config file.
+8. **Right click** the project in the Project Explorer and **select Run As > Run on Server**
+9. When prompted for the server to use, make sure **Tomcat v9.0 Server at localhost is selected**
+10. Optionally click the checkbox that says *Always use this server when running this project*
+11. **Click Finish**
+12. If everything went well, the web browser should open to the Budget Buddy home page.
