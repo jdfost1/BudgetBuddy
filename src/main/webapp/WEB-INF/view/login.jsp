@@ -22,7 +22,7 @@
 	</style>
 </head>
 <body>
-	<%@ include file="template/header.html"%>
+	<jsp:include page="template/header.jsp"/>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8 col-lg-6 offset-sm-2 offset-lg-3">

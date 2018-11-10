@@ -61,7 +61,7 @@
 	</style>
 </head>
 <body>
-	<%@ include file="template/header.html"%>
+	<jsp:include page="template/header.jsp"/>
 	<div id="logo" class="container">
 		<div>
 			<h1>Welcome to your Account Page!</h1>

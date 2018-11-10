@@ -31,7 +31,7 @@ public class AccountController {
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}
 	
-	@GetMapping("/")
+	@GetMapping
 	public String showAccountPage() {
 		return "account";
 	}

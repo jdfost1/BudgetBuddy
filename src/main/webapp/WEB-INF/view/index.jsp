@@ -1,3 +1,9 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
+<!-- Security Authorization -->
+<sec:authorize var="auth" access="hasAuthority('USER')"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,14 +13,15 @@
 	<%@ include file="template/css-include.html"%>
 </head>
 <body>
-    <%@ include file="template/header.html"%>
+    <jsp:include page="template/header.jsp"/>
 	<div id="logo"class="container">
 		<div>
-			<h1>Welcome to Budget Buddy!</h1>
+			<br>
+			<h2>Hello<c:if test="${auth}"> <sec:authentication property="principal.username"/></c:if>, welcome to Budget Buddy!</h2>
+			<br>
 			<img src="${pageContext.request.contextPath}/resources/img/logo.png">
 		</div>
 	</div>
-	
 	<%@ include file="template/js-include.html"%>
 </body>
 </html>

@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/compound-interest-result.css" />
 </head>
 <body>
-    <%@ include file="template/header.html"%>
+    <jsp:include page="template/header.jsp"/>
 	<h1>Compound Interest Result</h1>
 	<p>Resulting balance after ${compoundInterest.years} years: <fmt:formatNumber type="currency" value="${compoundInterestResult.amount}"/></p>
 	<%@ include file="template/js-include.html"%>

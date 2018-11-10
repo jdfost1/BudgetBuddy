@@ -41,8 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.authorizeRequests()
 			.antMatchers("/").permitAll()    
-			.antMatchers("/account").access("hasRole('ROLE_USER')")
-			.antMatchers("/**/account").access("hasRole('USER')")
+			.antMatchers("/account").access("hasAuthority('USER')")
 			.and()
 			.formLogin()
 				.loginPage("/account/login")
@@ -51,7 +50,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.usernameParameter("email")
                 .permitAll()
 			.and()
-			.logout().permitAll()
+			.logout()
+				.logoutUrl("/account/logout")
+				.logoutSuccessUrl("/account/login?logout")
 			.and()
 			.exceptionHandling().accessDeniedPage("/account/login?accessDenied");
     }

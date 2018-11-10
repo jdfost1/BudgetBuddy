@@ -11,7 +11,7 @@
 	</style>
 </head>
 <body>
-	<%@ include file="template/header.html"%>
+	<jsp:include page="template/header.jsp"/>
 <body>
 	<div>
 		<h1>Suggested Monthly Budget</h1>
