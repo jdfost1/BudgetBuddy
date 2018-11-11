@@ -10,9 +10,11 @@ USE `budget_buddy_dev`;
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL UNIQUE,
   `password` char(60) NOT NULL,
   `enabled` tinyint(1) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `age` tinyint NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -21,11 +23,11 @@ CREATE TABLE `user` (
 -- Note: The default password is fun123 (encoded with bcrypt)
 --
 INSERT INTO `user` 
-(`email`, `password`, `enabled`)
+(`email`, `password`, `enabled`, `name`, `age`)
 VALUES 
-('john@gmail.com','$2a$04$eFytJDGtjbThXa80FyOOBuFdK2IwjyWefYkMpiBEFlpBwDH.5PM0K',1),
-('mary@gmail.com','$2a$04$eFytJDGtjbThXa80FyOOBuFdK2IwjyWefYkMpiBEFlpBwDH.5PM0K',1),
-('susan@gmail.com','$2a$04$eFytJDGtjbThXa80FyOOBuFdK2IwjyWefYkMpiBEFlpBwDH.5PM0K',1);
+('john@gmail.com','$2a$04$eFytJDGtjbThXa80FyOOBuFdK2IwjyWefYkMpiBEFlpBwDH.5PM0K',1, 'John Doe', 32),
+('mary@gmail.com','$2a$04$eFytJDGtjbThXa80FyOOBuFdK2IwjyWefYkMpiBEFlpBwDH.5PM0K',1, 'Mary Lamb', 27),
+('jane@gmail.com','$2a$04$eFytJDGtjbThXa80FyOOBuFdK2IwjyWefYkMpiBEFlpBwDH.5PM0K',1, 'Jane Doe', 35);
 
 
 --
@@ -68,29 +70,3 @@ VALUES
 (1,1),
 (2,1),
 (3,2);
-
---
--- Table structure for table `account`
---
-DROP TABLE IF EXISTS `account`;
-CREATE TABLE `account` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `age` tinyint NOT NULL,
-  `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Set up accounts
---
-INSERT INTO `account` 
-(`name`, `age`, `user_id`)
-VALUES 
-('john',43,1),
-('mary',39,2),
-('susan',28,3);
-
-
-

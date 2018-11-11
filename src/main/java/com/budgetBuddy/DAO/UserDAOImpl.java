@@ -6,11 +6,10 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.budgetBuddy.entities.Account;
 import com.budgetBuddy.entities.User;
 
 @Repository
-public class AccountDAOImpl implements AccountDAO {
+public class UserDAOImpl implements UserDAO {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -33,11 +32,11 @@ public class AccountDAOImpl implements AccountDAO {
 	}
 	
 	@Override
-	public void save(Account account) {
+	public void save(User user) {
 		// Get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		// Save the user account
-		currentSession.saveOrUpdate(account);
+		currentSession.saveOrUpdate(user);
 	}
 }

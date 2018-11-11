@@ -13,8 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.budgetBuddy.DAO.AccountDAO;
-import com.budgetBuddy.entities.Account;
+import com.budgetBuddy.DAO.UserDAO;
 import com.budgetBuddy.entities.Role;
 import com.budgetBuddy.entities.User;
 import com.budgetBuddy.model.UserRegistration;
@@ -25,7 +24,7 @@ public class UserServiceImpl implements UserService {
 	private static final boolean ENABLED_BY_DEFAULT = true;
 	
 	@Autowired
-	private AccountDAO accountDAO;
+	private UserDAO userDAO;
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -34,7 +33,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	@Transactional
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		User user = accountDAO.findByEmail(email);
+		User user = userDAO.findByEmail(email);
 		if (user == null) {
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
@@ -45,7 +44,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	@Transactional
 	public User findByEmail(String email) {
-		return accountDAO.findByEmail(email);
+		return userDAO.findByEmail(email);
 	}
 
 	@Override
@@ -53,18 +52,15 @@ public class UserServiceImpl implements UserService {
 	public void save(UserRegistration registration) {
 		User user = new User();
 		Role[] roles = { new Role(1, "USER") };
-		Account account = new Account();
 		
 		user.setEmail(registration.getEmail());
 		user.setPassword(passwordEncoder.encode(registration.getPassword()));
 		user.setEnabled(ENABLED_BY_DEFAULT);
 		user.setRoles(Arrays.asList(roles));
+		user.setName(registration.getName());
+		user.setAge(registration.getAge());
 		
-		account.setName(registration.getName());
-		account.setAge(registration.getAge());
-		account.setUser(user);
-		
-		accountDAO.save(account);
+		userDAO.save(user);
 	}
 	
 	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {

@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -72,9 +73,15 @@ public class AccountController {
 	
 	@GetMapping("/update")
 	public String showUpdateAccountPage(Model model) {
-		// Create UserRegistration object from Account stored in session
-		// TODO
-		model.addAttribute("userRegistration", new UserRegistration());
+		// Get email of current user
+		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		
+		// Retrieve account object
+		//User user = userService.findByEmail(email);
+		
+		
+		// Create UserRegistration object
+		
 		
 		return "update-account";
 	}
