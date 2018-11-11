@@ -3,13 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Sign Up - Budget Buddy</title>
-<%@ include file="template/css-include.html"%>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/common.css" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Sign Up - Budget Buddy</title>
+	<jsp:include page="template/css-include.jsp"/>
 </head>
 <body>
 	<jsp:include page="template/header.jsp"/>

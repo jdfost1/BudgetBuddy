@@ -6,8 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Login - Budget Buddy</title>
-	<%@ include file="template/css-include.html"%>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css" />
+	<jsp:include page="template/css-include.jsp"/>
 	<style>
 		#emailInput { 
 			border-bottom-left-radius: 0;

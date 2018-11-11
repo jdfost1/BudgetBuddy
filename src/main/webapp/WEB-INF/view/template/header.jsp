@@ -32,13 +32,23 @@
 			</ul>
 			<c:choose>
 				<c:when test="${auth}">
-					<form:form action="${pageContext.request.contextPath}/account/logout" method="post">
-						<button type="submit" class="btn btn-outline-danger">Logout</button>
-					</form:form>
+					<div class="dropdown">
+					  <button class="btn btn-outline-success dropdown-toggle" type="button" id="myAccountMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    My Account
+					  </button>
+					  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="myAccountMenuButton">
+					    <a class="dropdown-item" href="#">View Account</a>
+					    <a class="dropdown-item" href="#">Update Account Details</a>
+					    <div class="dropdown-divider"></div>
+					    <form:form id="logout-form" action="${pageContext.request.contextPath}/account/logout" method="post">
+							<button type="submit" class="btn btn-danger btn-block">Log Out</button>
+						</form:form>
+					  </div>
+					</div>
 				</c:when>
 				<c:otherwise>
 					<a class="btn btn-outline-success my-2 my-sm-0"
-						href="/budgetbuddy/account/login" role="button">Login</a>
+						href="/budgetbuddy/account/login" role="button">Log In</a>
 				</c:otherwise>
 			</c:choose>
 		</div>

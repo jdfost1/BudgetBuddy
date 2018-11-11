@@ -13,3 +13,12 @@
 		margin-bottom: 50px;
 	}
 }
+
+.dropdown-menu-right {
+	right: 0;
+	left: auto;
+}
+
+#logout-form {
+	padding: 4px 24px;
+}
