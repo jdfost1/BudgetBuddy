@@ -69,4 +69,25 @@ public class AccountController {
 		// Bring the user to the home page
 		return "redirect:/";
 	}
+	
+	@GetMapping("/update")
+	public String showUpdateAccountPage(Model model) {
+		// Create UserRegistration object from Account stored in session
+		// TODO
+		model.addAttribute("userRegistration", new UserRegistration());
+		
+		return "update-account";
+	}
+	
+	@PostMapping("/update")
+	public String processUpdateAccount(@Valid @ModelAttribute("userRegistration") UserRegistration registration,
+			BindingResult bindingResult, Model model) {
+		// If the form is not filled out properly, show the errors on the form
+		if (bindingResult.hasErrors()) {
+			return "update-account";
+		}
+		
+		// Bring the user to the account page
+		return "redirect:/account?updated";
+	}
 }
