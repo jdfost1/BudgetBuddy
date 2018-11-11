@@ -33,12 +33,12 @@
 			<c:choose>
 				<c:when test="${auth}">
 					<form:form action="${pageContext.request.contextPath}/account/logout" method="post">
-						<button type="submit" class="btn btn-outline-danger">Logout</button>
+						<button type="submit" class="btn btn-outline-danger">Log Out</button>
 					</form:form>
 				</c:when>
 				<c:otherwise>
 					<a class="btn btn-outline-success my-2 my-sm-0"
-						href="/budgetbuddy/account/login" role="button">Login</a>
+						href="/budgetbuddy/account/login" role="button">Log In</a>
 				</c:otherwise>
 			</c:choose>
 		</div>
