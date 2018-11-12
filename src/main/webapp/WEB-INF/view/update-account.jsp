@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Sign Up - Budget Buddy</title>
+	<title>Update Account - Budget Buddy</title>
 	<jsp:include page="template/css-include.jsp"/>
 </head>
 <body>
@@ -14,10 +14,15 @@
 		<div class="row">
 			<div class="col-sm-8 col-lg-6 offset-sm-2 offset-lg-3">
 				<div id="card" class="card">
-					<h5 class="card-header">Create Account</h5>
+					<h5 class="card-header">Update Account</h5>
 					<div class="card-body">
 
-						<form:form action="${userActionUrl}" modelAttribute="userRegistration">
+						<form:form action="${userActionUrl}" method="post" modelAttribute="userUpdate">
+							<div class="alert alert-dark" role="alert">
+							  To update your account details, change any of the values below.
+							  <br>
+							  When you are finished, hit the 'Update' button.
+							</div>
 							<div class="form-group">
 								<label for="emailInput">Email Address</label>
 								<form:input type="email" path="email" id="emailInput" cssClass="form-control"/>
@@ -33,18 +38,7 @@
 								<form:input path="age" id="ageInput" cssClass="form-control"/>
 								<form:errors path="age" element="div" cssClass="invalid-feedback"/>
 							</div>
-							<div class="form-group">
-								<label for="passwordInput">Password</label>
-								<form:input type="password" path="password" id="passwordInput" cssClass="form-control"/>
-								<form:errors path="password" element="div" cssClass="invalid-feedback"/>
-							</div>
-							<div class="form-group">
-								<label for="confirmPasswordInput">Confirm Password</label>
-								<form:input type="password" path="matchingPassword" id="confirmPasswordInput" cssClass="form-control"/>
-								<form:errors path="matchingPassword" element="div" cssClass="invalid-feedback"/>
-							</div>
-							<button type="submit" id="submitButton" class="btn btn-block btn-success">Sign Up</button>
-							<a href="login">Already have an account? Log In</a>
+							<button type="submit" id="submitButton" class="btn btn-block btn-success">Update</button>
 						</form:form>
 					</div>
 				</div>

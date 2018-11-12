@@ -6,8 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Login - Budget Buddy</title>
-	<%@ include file="template/css-include.html"%>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common.css" />
+	<jsp:include page="template/css-include.jsp"/>
 	<style>
 		#emailInput { 
 			border-bottom-left-radius: 0;
@@ -29,27 +28,22 @@
 				<div id="card" class="card">
 					<h5 class="card-header">Please Sign In</h5>
 					<div class="card-body">
-						<c:url var="loginUrl" value="/account/login" />
 						<form:form action="process-login">
-
 							<c:if test="${param.error != null}">
 								<div class="alert alert-danger" role="alert">
 									The email or password you have entered is invalid.
 								</div>
 							</c:if>
-
 							<c:if test="${param.logout != null}">
 								<div class="alert alert-success">
 									You have been logged out successfully.
 								</div>
 							</c:if>
-
 							<c:if test="${param.accessDenied != null}">
 								<div class="alert alert-danger">
 									Please log in to access that page.
 								</div>
 							</c:if>
-							
 							<div class="form-group">
 							    <input type="email" id="emailInput" class="form-control form-control-lg" name="email" placeholder="Email" />
 							    <input type="password" id="passwordInput" class="form-control form-control-lg" name="password" placeholder="Password"/>

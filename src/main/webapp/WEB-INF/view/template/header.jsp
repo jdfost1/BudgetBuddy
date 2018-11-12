@@ -28,13 +28,24 @@
 							class="dropdown-item"
 							href="/budgetbuddy/tools/compound-interest-calculator">Compound
 							Interest Calculator</a>
-					</div></li>
+					</div>
+				</li>
 			</ul>
 			<c:choose>
 				<c:when test="${auth}">
-					<form:form action="${pageContext.request.contextPath}/account/logout" method="post">
-						<button type="submit" class="btn btn-outline-danger">Log Out</button>
-					</form:form>
+					<div class="dropdown">
+					  <button class="btn btn-outline-success dropdown-toggle" type="button" id="myAccountMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    My Account
+					  </button>
+					  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="myAccountMenuButton">
+					    <a class="dropdown-item" href="${pageContext.request.contextPath}/account">View Account</a>
+					    <a class="dropdown-item" href="${pageContext.request.contextPath}/account/update">Update Account Details</a>
+					    <div class="dropdown-divider"></div>
+					    <form:form id="logout-form" action="${pageContext.request.contextPath}/account/logout" method="post">
+							<button type="submit" class="btn btn-danger btn-block">Log Out</button>
+						</form:form>
+					  </div>
+					</div>
 				</c:when>
 				<c:otherwise>
 					<a class="btn btn-outline-success my-2 my-sm-0"

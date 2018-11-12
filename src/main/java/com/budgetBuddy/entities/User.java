@@ -30,6 +30,12 @@ public class User {
 	@Column(name = "enabled")
 	private int enabled;
 	
+	@Column(name = "name")
+	private String name;
+
+	@Column(name = "age")
+	private int age;
+	
 	@ManyToMany
 	@JoinTable(name="user_role", 
 			   joinColumns=@JoinColumn(name="user_id"),
@@ -63,6 +69,22 @@ public class User {
 	
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled ? 1 : 0;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+	
+	public void setAge(int age) {
+		this.age = age;
 	}
 	
 	public List<Role> getRoles() {

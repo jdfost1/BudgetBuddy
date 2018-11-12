@@ -10,14 +10,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Budget Buddy</title>
-	<%@ include file="template/css-include.html"%>
+	<jsp:include page="template/css-include.jsp"/>
 </head>
 <body>
     <jsp:include page="template/header.jsp"/>
 	<div id="logo"class="container">
 		<div>
 			<br>
-			<h2>Hello<c:if test="${auth}"> <sec:authentication property="principal.username"/></c:if>, welcome to Budget Buddy!</h2>
+			<h2 class="hello">Hello<c:if test="${auth}"> <sec:authentication property="principal.username"/></c:if>, welcome to Budget Buddy!</h2>
 			<br>
 			<img src="${pageContext.request.contextPath}/resources/img/logo.png">
 		</div>

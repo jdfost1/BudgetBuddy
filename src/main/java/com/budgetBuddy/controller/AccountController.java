@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.budgetBuddy.entities.User;
 import com.budgetBuddy.model.UserRegistration;
+import com.budgetBuddy.model.UserUpdate;
 import com.budgetBuddy.service.UserService;
 
 @Controller
@@ -68,5 +70,62 @@ public class AccountController {
 		
 		// Bring the user to the home page
 		return "redirect:/";
+	}
+	
+	@GetMapping("/update")
+	public String showUpdateAccountPage(Model model) {
+		// Get email of current user
+		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		
+		// Retrieve account object
+		User user = userService.findByEmail(email);
+		
+		// Create UserUpdate object
+		UserUpdate update = new UserUpdate();
+		update.setEmail(user.getEmail());
+		update.setName(user.getName());
+		update.setAge(user.getAge());
+
+		// Add UserUpdate object to the model
+		model.addAttribute("userUpdate", update);
+		
+		return "update-account";
+	}
+	
+	@PostMapping("/update")
+	public String processUpdateAccount(@Valid @ModelAttribute("userUpdate") UserUpdate update,
+			BindingResult bindingResult, Model model) {
+		boolean emailChanged = false;
+		
+		// Get the current user
+		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		User currentUser = userService.findByEmail(email);
+		
+		// If the form is not filled out properly, show the errors on the form
+		if (bindingResult.hasErrors()) {
+			return "update-account";
+		}
+		
+		// Check if the user already exists in the database
+		if (!update.getEmail().equals(email)) {
+			User existing = userService.findByEmail(update.getEmail());
+			if (existing != null) {
+				model.addAttribute("registrationError", "A user with that email already exists.");
+				return "update-account";
+			}
+			emailChanged = true;
+		}
+		
+		// Save user in the database
+		userService.save(currentUser, update);
+		
+		// If email address was changed, user must be forced to log in using the new address
+		if (emailChanged) {
+			SecurityContextHolder.clearContext();
+			return "redirect:/account/login";
+		}
+		
+		// Bring the user to the account page
+		return "redirect:/account?updated";
 	}
 }
