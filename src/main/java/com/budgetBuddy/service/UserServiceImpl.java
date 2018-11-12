@@ -17,6 +17,7 @@ import com.budgetBuddy.DAO.UserDAO;
 import com.budgetBuddy.entities.Role;
 import com.budgetBuddy.entities.User;
 import com.budgetBuddy.model.UserRegistration;
+import com.budgetBuddy.model.UserUpdate;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -59,6 +60,15 @@ public class UserServiceImpl implements UserService {
 		user.setRoles(Arrays.asList(roles));
 		user.setName(registration.getName());
 		user.setAge(registration.getAge());
+		
+		userDAO.save(user);
+	}
+	
+	@Override
+	public void save(User user, UserUpdate update) {
+		user.setEmail(update.getEmail());
+		user.setName(update.getName());
+		user.setAge(update.getAge());
 		
 		userDAO.save(user);
 	}

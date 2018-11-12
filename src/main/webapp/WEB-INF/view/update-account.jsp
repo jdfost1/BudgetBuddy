@@ -17,7 +17,7 @@
 					<h5 class="card-header">Update Account</h5>
 					<div class="card-body">
 
-						<form:form action="${userActionUrl}" modelAttribute="userRegistration">
+						<form:form action="${userActionUrl}" method="post" modelAttribute="userUpdate">
 							<div class="alert alert-dark" role="alert">
 							  To update your account details, change any of the values below.
 							  <br>
