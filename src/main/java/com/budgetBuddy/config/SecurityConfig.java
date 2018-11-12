@@ -41,7 +41,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.authorizeRequests()
 			.antMatchers("/").permitAll()
-			.antMatchers("/account/**").access("hasAuthority('USER')")
+			.antMatchers("/account").access("hasAuthority('USER')")
+			.antMatchers("/account/update").access("hasAuthority('USER')")
+			.antMatchers("/account/delete").access("hasAuthority('USER')")
 			.and()
 			.formLogin()
 				.loginPage("/account/login")

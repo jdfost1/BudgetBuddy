@@ -39,7 +39,8 @@
 					  </button>
 					  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="myAccountMenuButton">
 					    <a class="dropdown-item" href="${pageContext.request.contextPath}/account">View Account</a>
-					    <a class="dropdown-item" href="${pageContext.request.contextPath}/account/update">Update Account Details</a>
+					    <a class="dropdown-item" href="${pageContext.request.contextPath}/account/update">Update Account</a>
+					    <a class="dropdown-item" href="${pageContext.request.contextPath}/account/delete">Delete Account</a>
 					    <div class="dropdown-divider"></div>
 					    <form:form id="logout-form" action="${pageContext.request.contextPath}/account/logout" method="post">
 							<button type="submit" class="btn btn-danger btn-block">Log Out</button>

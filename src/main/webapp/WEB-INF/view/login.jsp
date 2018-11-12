@@ -44,6 +44,16 @@
 									Please log in to access that page.
 								</div>
 							</c:if>
+							<c:if test="${param.emailUpdated != null}">
+								<div class="alert alert-warning">
+									Your email has been updated successfully. Please log in with the new email address.
+								</div>
+							</c:if>
+							<c:if test="${param.accountDeleted != null}">
+								<div class="alert alert-success">
+									Your account has been deleted successfully.
+								</div>
+							</c:if>
 							<div class="form-group">
 							    <input type="email" id="emailInput" class="form-control form-control-lg" name="email" placeholder="Email" />
 							    <input type="password" id="passwordInput" class="form-control form-control-lg" name="password" placeholder="Password"/>

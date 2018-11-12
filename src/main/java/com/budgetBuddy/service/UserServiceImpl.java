@@ -73,6 +73,11 @@ public class UserServiceImpl implements UserService {
 		userDAO.save(user);
 	}
 	
+	@Override
+	public void delete(User user) {
+		userDAO.delete(user);
+	}
+	
 	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
 		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
 	}

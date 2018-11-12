@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.budgetBuddy.entities.User;
+import com.budgetBuddy.model.UserDelete;
 import com.budgetBuddy.model.UserRegistration;
 import com.budgetBuddy.model.UserUpdate;
 import com.budgetBuddy.service.UserService;
@@ -122,10 +123,42 @@ public class AccountController {
 		// If email address was changed, user must be forced to log in using the new address
 		if (emailChanged) {
 			SecurityContextHolder.clearContext();
-			return "redirect:/account/login";
+			return "redirect:/account/login?emailUpdated";
 		}
 		
 		// Bring the user to the account page
 		return "redirect:/account?updated";
+	}
+	
+	@GetMapping("/delete")
+	public String showDeleteAccountPage(Model model) {
+		model.addAttribute("userDelete", new UserDelete());
+		return "delete-account";
+	}
+	
+	@PostMapping("/delete")
+	public String processDeleteAccount(@Valid @ModelAttribute("userDelete") UserDelete delete,
+			BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors()) {
+			return "delete-account";
+		}
+		
+		// Get the current user
+		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		
+		// Check if emails match
+		if (!delete.getEmail().equals(email)) {
+			model.addAttribute("emailMismatch", true);
+			return "delete-account";
+		}
+		
+		// Retrieve the current user
+		User currentUser = userService.findByEmail(email);
+		
+		// Delete the user
+		userService.delete(currentUser);
+		
+		// Redirect user to the login page with a success message
+		return "redirect:/account/login?accountDeleted";
 	}
 }

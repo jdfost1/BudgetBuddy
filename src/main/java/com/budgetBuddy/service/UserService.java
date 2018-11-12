@@ -13,4 +13,6 @@ public interface UserService extends UserDetailsService {
 	void save(UserRegistration userRegistration);
 	
 	void save(User user, UserUpdate userUpdate);
+	
+	void delete(User user);
 }
