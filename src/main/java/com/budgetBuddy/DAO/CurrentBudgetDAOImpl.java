@@ -1,12 +1,12 @@
 package com.budgetBuddy.DAO;
 
-import com.budgetBuddy.entities.CurrentBudget;
+import com.budgetBuddy.entities.Budget;
 
 
 public class CurrentBudgetDAOImpl implements CurrentBudgetDAO{
 
 	@Override
-	public void addCurrentBudget(CurrentBudget budget) {
+	public void addCurrentBudget(Budget budget) {
 		// TODO Auto-generated method stub
 		
 	}
