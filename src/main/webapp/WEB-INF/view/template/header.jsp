@@ -7,7 +7,7 @@
 
 <header>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="/budgetbuddy">Budget Buddy</a>
+		<a class="navbar-brand" href="${pageContext.request.contextPath}/">Budget Buddy</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -26,7 +26,7 @@
 							Budget</a> <a class="dropdown-item"
 							href="${pageContext.request.contextPath}/tools/401k-calculator">401k Calculator</a> <a
 							class="dropdown-item"
-							href="/budg${pageContext.request.contextPath}etbuddy/tools/compound-interest-calculator">Compound
+							href="${pageContext.request.contextPath}/tools/compound-interest-calculator">Compound
 							Interest Calculator</a>
 					</div>
 				</li>
