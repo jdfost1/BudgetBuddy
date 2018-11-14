@@ -2,40 +2,44 @@ package com.budgetBuddy.model;
 
 public class SavingsTimeline {
 	private double monthlySavingsTarget;
+	private double savingsTargetMonths;
+
 	private double monthlyIncome;
 	private double leftOverIncome;
-	private double monthlySavingsTarget100;
-	private double monthlySavingsTarget10;
-	private double monthlySavingsTarget20;
-	private double monthlySavingsTarget30;
-	private double monthlySavingsTarget40;
-	private double monthlySavingsTarget50;
 
+	public double monthlySavingsTargetFive;
+	private double monthlySavingsTargetTen;
+	private double monthlySavingsTargetFifteen;
+	private double monthlySavingsTargetTwenty;
+	private double monthlySavingsTargetTwentyFive;
+
+	private double monthsFivePercent;
 	private double monthsTenPercent;
+	private double monthsFifteenPercent;
 	private double monthsTwentyPercent;
-	private double monthsThirtyPercent;
-	private double monthsFortyPercent;
-	private double monthsFiftyPercent;
+	private double monthsTwentyFivePercent;
 
 	public void calculateSavingsTargetOptions(BudgetForm form) {
 		monthlyIncome = form.getIncome() / 12;
-		leftOverIncome = monthlyIncome - (form.getRent()+form.getCarPayment()+form.getCarInsurance()+form.getUtilities()+form.getRemainingExpenses());
-       
-		double savingsTarget = form.getSavingsTarget();
-        
-		//calculate 10%,20%,30%,40%,and 50% of users monthly leftover income
-		monthlySavingsTarget10 = leftOverIncome * .1;
-		monthlySavingsTarget20 = leftOverIncome * .2;
-		monthlySavingsTarget30 = leftOverIncome * .3;
-		monthlySavingsTarget40 = leftOverIncome * .4;
-		monthlySavingsTarget50 = leftOverIncome * .5;
+		leftOverIncome = monthlyIncome - (form.getRent() + form.getCarPayment() + form.getCarInsurance()
+				+ form.getUtilities() + form.getRemainingExpenses());
 
-		//calculate the number of months to hit savings target using 10%,20%,30%,40%,and 50% of users monthly leftover income
-		monthsTenPercent =  savingsTarget / monthlySavingsTarget10;
-		monthsTwentyPercent = savingsTarget / monthlySavingsTarget20;
-		monthsThirtyPercent = savingsTarget / monthlySavingsTarget30;
-		monthsFortyPercent = savingsTarget / monthlySavingsTarget40;
-		monthsFiftyPercent = savingsTarget / monthlySavingsTarget50;
+		double savingsTarget = form.getSavingsTarget();
+
+		// calculate 5%,10%,15%,20%,and 25% of users monthly leftover income
+		this.monthlySavingsTargetFive = leftOverIncome * .05;
+		this.monthlySavingsTargetTen = leftOverIncome * .1;
+		this.monthlySavingsTargetFifteen = leftOverIncome * .15;
+		this.monthlySavingsTargetTwenty = leftOverIncome * .2;
+		this.monthlySavingsTargetTwentyFive = leftOverIncome * .25;
+
+		// calculate the number of months to hit savings target using 5%,10%,15%,20%,and
+		// 25% of users monthly leftover income
+		this.monthsFivePercent = savingsTarget / monthlySavingsTargetFive;
+		this.monthsTenPercent = savingsTarget / monthlySavingsTargetTen;
+		this.monthsFifteenPercent = savingsTarget / monthlySavingsTargetFifteen;
+		this.monthsTwentyPercent = savingsTarget / monthlySavingsTargetTwenty;
+		this.monthsTwentyFivePercent = savingsTarget / monthlySavingsTargetTwentyFive;
 
 	}
 
@@ -63,52 +67,52 @@ public class SavingsTimeline {
 		this.leftOverIncome = leftOverIncome;
 	}
 
-	public double getMonthlySavingsTarget100() {
-		return monthlySavingsTarget100;
+	public double getMonthlySavingsTargetFive() {
+		return monthlySavingsTargetFive;
 	}
 
-	public void setMonthlySavingsTarget100(double monthlySavingsTarget100) {
-		this.monthlySavingsTarget100 = monthlySavingsTarget100;
+	public void setMonthlySavingsTargetFive(double monthlySavingsTargetFive) {
+		this.monthlySavingsTargetFive = monthlySavingsTargetFive;
 	}
 
-	public double getMonthlySavingsTarget10() {
-		return monthlySavingsTarget10;
+	public double getMonthlySavingsTargetTen() {
+		return monthlySavingsTargetTen;
 	}
 
-	public void setMonthlySavingsTarget10(double monthlySavingsTarget10) {
-		this.monthlySavingsTarget10 = monthlySavingsTarget10;
+	public void setMonthlySavingsTargetTen(double monthlySavingsTargetTen) {
+		this.monthlySavingsTargetTen = monthlySavingsTargetTen;
 	}
 
-	public double getMonthlySavingsTarget20() {
-		return monthlySavingsTarget20;
+	public double getMonthlySavingsTargetFifteen() {
+		return monthlySavingsTargetFifteen;
 	}
 
-	public void setMonthlySavingsTarget20(double monthlySavingsTarget20) {
-		this.monthlySavingsTarget20 = monthlySavingsTarget20;
+	public void setMonthlySavingsTargetFifteen(double monthlySavingsTargetFifteen) {
+		this.monthlySavingsTargetFifteen = monthlySavingsTargetFifteen;
 	}
 
-	public double getMonthlySavingsTarget30() {
-		return monthlySavingsTarget30;
+	public double getMonthlySavingsTargetTwenty() {
+		return monthlySavingsTargetTwenty;
 	}
 
-	public void setMonthlySavingsTarget30(double monthlySavingsTarget30) {
-		this.monthlySavingsTarget30 = monthlySavingsTarget30;
+	public void setMonthlySavingsTargetTwenty(double monthlySavingsTargetTwenty) {
+		this.monthlySavingsTargetTwenty = monthlySavingsTargetTwenty;
 	}
 
-	public double getMonthlySavingsTarget40() {
-		return monthlySavingsTarget40;
+	public double getMonthlySavingsTargetTwentyFive() {
+		return monthlySavingsTargetTwentyFive;
 	}
 
-	public void setMonthlySavingsTarget40(double monthlySavingsTarget40) {
-		this.monthlySavingsTarget40 = monthlySavingsTarget40;
+	public void setMonthlySavingsTargetTwentyFive(double monthlySavingsTargetTwentyFive) {
+		this.monthlySavingsTargetTwentyFive = monthlySavingsTargetTwentyFive;
 	}
 
-	public double getMonthlySavingsTarget50() {
-		return monthlySavingsTarget50;
+	public double getMonthsFivePercent() {
+		return monthsFivePercent;
 	}
 
-	public void setMonthlySavingsTarget50(double monthlySavingsTarget50) {
-		this.monthlySavingsTarget50 = monthlySavingsTarget50;
+	public void setMonthsFivePercent(double monthsFivePercent) {
+		this.monthsFivePercent = monthsFivePercent;
 	}
 
 	public double getMonthsTenPercent() {
@@ -119,6 +123,14 @@ public class SavingsTimeline {
 		this.monthsTenPercent = monthsTenPercent;
 	}
 
+	public double getMonthsFifteenPercent() {
+		return monthsFifteenPercent;
+	}
+
+	public void setMonthsFifteenPercent(double monthsFifteenPercent) {
+		this.monthsFifteenPercent = monthsFifteenPercent;
+	}
+
 	public double getMonthsTwentyPercent() {
 		return monthsTwentyPercent;
 	}
@@ -127,27 +139,20 @@ public class SavingsTimeline {
 		this.monthsTwentyPercent = monthsTwentyPercent;
 	}
 
-	public double getMonthsThirtyPercent() {
-		return monthsThirtyPercent;
+	public double getMonthsTwentyFivePercent() {
+		return monthsTwentyFivePercent;
 	}
 
-	public void setMonthsThirtyPercent(double monthsThirtyPercent) {
-		this.monthsThirtyPercent = monthsThirtyPercent;
+	public void setMonthsTwentyFivePercent(double monthsTwentyFivePercent) {
+		this.monthsTwentyFivePercent = monthsTwentyFivePercent;
 	}
 
-	public double getMonthsFortyPercent() {
-		return monthsFortyPercent;
+	public double getSavingsTargetMonths() {
+		return savingsTargetMonths;
 	}
 
-	public void setMonthsFortyPercent(double monthsFortyPercent) {
-		this.monthsFortyPercent = monthsFortyPercent;
+	public void setSavingsTargetMonths(double savingsTargetMonths) {
+		this.savingsTargetMonths = savingsTargetMonths;
 	}
 
-	public double getMonthsFiftyPercent() {
-		return monthsFiftyPercent;
-	}
-
-	public void setMonthsFiftyPercent(double monthsFiftyPercent) {
-		this.monthsFiftyPercent = monthsFiftyPercent;
-	}
 }

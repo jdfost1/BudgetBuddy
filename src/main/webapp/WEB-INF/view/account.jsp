@@ -86,6 +86,10 @@
 		<h3>Current Budget</h3>
 		<p>Budget calculated with user income, fixed expenses, and savings
 			target</p>
+			<a href="account/budget-form">New Budget</a>
+			
+			<p>Savings Target: ${Timeline.monthlySavingsTarget}</p>
+			<p>Months: ${Timeline.savingsTargetMonths}</p>
 	</div>
 
 	<div id="suggestedBudget" class="tabcontent">

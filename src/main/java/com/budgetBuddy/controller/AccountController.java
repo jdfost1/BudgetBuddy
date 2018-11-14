@@ -26,32 +26,32 @@ import com.budgetBuddy.model.SavingsTimeline;
 @Controller
 @RequestMapping("/account")
 public class AccountController {
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}
-	
+
 	@GetMapping
 	public String showAccountPage() {
 		return "account";
 	}
-	
+
 	@RequestMapping("/login")
 	public String showLoginPage() {
 		return "login";
 	}
-	
+
 	@GetMapping("/sign-up")
 	public String showSignUpPage(Model model) {
 		model.addAttribute("userRegistration", new UserRegistration());
 		return "sign-up";
 	}
-	
+
 	@PostMapping("/sign-up")
 	public String processSignUp(@Valid @ModelAttribute("userRegistration") UserRegistration registration,
 			BindingResult bindingResult, Model model) {
@@ -67,34 +67,47 @@ public class AccountController {
 			model.addAttribute("registrationError", "A user with that email already exists.");
 			return "sign-up";
 		}
-		
+
 		// Save user in the database
 		userService.save(registration);
-		
+
 		// Bring the user to create budget page
 		return "budget-form";
 	}
+
 	@GetMapping("/budget-form")
 	public String showBudgetForm(Model model) {
 		model.addAttribute("budgetForm", new BudgetForm());
 		return "budget-form";
 	}
+
 	@PostMapping("/budget-form")
-	public String calculateBudget(@ModelAttribute( "budgetForm") BudgetForm budgetForm,
-			BindingResult bindingResult, Model model) {
-		model.addAttribute("savingsTimeline",new SavingsTimeline());
-		//calculateSavingsTargetOptions(budgetForm);
+	public String calculateBudget(@ModelAttribute("budgetForm") BudgetForm budgetForm, BindingResult bindingResult,
+			Model model) {
+		SavingsTimeline savingsTimeline = new SavingsTimeline();
+
+		savingsTimeline.calculateSavingsTargetOptions(budgetForm);
+		
+		model.addAttribute("Timeline", savingsTimeline);
 		return "savings-target-options";
 	}
-	
+	@RequestMapping("/completeBudget")
+	public String completeBudget(@ModelAttribute("Timeline") SavingsTimeline timeline, BindingResult bindingResult,
+			Model model) {
+		//save timeline to database
+		//calculate budget
+		//save budget to database
+		return "account";
+	}
+
 	@GetMapping("/update")
 	public String showUpdateAccountPage(Model model) {
 		// Get email of current user
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
-		
+
 		// Retrieve account object
 		User user = userService.findByEmail(email);
-		
+
 		// Create UserUpdate object
 		UserUpdate update = new UserUpdate();
 		update.setEmail(user.getEmail());
@@ -103,24 +116,24 @@ public class AccountController {
 
 		// Add UserUpdate object to the model
 		model.addAttribute("userUpdate", update);
-		
+
 		return "update-account";
 	}
-	
+
 	@PostMapping("/update")
 	public String processUpdateAccount(@Valid @ModelAttribute("userUpdate") UserUpdate update,
 			BindingResult bindingResult, Model model) {
 		boolean emailChanged = false;
-		
+
 		// Get the current user
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 		User currentUser = userService.findByEmail(email);
-		
+
 		// If the form is not filled out properly, show the errors on the form
 		if (bindingResult.hasErrors()) {
 			return "update-account";
 		}
-		
+
 		// Check if the user already exists in the database
 		if (!update.getEmail().equals(email)) {
 			User existing = userService.findByEmail(update.getEmail());
@@ -130,48 +143,49 @@ public class AccountController {
 			}
 			emailChanged = true;
 		}
-		
+
 		// Save user in the database
 		userService.save(currentUser, update);
-		
-		// If email address was changed, user must be forced to log in using the new address
+
+		// If email address was changed, user must be forced to log in using the new
+		// address
 		if (emailChanged) {
 			SecurityContextHolder.clearContext();
 			return "redirect:/account/login?emailUpdated";
 		}
-		
+
 		// Bring the user to the account page
 		return "redirect:/account?updated";
 	}
-	
+
 	@GetMapping("/delete")
 	public String showDeleteAccountPage(Model model) {
 		model.addAttribute("userDelete", new UserDelete());
 		return "delete-account";
 	}
-	
+
 	@PostMapping("/delete")
 	public String processDeleteAccount(@Valid @ModelAttribute("userDelete") UserDelete delete,
 			BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			return "delete-account";
 		}
-		
+
 		// Get the current user
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
-		
+
 		// Check if emails match
 		if (!delete.getEmail().equals(email)) {
 			model.addAttribute("emailMismatch", true);
 			return "delete-account";
 		}
-		
+
 		// Retrieve the current user
 		User currentUser = userService.findByEmail(email);
-		
+
 		// Delete the user
 		userService.delete(currentUser);
-		
+
 		// Redirect user to the login page with a success message
 		return "redirect:/account/login?accountDeleted";
 	}
