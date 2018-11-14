@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.budgetBuddy.entities.User;
+import com.budgetBuddy.model.BudgetForm;
 import com.budgetBuddy.model.UserDelete;
 import com.budgetBuddy.model.UserRegistration;
 import com.budgetBuddy.model.UserUpdate;
 import com.budgetBuddy.service.UserService;
+import com.budgetBuddy.model.SavingsTimeline;
 
 @Controller
 @RequestMapping("/account")
@@ -69,8 +71,20 @@ public class AccountController {
 		// Save user in the database
 		userService.save(registration);
 		
-		// Bring the user to the home page
-		return "redirect:/";
+		// Bring the user to create budget page
+		return "budget-form";
+	}
+	@GetMapping("/budget-form")
+	public String showBudgetForm(Model model) {
+		model.addAttribute("budgetForm", new BudgetForm());
+		return "budget-form";
+	}
+	@PostMapping("/budget-form")
+	public String calculateBudget(@ModelAttribute( "budgetForm") BudgetForm budgetForm,
+			BindingResult bindingResult, Model model) {
+		model.addAttribute("savingsTimeline",new SavingsTimeline());
+		//calculateSavingsTargetOptions(budgetForm);
+		return "savings-target-options";
 	}
 	
 	@GetMapping("/update")

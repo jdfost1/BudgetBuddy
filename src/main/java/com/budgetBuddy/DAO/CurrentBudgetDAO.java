@@ -1,7 +1,7 @@
 package com.budgetBuddy.DAO;
 
-import com.budgetBuddy.entities.CurrentBudget;
+import com.budgetBuddy.entities.Budget;
 
 public interface CurrentBudgetDAO {
-	public void addCurrentBudget(CurrentBudget budget);
+	public void addCurrentBudget(Budget budget);
 }
