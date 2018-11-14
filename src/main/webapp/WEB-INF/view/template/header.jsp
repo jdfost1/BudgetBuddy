@@ -22,11 +22,11 @@
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> Financial Quick Tools </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="/budgetbuddy/tools/quick-budget">Quick
+						<a class="dropdown-item" href="${pageContext.request.contextPath}/tools/quick-budget">Quick
 							Budget</a> <a class="dropdown-item"
-							href="/budgetbuddy/tools/401k-calculator">401k Calculator</a> <a
+							href="${pageContext.request.contextPath}/tools/401k-calculator">401k Calculator</a> <a
 							class="dropdown-item"
-							href="/budgetbuddy/tools/compound-interest-calculator">Compound
+							href="/budg${pageContext.request.contextPath}etbuddy/tools/compound-interest-calculator">Compound
 							Interest Calculator</a>
 					</div>
 				</li>
@@ -50,7 +50,7 @@
 				</c:when>
 				<c:otherwise>
 					<a class="btn btn-outline-success my-2 my-sm-0"
-						href="/budgetbuddy/account/login" role="button">Log In</a>
+						href="${pageContext.request.contextPath}/account/login" role="button">Log In</a>
 				</c:otherwise>
 			</c:choose>
 		</div>

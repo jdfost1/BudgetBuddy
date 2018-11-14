@@ -59,7 +59,7 @@
 							    <input type="password" id="passwordInput" class="form-control form-control-lg" name="password" placeholder="Password"/>
 							</div>
 							<button type="submit" id="submitButton" class="btn btn-lg btn-block btn-success">Log In</button>
-							<a href="sign-up">Don't have an account? Sign Up</a>
+							<a href="${pageContext.request.contextPath}/account/sign-up">Don't have an account? Sign Up</a>
 						</form:form>
 					</div>
 				</div>
