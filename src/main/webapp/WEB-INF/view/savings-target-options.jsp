@@ -21,7 +21,7 @@
 							<div class="form-group">
 								<label for="salaryInput">5% of leftover income - $${Timeline.monthlySavingsTargetFive} a month for ${Timeline.monthsFivePercent} months</label>
 								<form:hidden path="monthlySavingsTarget" value="${Timeline.monthlySavingsTargetFive}" />
-								<form:hidden path="savingsTargetMonths" value="${Timeline.monthlySavingsTargetFive}" />
+								<form:hidden path="savingsTargetMonths" value="${Timeline.monthsFivePercent}" />
 								<button type="submit" class="btn btn-success">Select</button>
 								</div>
 							</form:form>
@@ -30,7 +30,7 @@
 							<div class="form-group">
 								<label for="contributionInput">10% of leftover income - $${Timeline.monthlySavingsTargetTen} a month for ${Timeline.monthsTenPercent} months</label>
 								<form:hidden path="monthlySavingsTarget" value="${Timeline.monthlySavingsTargetTen}" />
-								<form:hidden path="savingsTargetMonths" value="${Timeline.monthlySavingsTargetTen}" />
+								<form:hidden path="savingsTargetMonths" value="${Timeline.monthsTenPercent}" />
 								<button type="submit" class="btn btn-success">Select</button>
 								</div>
 							</form:form>
@@ -39,7 +39,7 @@
 							<div class="form-group">
 								<label for="rateInput">15% of leftover income - $${Timeline.monthlySavingsTargetFifteen} a month for ${Timeline.monthsFifteenPercent} months</label>
 								<form:hidden path="monthlySavingsTarget" value="${Timeline.monthlySavingsTargetFifteen}" />
-								<form:hidden path="savingsTargetMonths" value="${Timeline.monthlySavingsTargetFifteen}" />
+								<form:hidden path="savingsTargetMonths" value="${Timeline.monthsFifteenPercent}" />
 								<button type="submit" class="btn btn-success">Select</button>
 								</div>
 							</form:form>
@@ -48,7 +48,7 @@
 							<div class="form-group">
 								<label for="ageInput">20% of leftover income - $${Timeline.monthlySavingsTargetTwenty} a month for ${Timeline.monthsTwentyPercent} months</label>
 								<form:hidden path="monthlySavingsTarget" value="${Timeline.monthlySavingsTargetTwenty}" />
-								<form:hidden path="savingsTargetMonths" value="${Timeline.monthlySavingsTargetTwenty}" />
+								<form:hidden path="savingsTargetMonths" value="${Timeline.monthsTwentyPercent}" />
 								<button type="submit" class="btn btn-success">Select</button>
 								</div>
 							</form:form>
@@ -57,7 +57,7 @@
 							<div class="form-group">
 								<label for="retireAgeInput">25% of leftover income - $${Timeline.monthlySavingsTargetTwentyFive} a month for ${Timeline.monthsTwentyFivePercent} months</label>
 								<form:hidden path="monthlySavingsTarget" value="${Timeline.monthlySavingsTargetTwentyFive}" />
-								<form:hidden path="savingsTargetMonths" value="${Timeline.monthlySavingsTargetTwentyFive}" />
+								<form:hidden path="savingsTargetMonths" value="${Timeline.monthsTwentyFivePercent}" />
 								<button type="submit" class="btn btn-success">Select</button>
 								</div>
 							</form:form>

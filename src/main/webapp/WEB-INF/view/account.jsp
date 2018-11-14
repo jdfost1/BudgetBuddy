@@ -86,10 +86,19 @@
 		<h3>Current Budget</h3>
 		<p>Budget calculated with user income, fixed expenses, and savings
 			target</p>
-			<a href="account/budget-form">New Budget</a>
+			<button onclick="account/budget-form">Update Budget</button>
 			
-			<p>Savings Target: ${Timeline.monthlySavingsTarget}</p>
-			<p>Months: ${Timeline.savingsTargetMonths}</p>
+			
+			<p>Months: ${newBudget.savingsTargetMonths}</p>
+			<p>Car Payment: ${newBudget.carPayment}</p>
+			<p>Car Insurance: ${newBudget.carInsurance}</p>
+			<p>Utilities: ${newBudget.utilities}</p>
+			<p>Other Bills: ${newBudget.remainingExpenses}</p>
+			
+			<p>Savings Target: ${newBudget.savingsTarget}</p>
+			<p>General Savings: ${newBudget.generalSavings}</p>
+			<p>Retirement: ${newBudget.retirement}</p>
+			<p>Spending: ${newBudget.spending}</p>
 	</div>
 
 	<div id="suggestedBudget" class="tabcontent">

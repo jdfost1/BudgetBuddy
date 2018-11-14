@@ -1,11 +1,8 @@
 package com.budgetBuddy.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Column;
 
 public class BudgetForm {
+	//values collected from user to use for budget
 	private double income;
 	private double savingsTarget;
 	private double rent;
@@ -15,6 +12,7 @@ public class BudgetForm {
 	private double remainingExpenses;
 	
 
+	//getters and setters
 	public double getIncome() {
 		return income;
 	}

@@ -1,18 +1,21 @@
 package com.budgetBuddy.model;
 
-public class SavingsTimeline {
+public class SavingsTarget {
+	//user's chosen option for savings target plan (monthly amount and months)
 	private double monthlySavingsTarget;
 	private double savingsTargetMonths;
 
 	private double monthlyIncome;
 	private double leftOverIncome;
 
+	//Percentage of leftover income options (5%,10%,15%,20%,and 25% of user's leftover income)
 	public double monthlySavingsTargetFive;
 	private double monthlySavingsTargetTen;
 	private double monthlySavingsTargetFifteen;
 	private double monthlySavingsTargetTwenty;
 	private double monthlySavingsTargetTwentyFive;
 
+	//Number of months needed to hit savings target goal using (5%,10%,15%,20%,and 25% of user's leftover income)
 	private double monthsFivePercent;
 	private double monthsTenPercent;
 	private double monthsFifteenPercent;
@@ -21,6 +24,8 @@ public class SavingsTimeline {
 
 	public void calculateSavingsTargetOptions(BudgetForm form) {
 		monthlyIncome = form.getIncome() / 12;
+
+		// calculate leftover income after deducting expenses from income
 		leftOverIncome = monthlyIncome - (form.getRent() + form.getCarPayment() + form.getCarInsurance()
 				+ form.getUtilities() + form.getRemainingExpenses());
 
@@ -43,6 +48,7 @@ public class SavingsTimeline {
 
 	}
 
+//getters and setters
 	public double getMonthlySavingsTarget() {
 		return monthlySavingsTarget;
 	}

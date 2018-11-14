@@ -17,7 +17,7 @@
 					<h5 class="card-header">Create New Budget</h5>
 					<div class="card-body">
 
-						<form:form  modelAttribute="budgetForm">
+						<form:form action="budget-form-complete" modelAttribute="budgetForm">
 							<div class="form-group">
 								<label for="annualIncome">Enter your annual income</label>
 								<form:input  path="income" id="income" cssClass="form-control"/>

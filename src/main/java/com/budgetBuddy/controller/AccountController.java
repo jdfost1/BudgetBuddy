@@ -15,13 +15,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.budgetBuddy.DAO.BudgetDAO;
+import com.budgetBuddy.DAO.BudgetDAOImpl;
+import com.budgetBuddy.entities.Budget;
 import com.budgetBuddy.entities.User;
 import com.budgetBuddy.model.BudgetForm;
 import com.budgetBuddy.model.UserDelete;
 import com.budgetBuddy.model.UserRegistration;
 import com.budgetBuddy.model.UserUpdate;
 import com.budgetBuddy.service.UserService;
-import com.budgetBuddy.model.SavingsTimeline;
+import com.budgetBuddy.model.SavingsTarget;
 
 @Controller
 @RequestMapping("/account")
@@ -71,6 +74,7 @@ public class AccountController {
 		// Save user in the database
 		userService.save(registration);
 
+		model.addAttribute("budgetForm", new BudgetForm());
 		// Bring the user to create budget page
 		return "budget-form";
 	}
@@ -81,22 +85,34 @@ public class AccountController {
 		return "budget-form";
 	}
 
-	@PostMapping("/budget-form")
+	@RequestMapping("/budget-form-complete")
 	public String calculateBudget(@ModelAttribute("budgetForm") BudgetForm budgetForm, BindingResult bindingResult,
 			Model model) {
-		SavingsTimeline savingsTimeline = new SavingsTimeline();
+		SavingsTarget savingsTimeline = new SavingsTarget();
 
 		savingsTimeline.calculateSavingsTargetOptions(budgetForm);
 		
+		//calculate budget and set budget model
+				
 		model.addAttribute("Timeline", savingsTimeline);
 		return "savings-target-options";
 	}
 	@RequestMapping("/completeBudget")
-	public String completeBudget(@ModelAttribute("Timeline") SavingsTimeline timeline, BindingResult bindingResult,
+	public String completeBudget(@ModelAttribute("Timeline") SavingsTarget timeline, @ModelAttribute("budgetForm") BudgetForm budget, BindingResult bindingResult,
 			Model model) {
-		//save timeline to database
-		//calculate budget
-		//save budget to database
+		
+		
+		
+				
+				
+				
+				model.addAttribute("newBudget", new Budget(timeline,budget));
+				
+				Budget newBudget = new Budget(timeline,budget);
+				
+				
+				//save budget to database
+				//CurrentBudgetDAO.addCurrentBudget(newBudget);
 		return "account";
 	}
 
