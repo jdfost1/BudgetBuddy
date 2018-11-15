@@ -118,6 +118,7 @@ public class AccountController {
 		model.addAttribute("newBudget", newBudget);
 
 		// save the new calculated budget to the database
+		
 		BudgetDAOImpl.saveBudget(newBudget);
 
 		return "account";

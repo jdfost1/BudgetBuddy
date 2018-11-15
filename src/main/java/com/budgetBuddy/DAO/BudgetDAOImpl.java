@@ -2,30 +2,40 @@ package com.budgetBuddy.DAO;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.budgetBuddy.entities.Budget;
 
-@Repository
-@Transactional
-public class BudgetDAOImpl{
-	@Autowired
-	private SessionFactory sessionFactory;
-	
+public class BudgetDAOImpl {
+
 	public static void saveBudget(Budget budget) {
-		
-		// Get the current hibernate session
-			//	Session currentSession = sessionFactory.getCurrentSession();
-				
-				// Save the budget to the database
-				//currentSession.saveOrUpdate(budget);
-		
+
+		// create session factory
+		SessionFactory factory = new Configuration()
+				.configure("hibernate.cfg.xml")
+				.addAnnotatedClass(Budget.class)
+				.buildSessionFactory();
+
+		// create session
+		Session session = factory.getCurrentSession();
+		try {
+
+			// start transaction
+			session.beginTransaction();
+
+			// save budget object to database
+			System.out.println("save the budget object..");
+			session.saveOrUpdate(budget);
+
+			// commit transaction
+			session.getTransaction().commit();
+			System.out.println("done");
+		} finally {
+			factory.close();
+		}
+
 	}
-	public Session setSession() {
-		Session currentSession = sessionFactory.getCurrentSession();
-		return currentSession;
-	}
-	
+
 }
