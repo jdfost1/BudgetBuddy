@@ -17,47 +17,47 @@
 					<h5 class="card-header">Savings Target Plan Options</h5>
 					<div class="card-body">
 					
-						<form:form action="completeBudget" modelAttribute="Timeline">
+						<form:form action="completeBudget" modelAttribute="savingsTarget">
 							<div class="form-group">
-								<label for="salaryInput">5% of leftover income - $${Timeline.monthlySavingsTargetFive} a month for ${Timeline.monthsFivePercent} months</label>
-								<form:hidden path="monthlySavingsTarget" value="${Timeline.monthlySavingsTargetFive}" />
-								<form:hidden path="savingsTargetMonths" value="${Timeline.monthsFivePercent}" />
+								<label for="salaryInput">5% of leftover income - $${savingsTarget.monthlySavingsTargetFive} a month for ${savingsTarget.monthsFivePercent} months</label>
+								<form:hidden path="monthlySavingsTarget" value="${savingsTarget.monthlySavingsTargetFive}" />
+								<form:hidden path="savingsTargetMonths" value="${savingsTarget.monthsFivePercent}" />
 								<button type="submit" class="btn btn-success">Select</button>
 								</div>
 							</form:form>
 							
-							<form:form action="completeBudget" modelAttribute="Timeline">
+							<form:form action="completeBudget" modelAttribute="savingsTarget">
 							<div class="form-group">
-								<label for="contributionInput">10% of leftover income - $${Timeline.monthlySavingsTargetTen} a month for ${Timeline.monthsTenPercent} months</label>
-								<form:hidden path="monthlySavingsTarget" value="${Timeline.monthlySavingsTargetTen}" />
-								<form:hidden path="savingsTargetMonths" value="${Timeline.monthsTenPercent}" />
+								<label for="contributionInput">10% of leftover income - $${savingsTarget.monthlySavingsTargetTen} a month for ${savingsTarget.monthsTenPercent} months</label>
+								<form:hidden path="monthlySavingsTarget" value="${savingsTarget.monthlySavingsTargetTen}" />
+								<form:hidden path="savingsTargetMonths" value="${savingsTarget.monthsTenPercent}" />
 								<button type="submit" class="btn btn-success">Select</button>
 								</div>
 							</form:form>
 							
-							<form:form action="completeBudget" modelAttribute="Timeline">
+							<form:form action="completeBudget" modelAttribute="savingsTarget">
 							<div class="form-group">
-								<label for="rateInput">15% of leftover income - $${Timeline.monthlySavingsTargetFifteen} a month for ${Timeline.monthsFifteenPercent} months</label>
-								<form:hidden path="monthlySavingsTarget" value="${Timeline.monthlySavingsTargetFifteen}" />
-								<form:hidden path="savingsTargetMonths" value="${Timeline.monthsFifteenPercent}" />
+								<label for="rateInput">15% of leftover income - $${savingsTarget.monthlySavingsTargetFifteen} a month for ${savingsTarget.monthsFifteenPercent} months</label>
+								<form:hidden path="monthlySavingsTarget" value="${savingsTarget.monthlySavingsTargetFifteen}" />
+								<form:hidden path="savingsTargetMonths" value="${savingsTarget.monthsFifteenPercent}" />
 								<button type="submit" class="btn btn-success">Select</button>
 								</div>
 							</form:form>
 							
-							<form:form action="completeBudget" modelAttribute="Timeline">
+							<form:form action="completeBudget" modelAttribute="savingsTarget">
 							<div class="form-group">
-								<label for="ageInput">20% of leftover income - $${Timeline.monthlySavingsTargetTwenty} a month for ${Timeline.monthsTwentyPercent} months</label>
-								<form:hidden path="monthlySavingsTarget" value="${Timeline.monthlySavingsTargetTwenty}" />
-								<form:hidden path="savingsTargetMonths" value="${Timeline.monthsTwentyPercent}" />
+								<label for="ageInput">20% of leftover income - $${savingsTarget.monthlySavingsTargetTwenty} a month for ${savingsTarget.monthsTwentyPercent} months</label>
+								<form:hidden path="monthlySavingsTarget" value="${savingsTarget.monthlySavingsTargetTwenty}" />
+								<form:hidden path="savingsTargetMonths" value="${savingsTarget.monthsTwentyPercent}" />
 								<button type="submit" class="btn btn-success">Select</button>
 								</div>
 							</form:form>
 							
-							<form:form action="completeBudget" modelAttribute="Timeline">
+							<form:form action="completeBudget" modelAttribute="savingsTarget">
 							<div class="form-group">
-								<label for="retireAgeInput">25% of leftover income - $${Timeline.monthlySavingsTargetTwentyFive} a month for ${Timeline.monthsTwentyFivePercent} months</label>
-								<form:hidden path="monthlySavingsTarget" value="${Timeline.monthlySavingsTargetTwentyFive}" />
-								<form:hidden path="savingsTargetMonths" value="${Timeline.monthsTwentyFivePercent}" />
+								<label for="retireAgeInput">25% of leftover income - $${savingsTarget.monthlySavingsTargetTwentyFive} a month for ${savingsTarget.monthsTwentyFivePercent} months</label>
+								<form:hidden path="monthlySavingsTarget" value="${savingsTarget.monthlySavingsTargetTwentyFive}" />
+								<form:hidden path="savingsTargetMonths" value="${savingsTarget.monthsTwentyFivePercent}" />
 								<button type="submit" class="btn btn-success">Select</button>
 								</div>
 							</form:form>

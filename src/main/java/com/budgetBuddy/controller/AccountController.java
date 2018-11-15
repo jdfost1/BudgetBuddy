@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.budgetBuddy.DAO.BudgetDAO;
 import com.budgetBuddy.DAO.BudgetDAOImpl;
@@ -27,6 +29,7 @@ import com.budgetBuddy.service.UserService;
 import com.budgetBuddy.model.SavingsTarget;
 
 @Controller
+@SessionAttributes("budgetForm")//need budget form to hold data for entire session
 @RequestMapping("/account")
 public class AccountController {
 
@@ -79,40 +82,44 @@ public class AccountController {
 		return "budget-form";
 	}
 
+	// show user budget form to start creating a budget
 	@GetMapping("/budget-form")
 	public String showBudgetForm(Model model) {
+		// create budgetForm object and set to model
 		model.addAttribute("budgetForm", new BudgetForm());
 		return "budget-form";
 	}
 
+	//after submitting budget form, show user their savings target plan options
 	@RequestMapping("/budget-form-complete")
-	public String calculateBudget(@ModelAttribute("budgetForm") BudgetForm budgetForm, BindingResult bindingResult,
-			Model model) {
-		SavingsTarget savingsTimeline = new SavingsTarget();
+	public String showSavingsTargetPlanOptions(@ModelAttribute("budgetForm") BudgetForm budgetForm,
+			BindingResult bindingResult, Model model) {
+		// create new savings target object
+		SavingsTarget savingsTarget = new SavingsTarget();
 
-		savingsTimeline.calculateSavingsTargetOptions(budgetForm);
+		// pass user's budgetForm data into savings target calculator method
+		savingsTarget.calculateSavingsTargetOptions(budgetForm);
+
+		// after calculating, set savings target object with calculated values to model
+		model.addAttribute("savingsTarget", savingsTarget);
 		
-		//calculate budget and set budget model
-				
-		model.addAttribute("Timeline", savingsTimeline);
 		return "savings-target-options";
 	}
+
+	//after choosing savings target plan, calculate users budget and return to account page
 	@RequestMapping("/completeBudget")
-	public String completeBudget(@ModelAttribute("Timeline") SavingsTarget timeline, @ModelAttribute("budgetForm") BudgetForm budget, BindingResult bindingResult,
-			Model model) {
-		
-		
-		
-				
-				
-				
-				model.addAttribute("newBudget", new Budget(timeline,budget));
-				
-				Budget newBudget = new Budget(timeline,budget);
-				
-				
-				//save budget to database
-				//CurrentBudgetDAO.addCurrentBudget(newBudget);
+	public String completeBudget(@ModelAttribute("SavingsTarget") SavingsTarget savingsTarget, BindingResult result,
+			@ModelAttribute("budgetForm") BudgetForm budgetForm, BindingResult bindingResult, Model model) {
+
+		// pass savings target info and budgetForm info into Budget constructor to calculate budget
+		Budget newBudget = new Budget(savingsTarget, budgetForm);
+
+		// set the new calculated budget to the model
+		model.addAttribute("newBudget", newBudget);
+
+		// save the new calculated budget to the database
+		BudgetDAOImpl.saveBudget(newBudget);
+
 		return "account";
 	}
 

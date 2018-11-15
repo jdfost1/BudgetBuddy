@@ -70,3 +70,22 @@ VALUES
 (1,1),
 (2,1),
 (3,2);
+
+-- Table structure for table `budget`
+--
+
+DROP TABLE IF EXISTS `Budget`;
+CREATE TABLE `Budget` (
+  `email` varchar(50) NOT NULL UNIQUE,
+  `savings_target` decimal(10,2) NOT NULL,
+  `rent` decimal(10,2) NOT NULL,
+  `car_payment` decimal(10,2) NOT NULL,
+  `car_insurance` decimal(10,2) NOT NULL,
+  `utilities` decimal(10,2) NOT NULL,
+  `general_savings` decimal(10,2) NOT NULL,
+  `spending` decimal(10,2) NOT NULL,
+  `retirement` decimal(10,2) NOT NULL,
+  `remaining_expenses` decimal(10,2) NOT NULL,
+  
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

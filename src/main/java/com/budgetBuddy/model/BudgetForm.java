@@ -1,6 +1,8 @@
 package com.budgetBuddy.model;
 
+import org.springframework.context.annotation.Scope;
 
+@Scope("session")
 public class BudgetForm {
 	//values collected from user to use for budget
 	private double income;

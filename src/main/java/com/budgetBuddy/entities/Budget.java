@@ -12,51 +12,56 @@ import com.budgetBuddy.model.SavingsTarget;
 import javax.persistence.Column;
 
 @Entity
-@Table(name = "budgets")
+@Table(name = "Budget")
 public class Budget {
 	@Id
 	@Column(name = "email")//primary key
 	private String email;
 
-	@Column(name = "savingsTarget")
+	@Column(name = "savings_target")
 	private double savingsTarget;
 
 	@Column(name = "rent")
 	private double rent;
 
-	@Column(name = "carPayment")
+	@Column(name = "car_payment")
 	private double carPayment;
 
-	@Column(name = "carInsurance")
+	@Column(name = "car_insurance")
 	private double carInsurance;
 
 	@Column(name = "utilities")
 	private double utilities;
 
-	@Column(name = "generalSavings")
+	@Column(name = "general_savings")
 	private double generalSavings;
 
-	@Column(name = "Spending")
+	@Column(name = "spending")
 	private double spending;
 
 	@Column(name = "retirement")
 	private double retirement;
 
-	@Column(name = "remainingExpenses")
+	@Column(name = "remaining_expenses")
 	private double remainingExpenses;
 
-	public Budget(SavingsTarget timeline, BudgetForm budgetForm) {
+	public Budget(SavingsTarget savingsTarget, BudgetForm budgetForm) {
 		// set budget model with values from budget form
 		this.rent = budgetForm.getRent();
 		this.carPayment = budgetForm.getCarPayment();
 		this.carInsurance = budgetForm.getCarInsurance();
 		this.utilities = budgetForm.getUtilities();
 		this.remainingExpenses = budgetForm.getRemainingExpenses();
-		this.savingsTarget = timeline.getMonthlySavingsTarget();
+		this.savingsTarget = savingsTarget.getMonthlySavingsTarget();
 		this.email = SecurityContextHolder.getContext().getAuthentication().getName();
 
-		// get total leftover income after substracting the savings target
-		double leftOver = timeline.getLeftOverIncome() - timeline.getMonthlySavingsTarget();
+		//calculate monthly leftover income after subtracting user's monthly savings target
+		double monthlyIncome = budgetForm.getIncome()/12;
+		double monthlyExpenses = this.rent + this.carPayment + this.carInsurance + this.utilities + this.remainingExpenses;
+		double leftOver = monthlyIncome - monthlyExpenses;
+		leftOver = leftOver - this.savingsTarget;
+		
+		
 
 		// calculate remaining budget categories with the remaining leftover
 		this.retirement = leftOver * .2;

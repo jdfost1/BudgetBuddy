@@ -26,7 +26,7 @@ public class SavingsTarget {
 		monthlyIncome = form.getIncome() / 12;
 
 		// calculate leftover income after deducting expenses from income
-		leftOverIncome = monthlyIncome - (form.getRent() + form.getCarPayment() + form.getCarInsurance()
+		this.leftOverIncome = monthlyIncome - (form.getRent() + form.getCarPayment() + form.getCarInsurance()
 				+ form.getUtilities() + form.getRemainingExpenses());
 
 		double savingsTarget = form.getSavingsTarget();

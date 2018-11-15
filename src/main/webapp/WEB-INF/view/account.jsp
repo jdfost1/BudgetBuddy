@@ -86,10 +86,10 @@
 		<h3>Current Budget</h3>
 		<p>Budget calculated with user income, fixed expenses, and savings
 			target</p>
-			<button onclick="account/budget-form">Update Budget</button>
+			<a href="${pageContext.request.contextPath}/account/budget-form">Update Budget</a>
 			
 			
-			<p>Months: ${newBudget.savingsTargetMonths}</p>
+			
 			<p>Car Payment: ${newBudget.carPayment}</p>
 			<p>Car Insurance: ${newBudget.carInsurance}</p>
 			<p>Utilities: ${newBudget.utilities}</p>
