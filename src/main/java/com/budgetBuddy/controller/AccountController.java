@@ -130,7 +130,7 @@ public class AccountController {
 		// Retrieve account object
 		User user = userService.findByEmail(email);
 
-		// Add UserUpdate object to the model
+		// Add user object to the model
 		model.addAttribute("user", user);
 
 		return "view-account";
