@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -33,6 +34,9 @@ public class AccountController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
@@ -224,5 +228,35 @@ public class AccountController {
 
 		// Redirect user to the login page with a success message
 		return "redirect:/account/login?accountDeleted";
+	}
+	
+	@GetMapping("/reset-password")
+	public String showResetPasswordPage(Model model) {
+		model.addAttribute("userDelete", new UserDelete());		
+		return "reset-password";
+	}
+
+	@PostMapping("reset-password")
+	public String processResetPassword(@Valid @ModelAttribute("userDelete") UserDelete delete,
+			BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return "reset-password";
+		}
+
+		// Retrieve validated email
+		String email = delete.getEmail();
+
+		// Reset the person's password with the given email
+		String newPassword = "bubba";
+		String hashedPwd = passwordEncoder.encode(newPassword);
+		User user = userService.findByEmail(email);
+		user.setPassword(hashedPwd);
+		userService.save(user);
+		
+		// Send them an email with the new password
+		
+
+		// Redirect user to the login page with a success message
+		return "redirect:/account/login?passwordReset";
 	}
 }

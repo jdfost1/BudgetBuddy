@@ -65,6 +65,11 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	public void save(User user) {
+		userDAO.save(user);
+	}
+	
+	@Override
 	public void save(User user, UserUpdate update) {
 		user.setEmail(update.getEmail());
 		user.setName(update.getName());

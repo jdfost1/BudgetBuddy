@@ -32,6 +32,8 @@
 							<c:if test="${param.error != null}">
 								<div class="alert alert-danger" role="alert">
 									The email or password you have entered is invalid.
+									<br>
+									<a href="${pageContext.request.contextPath}/account/reset-password" class="alert-link">Forgot password?</a>
 								</div>
 							</c:if>
 							<c:if test="${param.logout != null}">
@@ -54,12 +56,17 @@
 									Your account has been deleted successfully.
 								</div>
 							</c:if>
+							<c:if test="${param.passwordReset != null}">
+								<div class="alert alert-success">
+									Your password has been reset successfully. You will receive an email with a temporary new password.
+								</div>
+							</c:if>
 							<div class="form-group">
 							    <input type="email" id="emailInput" class="form-control form-control-lg" name="email" placeholder="Email" />
 							    <input type="password" id="passwordInput" class="form-control form-control-lg" name="password" placeholder="Password"/>
 							</div>
 							<button type="submit" id="submitButton" class="btn btn-lg btn-block btn-success">Log In</button>
-							<a href="${pageContext.request.contextPath}/account/sign-up">Don't have an account? Sign Up</a>
+							<a href="${pageContext.request.contextPath}/account/sign-up">Don't have an account? Sign Up</a>	
 						</form:form>
 					</div>
 				</div>
