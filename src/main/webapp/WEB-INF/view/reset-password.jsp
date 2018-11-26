@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Delete Account - Budget Buddy</title>
+	<title>Reset Password - Budget Buddy</title>
 	<jsp:include page="template/css-include.jsp"/>
 </head>
 <body>

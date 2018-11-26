@@ -25,6 +25,7 @@ import com.budgetBuddy.model.SavingsTarget;
 import com.budgetBuddy.model.UserDelete;
 import com.budgetBuddy.model.UserRegistration;
 import com.budgetBuddy.model.UserUpdate;
+import com.budgetBuddy.service.EmailService;
 import com.budgetBuddy.service.UserService;
 
 @Controller
@@ -37,6 +38,9 @@ public class AccountController {
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private EmailService emailService;
 
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
@@ -254,7 +258,9 @@ public class AccountController {
 		userService.save(user);
 		
 		// Send them an email with the new password
-		
+		String subject = "Your Budget Buddy password has been reset";
+		String text = "New Password: bubba";
+		emailService.sendSimpleMessage(email, subject, text);
 
 		// Redirect user to the login page with a success message
 		return "redirect:/account/login?passwordReset";

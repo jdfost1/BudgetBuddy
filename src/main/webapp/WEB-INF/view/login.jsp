@@ -33,7 +33,7 @@
 								<div class="alert alert-danger" role="alert">
 									The email or password you have entered is invalid.
 									<br>
-									<a href="${pageContext.request.contextPath}/account/reset-password" class="alert-link">Forgot password?</a>
+									<a href="${pageContext.request.contextPath}/account/reset-password" class="alert-link">Forgot your password? ></a>
 								</div>
 							</c:if>
 							<c:if test="${param.logout != null}">
