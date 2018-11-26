@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Compound Interest Calculator - Budget Buddy</title>
 	<jsp:include page="template/css-include.jsp"/>
+	<jsp:include page="template/favicon.jsp"/>
 </head>
 <body>
 	<jsp:include page="template/header.jsp"/>

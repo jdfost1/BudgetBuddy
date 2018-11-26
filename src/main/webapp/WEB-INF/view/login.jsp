@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Login - Budget Buddy</title>
 	<jsp:include page="template/css-include.jsp"/>
+	<jsp:include page="template/favicon.jsp"/>
 	<style>
 		#emailInput { 
 			border-bottom-left-radius: 0;
@@ -28,6 +29,9 @@
 				<div id="card" class="card">
 					<h5 class="card-header">Please Sign In</h5>
 					<div class="card-body">
+						<div class="logo-container">
+							<img src="${pageContext.request.contextPath}/resources/img/logo_white.png" width="100" height="100">
+						</div>
 						<form:form action="process-login">
 							<c:if test="${param.error != null}">
 								<div class="alert alert-danger" role="alert">

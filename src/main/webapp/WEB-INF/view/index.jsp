@@ -11,6 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Budget Buddy</title>
 	<jsp:include page="template/css-include.jsp"/>
+	<jsp:include page="template/favicon.jsp"/>
 </head>
 <body>
     <jsp:include page="template/header.jsp"/>
@@ -19,7 +20,7 @@
 			<br>
 			<h2 class="hello">Hello<c:if test="${auth}"> <sec:authentication property="principal.username"/></c:if>, welcome to Budget Buddy!</h2>
 			<br>
-			<img src="${pageContext.request.contextPath}/resources/img/logo.png">
+			<img src="${pageContext.request.contextPath}/resources/img/banner_white.png">
 		</div>
 	</div>
 	<%@ include file="template/js-include.html"%>

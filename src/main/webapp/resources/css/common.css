@@ -1,3 +1,8 @@
+.navbar {
+	padding: 10px 20px 10px 15px !important;
+	margin: 0px !important;
+}
+
 .card { 
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -21,4 +26,9 @@
 
 #logout-form {
 	padding: 4px 24px;
+}
+
+.logo-container {
+	text-align: center;
+	margin-bottom: 20px;
 }
