@@ -24,6 +24,9 @@
 								<label for="emailInput">Email Address</label>
 								<form:input type="email" path="email" id="emailInput" cssClass="form-control"/>
 								<form:errors path="email" element="div"	cssClass="invalid-feedback"/>
+								<c:if test="${userNotExist}">
+									<div class="invalid-feedback">The email address entered does not match any user account.</div>
+								</c:if>
 							</div>
 							<button type="submit" class="btn btn-block btn-success">Reset Password</button>
 						</form:form>

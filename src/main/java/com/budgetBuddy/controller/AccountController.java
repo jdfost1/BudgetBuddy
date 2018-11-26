@@ -242,7 +242,7 @@ public class AccountController {
 
 	@PostMapping("reset-password")
 	public String processResetPassword(@Valid @ModelAttribute("userDelete") UserDelete delete,
-			BindingResult bindingResult) {
+			BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			return "reset-password";
 		}
@@ -254,6 +254,10 @@ public class AccountController {
 		String newPassword = "bubba";
 		String hashedPwd = passwordEncoder.encode(newPassword);
 		User user = userService.findByEmail(email);
+		if (user == null) {
+			model.addAttribute("userNotExist", true);
+			return "reset-password";
+		}
 		user.setPassword(hashedPwd);
 		userService.save(user);
 		
