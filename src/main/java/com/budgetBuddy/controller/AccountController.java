@@ -4,7 +4,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
-
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,16 +16,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.budgetBuddy.DAO.BudgetDAO;
 import com.budgetBuddy.DAO.BudgetDAOImpl;
 import com.budgetBuddy.entities.Budget;
 import com.budgetBuddy.entities.User;
 import com.budgetBuddy.model.BudgetForm;
+import com.budgetBuddy.model.SavingsTarget;
 import com.budgetBuddy.model.UserDelete;
 import com.budgetBuddy.model.UserRegistration;
 import com.budgetBuddy.model.UserUpdate;
 import com.budgetBuddy.service.UserService;
-import com.budgetBuddy.model.SavingsTarget;
 
 @Controller
 @SessionAttributes("budgetForm")//need budget form to hold data for entire session
@@ -122,6 +120,20 @@ public class AccountController {
 		BudgetDAOImpl.saveBudget(newBudget);
 
 		return "account";
+	}
+	
+	@GetMapping("/view")
+	public String showAccountDetailsPage(Model model) {
+		// Get email of current user
+		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+
+		// Retrieve account object
+		User user = userService.findByEmail(email);
+
+		// Add user object to the model
+		model.addAttribute("user", user);
+
+		return "view-account";
 	}
 
 	@GetMapping("/update")
