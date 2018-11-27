@@ -6,21 +6,29 @@
 	<title>Quick Budget Result - Budget Buddy</title>
 	<jsp:include page="template/css-include.jsp"/>
 	<jsp:include page="template/favicon.jsp"/>
-	<style>
-		body { text-align: center;}
-	</style>
 </head>
 <body>
 	<jsp:include page="template/header.jsp"/>
-<body>
-	<div>
-		<h1>Suggested Monthly Budget</h1>
-		<p>Rent/Mortgage: <fmt:formatNumber type="currency" value="${budgetResult.rentValue}"/></p>
-		<p>Other Bills: <fmt:formatNumber type="currency" value="${budgetResult.otherBillsValue}"/></p>
-		<p>Savings: <fmt:formatNumber type="currency" value="${budgetResult.savingsValue}"/></p>
-		<p>Retirement: <fmt:formatNumber type="currency" value="${budgetResult.retirementValue}"/></p>
-		<p>Education: <fmt:formatNumber type="currency" value="${budgetResult.educationValue}"/></p>
-		<p>Spending: <fmt:formatNumber type="currency" value="${budgetResult.funValue}"/></p>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 col-lg-6 offset-sm-2 offset-lg-3">
+				<div id="card" class="card">
+					<h5 class="card-header">Suggested Monthly Budget</h5>
+					<div class="card-body">
+						<p><b>Annual Income:</b> <fmt:formatNumber type="currency" value="${budget.income}"/></p>
+						<hr>
+						<p><b>Rent / Mortgage:</b> <fmt:formatNumber type="currency" value="${budgetResult.rentValue}"/></p>
+						<p><b>Other Bills:</b> <fmt:formatNumber type="currency" value="${budgetResult.otherBillsValue}"/></p>
+						<p><b>Savings:</b> <fmt:formatNumber type="currency" value="${budgetResult.savingsValue}"/></p>
+						<p><b>Retirement:</b> <fmt:formatNumber type="currency" value="${budgetResult.retirementValue}"/></p>
+						<p><b>Education:</b> <fmt:formatNumber type="currency" value="${budgetResult.educationValue}"/></p>
+						<p><b>Spending:</b> <fmt:formatNumber type="currency" value="${budgetResult.funValue}"/></p>
+						<hr>
+						<a href="${userActionUrl}">&lt; Back to calculator</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<%@ include file="template/js-include.html"%>
 </body>

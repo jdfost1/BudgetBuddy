@@ -39,13 +39,13 @@ public class ToolsController {
 		return "compound-interest-result";
 	}
 	
-	@RequestMapping("/quick-budget")
+	@GetMapping("/quick-budget")
 	public String showBudgetCalculator(Model model) {
 		model.addAttribute("budget", new QuickBudget());
 		return "quick-budget";
 	}
 	
-	@RequestMapping("/quick-budget-result")
+	@PostMapping("/quick-budget")
 	public String showBudgetCalculatorResult(Model model, @Valid @ModelAttribute("budget") QuickBudget budget,
 			BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) 

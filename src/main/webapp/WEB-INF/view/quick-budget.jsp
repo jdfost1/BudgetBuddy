@@ -16,7 +16,7 @@
 	     		<div id="card" class="card">
 				  <h5 class="card-header">Quick Monthly Budget Calculator</h5>
 				  <div class="card-body">
-				    <form:form action="quick-budget-result" modelAttribute="budget">
+				    <form:form action="${userActionUrl}" modelAttribute="budget">
 					 	<div class="form-group">
 							<label for="incomeInput">Annual Income</label>
 						    <form:input path="income" id="incomeInput" cssClass="form-control"/>
