@@ -1,85 +1,35 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<!DOCTYPE html>
 <html>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" type="text/css" href="BudgetBuddy.css">
-<jsp:include page="template/favicon.jsp"/>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>401k Result - Budget Buddy</title>
+	<jsp:include page="template/css-include.jsp"/>
+	<jsp:include page="template/favicon.jsp"/>
 </head>
-
-<style type="text/css">
-body{
-background-color:green;
-color:white;
-
-}
-#header{
-background-color:black;
-color:white;
-}
-#result{
-font-size:35px;}
-h1{
-text-align:center;
-color:white;
-}
-a{
-color:white;
-}
-
-ul{
-    list-style-type: none;
-}
-#logo{
-    text-align:center;
-    background-color:black;
-}
-
-</style>
 <body>
-   <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="welcome.html">BudgetBuddy.com</a>
-    </div>
-    <ul class="nav navbar-nav">
-      
-      
-      <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Budget Tools
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><a href="tools/budgetCalculator">Quick Budget</a></li>
-              <li><a href="401k.html">401k Calculator</a></li>
-              <li><a href="tools/compound-interest-calculator">Compound Interest Calculator</a></li>
-              </ul></li>
-      
-              
-                <li class="active">
-          <a  href="login.html">Login
-         </a>
-          </li>
-               <li class="active">
-          <a  href="signUp.html">Sign Up
-         </a>
-          </li>
-    </ul>
-  </div>
-</nav>
-   
-    
-
-<body>
-<div class="container"id="result">
-	<h1>401k Calculator Result</h1>
-	<p>Nest Egg after ${NestEggResult.years}  years: $${NestEggResult.nestEgg }</p>
+	<jsp:include page="template/header.jsp"/>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 col-lg-6 offset-sm-2 offset-lg-3">
+				<div id="card" class="card">
+					<h5 class="card-header">401k Result</h5>
+					<div class="card-body">
+						<!--  
+						<p><b>Principal:</b> <fmt:formatNumber type="currency" value="${compoundInterest.principal}"/></p>
+						<p><b>Interest Rate:</b> <fmt:formatNumber type="percent" maxFractionDigits="2" value="${compoundInterest.interestRate / 100}"/></p>
+						<p><b>Compounds Per Year:</b> ${compoundInterest.compoundsPerYear}</p>
+						<p><b>Number of Years:</b> ${compoundInterest.years}</p>
+						<hr>-->
+						<p><b>Nest Egg after ${NestEggResult.years}  years:</b> <fmt:formatNumber type="currency" value="${NestEggResult.nestEgg}"/></p>
+						<hr>
+						<a href="${userActionUrl}">&lt; Back to calculator</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+	<%@ include file="template/js-include.html"%>
 </body>
 </html>

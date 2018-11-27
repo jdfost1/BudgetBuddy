@@ -17,7 +17,7 @@
 					<h5 class="card-header">401k Calculator</h5>
 					<div class="card-body">
 					
-						<form:form action="401k-result" modelAttribute="account">
+						<form:form action="${userActionUrl}" modelAttribute="account">
 							<div class="form-group">
 								<label for="salaryInput">Annual salary</label>
 								<form:input path="salary" id="salaryInput" cssClass="form-control" />

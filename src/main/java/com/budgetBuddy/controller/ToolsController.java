@@ -55,13 +55,13 @@ public class ToolsController {
 		return "quick-budget-result";
 	}
 	
-	@RequestMapping("/401k-calculator")
+	@GetMapping("/401k-calculator")
 	public String show401kCalculator(Model model) {
 		model.addAttribute("account", new Quick401k());
 		return "401k";
 	}
 	
-	@RequestMapping("/401k-result")
+	@PostMapping("/401k-calculator")
 	public String show401kResult(Model model, @Valid @ModelAttribute("account") Quick401k account,
 			BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
