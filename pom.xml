@@ -34,6 +34,11 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
 		
 		<!-- Spring Security -->
 		<dependency>
@@ -83,7 +88,7 @@
 			<version>${hibernatevalidator.version}</version>
 		</dependency>
 		
-		<!-- Servlet API, JSP and JSTL -->
+		<!-- Servlet API, JSP, JSTL and Java Mail -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -99,6 +104,12 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+		
 		
 		<!-- Apache Commons CSV Parser -->
 		<dependency>

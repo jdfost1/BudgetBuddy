@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,7 @@ import com.budgetBuddy.model.SavingsTarget;
 import com.budgetBuddy.model.UserDelete;
 import com.budgetBuddy.model.UserRegistration;
 import com.budgetBuddy.model.UserUpdate;
+import com.budgetBuddy.service.EmailService;
 import com.budgetBuddy.service.UserService;
 
 @Controller
@@ -33,6 +35,12 @@ public class AccountController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private EmailService emailService;
 
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
@@ -224,5 +232,50 @@ public class AccountController {
 
 		// Redirect user to the login page with a success message
 		return "redirect:/account/login?accountDeleted";
+	}
+	
+	@GetMapping("/reset-password")
+	public String showResetPasswordPage(Model model) {
+		model.addAttribute("userDelete", new UserDelete());		
+		return "reset-password";
+	}
+
+	@PostMapping("reset-password")
+	public String processResetPassword(@Valid @ModelAttribute("userDelete") UserDelete delete,
+			BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors()) {
+			return "reset-password";
+		}
+
+		// Retrieve validated email
+		String email = delete.getEmail();
+
+		// Find the user with the given email
+		// If no such user exists, remain on the reset password page
+		User user = userService.findByEmail(email);
+		if (user == null) {
+			model.addAttribute("userNotExist", true);
+			return "reset-password";
+		}
+		
+		// Generate a temporary password and hash it
+		String pwd = emailService.generateTemporaryPassword();
+		String hashedPwd = passwordEncoder.encode(pwd);
+		
+		// Reset the person's password with the given email
+		user.setPassword(hashedPwd);
+		userService.save(user);
+		
+		// Send them an email with the new password
+		String subject = "Your Budget Buddy password has been reset";
+		String text = "Hello " + user.getName() + ",\n\n"
+				+ "Your password for Budget Buddy has been reset.\n"
+				+ "New Temporary Password: " + pwd + "\n"
+				+ "After logging in with the password above, be sure to manually set a new password.\n\n"
+				+ "Budget Buddy";
+		emailService.sendSimpleMessage(email, subject, text);
+
+		// Redirect user to the login page with a success message
+		return "redirect:/account/login?passwordReset";
 	}
 }

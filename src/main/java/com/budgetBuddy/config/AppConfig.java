@@ -13,6 +13,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -96,6 +98,24 @@ public class AppConfig implements WebMvcConfigurer {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager();
 		transactionManager.setSessionFactory(sessionFactory().getObject());
 		return transactionManager;
+	}
+	
+	@Bean
+	public JavaMailSender javaMailSender() {
+		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+		mailSender.setHost(env.getProperty("mail.host"));
+		mailSender.setPort(getIntProperty("mail.port"));
+		
+		mailSender.setUsername(env.getProperty("mail.username"));
+		mailSender.setPassword(env.getProperty("mail.password"));
+		
+		Properties properties = mailSender.getJavaMailProperties();
+		properties.put("mail.transport.protocol", env.getProperty("mail.transport.protocol"));
+		properties.put("mail.smtp.auth", env.getProperty("mail.smtp.auth"));
+		properties.put("mail.smtp.starttls.enable", env.getProperty("mail.smtp.starttls.enable"));
+		properties.put("mail.debug", env.getProperty("mail.debug"));
+		
+		return mailSender;
 	}
 	
 	private final Properties hibernateProperties() {
