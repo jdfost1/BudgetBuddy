@@ -16,7 +16,7 @@
 				<div id="card" class="card">
 					<h5 class="card-header">Compound Interest Calculator</h5>
 					<div class="card-body">
-						<form:form action="compound-interest-result" modelAttribute="compoundInterest">
+						<form:form action="${userActionUrl}" modelAttribute="compoundInterest">
 							<div class="form-group">
 								<label for="principalInput">Starting Balance</label>
 								<form:input path="principal" id="principalInput" cssClass="form-control" />

@@ -5,7 +5,9 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.budgetBuddy.tools.CompoundInterest;
@@ -19,13 +21,13 @@ import com.budgetBuddy.tools.QuickBudgetResult;
 @RequestMapping("/tools")
 public class ToolsController {
 	
-	@RequestMapping("/compound-interest-calculator")
+	@GetMapping("/compound-interest-calculator")
 	public String showCompoundInterestCalculator(Model model) {
 		model.addAttribute("compoundInterest", new CompoundInterest());
 		return "compound-interest";
 	}
 	
-	@RequestMapping("/compound-interest-result")
+	@PostMapping("/compound-interest-calculator")
 	public String showCompoundInterestResult(Model model, 
 			@Valid @ModelAttribute("compoundInterest") CompoundInterest interest,
 			BindingResult bindingResult) {
