@@ -34,7 +34,7 @@
 			<c:choose>
 				<c:when test="${auth}">
 					<div class="dropdown">
-					  <button class="btn btn-outline-success dropdown-toggle" type="button" id="myAccountMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <button class="btn btn-outline-success btn-lg dropdown-toggle" type="button" id="myAccountMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    My Account
 					  </button>
 					  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="myAccountMenuButton">
@@ -49,7 +49,7 @@
 					</div>
 				</c:when>
 				<c:otherwise>
-					<a class="btn btn-outline-success my-2 my-sm-0"
+					<a class="btn btn-outline-success btn-lg my-2 my-sm-0"
 						href="${pageContext.request.contextPath}/account/login" role="button">Log In</a>
 				</c:otherwise>
 			</c:choose>
