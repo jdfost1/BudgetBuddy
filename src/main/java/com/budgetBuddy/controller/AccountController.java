@@ -250,20 +250,29 @@ public class AccountController {
 		// Retrieve validated email
 		String email = delete.getEmail();
 
-		// Reset the person's password with the given email
-		String newPassword = "bubba";
-		String hashedPwd = passwordEncoder.encode(newPassword);
+		// Find the user with the given email
+		// If no such user exists, remain on the reset password page
 		User user = userService.findByEmail(email);
 		if (user == null) {
 			model.addAttribute("userNotExist", true);
 			return "reset-password";
 		}
+		
+		// Generate a temporary password and hash it
+		String pwd = emailService.generateTemporaryPassword();
+		String hashedPwd = passwordEncoder.encode(pwd);
+		
+		// Reset the person's password with the given email
 		user.setPassword(hashedPwd);
 		userService.save(user);
 		
 		// Send them an email with the new password
 		String subject = "Your Budget Buddy password has been reset";
-		String text = "New Password: bubba";
+		String text = "Hello " + user.getName() + ",\n\n"
+				+ "Your password for Budget Buddy has been reset.\n"
+				+ "New Temporary Password: " + pwd + "\n"
+				+ "After logging in with the password above, be sure to manually set a new password.\n\n"
+				+ "Budget Buddy";
 		emailService.sendSimpleMessage(email, subject, text);
 
 		// Redirect user to the login page with a success message
