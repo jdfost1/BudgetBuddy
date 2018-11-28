@@ -1,5 +1,6 @@
 package com.budgetBuddy.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -8,8 +9,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.budgetBuddy.model.BudgetForm;
 import com.budgetBuddy.model.SavingsTarget;
-
-import javax.persistence.Column;
 
 @Entity
 @Table(name = "budget")

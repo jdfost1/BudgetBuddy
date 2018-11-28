@@ -4,6 +4,8 @@ import java.beans.PropertyVetoException;
 import java.util.Properties;
 import java.util.logging.Logger;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.HandlerExceptionResolver;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -116,6 +120,21 @@ public class AppConfig implements WebMvcConfigurer {
 		properties.put("mail.debug", env.getProperty("mail.debug"));
 		
 		return mailSender;
+	}
+	
+	@Bean
+	public HandlerExceptionResolver handlerExceptionResolver() {
+		HandlerExceptionResolver resolver = new HandlerExceptionResolver() {
+			
+			@Override
+			public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
+					Exception ex) {
+				ModelAndView mav = new ModelAndView("not-found");
+				mav.addObject("error", ex);
+				return mav;
+			}
+		};
+		return resolver;
 	}
 	
 	private final Properties hibernateProperties() {
