@@ -118,7 +118,8 @@ public class AccountController {
 			@ModelAttribute("budgetForm") BudgetForm budgetForm, BindingResult bindingResult, Model model) {
 
 		// pass savings target info and budgetForm info into Budget constructor to calculate budget
-		Budget newBudget = new Budget(savingsTarget, budgetForm);
+		Budget newBudget = new Budget();
+		newBudget.createBudget(savingsTarget, budgetForm);
 
 		// set the new calculated budget to the model
 		model.addAttribute("newBudget", newBudget);
@@ -135,13 +136,16 @@ public class AccountController {
 		// Get email of current user
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 
-		// Retrieve account object
-		User user = userService.findByEmail(email);
+		
+		//Retrieve budget object that matches with current users email
+		Budget newBudget = BudgetDAOImpl.findByEmail(email);
+	
 
-		// Add user object to the model
-		model.addAttribute("user", user);
+		// Add budget object to the model
+		model.addAttribute("newBudget", newBudget);
+		
 
-		return "view-account";
+		return "account";
 	}
 
 	@GetMapping("/update")

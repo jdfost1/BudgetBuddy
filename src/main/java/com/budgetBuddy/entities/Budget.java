@@ -12,7 +12,7 @@ import com.budgetBuddy.model.SavingsTarget;
 import javax.persistence.Column;
 
 @Entity
-@Table(name = "Budget")
+@Table(name = "budget")
 public class Budget {
 	@Id
 	@Column(name = "email")//primary key
@@ -45,7 +45,7 @@ public class Budget {
 	@Column(name = "remaining_expenses")
 	private double remainingExpenses;
 
-	public Budget(SavingsTarget savingsTarget, BudgetForm budgetForm) {
+	public void createBudget(SavingsTarget savingsTarget, BudgetForm budgetForm) {
 		// set budget model with values from budget form
 		this.rent = budgetForm.getRent();
 		this.carPayment = budgetForm.getCarPayment();
