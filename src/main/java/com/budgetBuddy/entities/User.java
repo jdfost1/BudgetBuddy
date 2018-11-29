@@ -2,6 +2,7 @@ package com.budgetBuddy.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -41,6 +43,10 @@ public class User {
 			   joinColumns=@JoinColumn(name="user_id"),
 			   inverseJoinColumns=@JoinColumn(name="role_id"))
 	private List<Role> roles;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "budget_id")
+	private Budget budget;
 
 	
 	public Long getId() {
@@ -93,5 +99,13 @@ public class User {
 	
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+	
+	public Budget getBudget() {
+		return budget;
+	}
+	
+	public void setBudget(Budget budget) {
+		this.budget = budget;
 	}
 }
