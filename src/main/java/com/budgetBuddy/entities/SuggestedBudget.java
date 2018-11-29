@@ -1,59 +1,98 @@
 package com.budgetBuddy.entities;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="suggestedBudgets")
+@Table(name = "suggested_budget")
 public class SuggestedBudget {
 	@Id
-	@Column(name="email",unique=true,length=100,nullable=false)
-	private String email; //primary key
-	
-	@Column(name="salary")
-	private double salary;
-	
-	@Column(name="rent")
-	private double rent;
-	
-	@Column(name="otherBills")
-	private double otherBills;
-	
-	@Column(name="savings")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long id;
+
+	@Column(name = "housing")
+	private double housing;
+
+	@Column(name = "utilities")
+	private double utilities;
+
+	@Column(name = "transportation")
+	private double transportation;
+
+	@Column(name = "insurance")
+	private double insurance;
+
+	@Column(name = "spending")
+	private double spending;
+
+	@Column(name = "food")
+	private double food;
+
+	@Column(name = "savings")
 	private double savings;
-	
-	@Column(name="education")
-	private double education;
-	
-	@Column(name="funSpending")
-	private double funSpending;
-	
-	@Column(name="retirement")
-	private double retirement;
-	
-	public double getSalary() {
-		return salary;
+
+	@Column(name = "miscellaneous")
+	private double miscellaneous;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setSalary(double salary) {
-		this.salary = salary;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public double getRent() {
-		return rent;
+	public double getHousing() {
+		return housing;
 	}
 
-	public void setRent(double rent) {
-		this.rent = rent;
+	public void setHousing(double housing) {
+		this.housing = housing;
 	}
 
-	public double getOtherBills() {
-		return otherBills;
+	public double getUtilities() {
+		return utilities;
 	}
 
-	public void setOtherBills(double otherBills) {
-		this.otherBills = otherBills;
+	public void setUtilities(double utilities) {
+		this.utilities = utilities;
+	}
+
+	public double getTransportation() {
+		return transportation;
+	}
+
+	public void setTransportation(double transportation) {
+		this.transportation = transportation;
+	}
+
+	public double getInsurance() {
+		return insurance;
+	}
+
+	public void setInsurance(double insurance) {
+		this.insurance = insurance;
+	}
+
+	public double getSpending() {
+		return spending;
+	}
+
+	public void setSpending(double spending) {
+		this.spending = spending;
+	}
+
+	public double getFood() {
+		return food;
+	}
+
+	public void setFood(double food) {
+		this.food = food;
 	}
 
 	public double getSavings() {
@@ -64,54 +103,26 @@ public class SuggestedBudget {
 		this.savings = savings;
 	}
 
-	public double getEducation() {
-		return education;
+	public double getMiscellaneous() {
+		return miscellaneous;
 	}
 
-	public void setEducation(double education) {
-		this.education = education;
+	public void setMiscellaneous(double miscellaneous) {
+		this.miscellaneous = miscellaneous;
 	}
 
-	public double getFunSpending() {
-		return funSpending;
-	}
-
-	public void setFunSpending(double funSpending) {
-		this.funSpending = funSpending;
-	}
-
-	public double getRetirement() {
-		return retirement;
-	}
-
-	public void setRetirement(double retirement) {
-		this.retirement = retirement;
-	}
-
-
-
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	
 	public void calculateSuggestedBudget(double income) {
-		//calculate suggested monthly budget
-		rent = income * .3;
-		funSpending =income * .1;
-		education = income * .1;
-		otherBills = income * .25;
-		retirement = income * .1;
-		savings = income * .1;
-	
+		// calculate suggested monthly budget
+        income = income/12;
+		this.setHousing(income * .25);
+		this.setUtilities(income * .1);
+		this.setTransportation(income * .1);
+		this.setInsurance(income * .15);
+		this.setSpending(income * .1);
+		this.setFood(income * .15);
+		this.setSavings(income * .1);
+		this.setMiscellaneous(income * .05);
 
 	}
-	
-	
 
 }

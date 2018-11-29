@@ -105,6 +105,14 @@
 	<div id="suggestedBudget" class="tabcontent">
 		<h3>Suggest Budget</h3>
 		<p>Budget calculated with only user income (quick budget)</p>
+		<p>Housing: ${suggestedBudget.housing} </p>
+		<p>Utilities: ${suggestedBudget.utilities}</p>
+		<p>Transportation: ${suggestedBudget.transportation}</p>
+		<p>Insurance: ${suggestedBudget.insurance}</p>
+		<p>Spending: ${suggestedBudget.spending}</p>
+		<p>Food: ${suggestedBudget.food }</p>
+		<p>Savings: ${suggestedBudget.savings }</p>
+		<p>Miscellaneous: ${suggestedBudget.miscellaneous }</p>
 	</div>
 
 	<div id="budgetAdvice" class="tabcontent">

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.budgetBuddy.entities.Budget;
+import com.budgetBuddy.entities.SuggestedBudget;
 import com.budgetBuddy.entities.User;
 import com.budgetBuddy.model.BudgetForm;
 import com.budgetBuddy.model.SavingsTarget;
@@ -30,10 +31,11 @@ public class BudgetController {
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 		User user = userService.findByEmail(email);
 		Budget budget = user.getBudget();
+		SuggestedBudget suggestedBudget = user.getSuggestedBudget();
 	
 		// Add budget object to the model
 		model.addAttribute("newBudget", budget);
-		
+		model.addAttribute("newSuggested", suggestedBudget);
 		return "account";
 	}
 	
@@ -69,15 +71,22 @@ public class BudgetController {
 		// pass savings target info and budgetForm info into Budget constructor to calculate budget
 		Budget newBudget = new Budget();
 		newBudget.createBudget(savingsTarget, budgetForm);
+		
+		SuggestedBudget suggestedBudget = new SuggestedBudget();
+		suggestedBudget.calculateSuggestedBudget(budgetForm.getIncome());
 
 		// set the new calculated budget to the model
 		model.addAttribute("newBudget", newBudget);
+		model.addAttribute("suggestedBudget",suggestedBudget);
 		
 		// Retrieve the user, set their budget, and save to database
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 		User user = userService.findByEmail(email);
 		user.setBudget(newBudget);
+		user.setSuggestedBudget(suggestedBudget);
 		userService.save(user);
+		
+		
 		
 		return "account";
 	}

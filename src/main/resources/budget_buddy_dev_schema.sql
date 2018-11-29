@@ -22,7 +22,24 @@ CREATE TABLE `budget` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- Table structure for table `suggested budget`
+--
 
+DROP TABLE IF EXISTS `Suggested_Budget`;
+CREATE TABLE `Suggested_Budget` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `housing` decimal(10,2) NOT NULL,
+  `utilities` decimal(10,2) NOT NULL,
+  `transportation` decimal(10,2) NOT NULL,
+  `insurance` decimal(10,2) NOT NULL,
+  `spending` decimal(10,2) NOT NULL,
+  `food` decimal(10,2) NOT NULL,
+  `savings` decimal(10,2) NOT NULL,
+   `miscellaneous` decimal(10,2) NOT NULL,
+  
+  
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Table structure for table `user`
 --
@@ -35,6 +52,7 @@ CREATE TABLE `user` (
   `name` varchar(50) NOT NULL,
   `age` tinyint NOT NULL,
   `budget_id` int(11),
+   `suggested_budget_id` int(11),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
