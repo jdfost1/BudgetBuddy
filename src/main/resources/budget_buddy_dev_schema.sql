@@ -3,10 +3,30 @@ DROP DATABASE  IF EXISTS `budget_buddy_dev`;
 CREATE DATABASE  IF NOT EXISTS `budget_buddy_dev`;
 USE `budget_buddy_dev`;
 
+
+--
+-- Table structure for table `budget`
+--
+DROP TABLE IF EXISTS `budget`;
+CREATE TABLE `budget` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) NOT NULL UNIQUE,
+  `savings_target` decimal(10,2) NOT NULL,
+  `rent` decimal(10,2) NOT NULL,
+  `car_payment` decimal(10,2) NOT NULL,
+  `car_insurance` decimal(10,2) NOT NULL,
+  `utilities` decimal(10,2) NOT NULL,
+  `general_savings` decimal(10,2) NOT NULL,
+  `spending` decimal(10,2) NOT NULL,
+  `retirement` decimal(10,2) NOT NULL,
+  `remaining_expenses` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 --
 -- Table structure for table `user`
 --
-
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -15,12 +35,13 @@ CREATE TABLE `user` (
   `enabled` tinyint(1) NOT NULL,
   `name` varchar(50) NOT NULL,
   `age` tinyint NOT NULL,
-  PRIMARY KEY (`id`)
+  `budget_id` int(11),
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Set up users
--- Note: The default password is fun123 (encoded with bcrypt)
 --
 INSERT INTO `user` 
 (`email`, `password`, `enabled`, `name`, `age`)
@@ -72,22 +93,3 @@ VALUES
 (2,1),
 (3,2),
 (4,1);
-
--- Table structure for table `budget`
---
-
-DROP TABLE IF EXISTS `Budget`;
-CREATE TABLE `Budget` (
-  `email` varchar(50) NOT NULL UNIQUE,
-  `savings_target` decimal(10,2) NOT NULL,
-  `rent` decimal(10,2) NOT NULL,
-  `car_payment` decimal(10,2) NOT NULL,
-  `car_insurance` decimal(10,2) NOT NULL,
-  `utilities` decimal(10,2) NOT NULL,
-  `general_savings` decimal(10,2) NOT NULL,
-  `spending` decimal(10,2) NOT NULL,
-  `retirement` decimal(10,2) NOT NULL,
-  `remaining_expenses` decimal(10,2) NOT NULL,
-  
-  PRIMARY KEY (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
