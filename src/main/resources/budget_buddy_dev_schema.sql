@@ -54,7 +54,8 @@ CREATE TABLE `user` (
   `budget_id` int(11),
    `suggested_budget_id` int(11),
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`)
+  FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
+  FOREIGN KEY (`suggested_budget_id`) REFERENCES `Suggested_Budget` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
