@@ -44,6 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/account").access("hasAuthority('USER')")
 			.antMatchers("/account/update").access("hasAuthority('USER')")
 			.antMatchers("/account/delete").access("hasAuthority('USER')")
+			.antMatchers("/budget").access("hasAuthority('USER')")
+			.antMatchers("/budget/*").access("hasAuthority('USER')")
 			.and()
 			.formLogin()
 				.loginPage("/account/login")
