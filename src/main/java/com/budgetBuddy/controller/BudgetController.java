@@ -35,7 +35,7 @@ public class BudgetController {
 	
 		// Add budget object to the model
 		model.addAttribute("newBudget", budget);
-		model.addAttribute("newSuggested", suggestedBudget);
+		model.addAttribute("suggestedBudget", suggestedBudget);
 		return "account";
 	}
 	
