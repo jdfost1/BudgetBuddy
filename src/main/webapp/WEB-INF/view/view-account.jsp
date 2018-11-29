@@ -18,6 +18,11 @@
 					<h5 class="card-header">View Account</h5>
 					<div class="card-body">
 						<form:form modelAttribute="user">
+							<c:if test="${param.updated != null}">
+								<div class="alert alert-success" role="alert">
+									Your account details have been updated successfully.
+								</div>
+							</c:if>
 							<div class="form-group">
 								<label for="emailInput">Email Address</label>
 								<input type="email" value="${user.email}" id="emailInput" class="form-control" readonly/>
