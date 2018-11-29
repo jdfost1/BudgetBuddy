@@ -55,6 +55,11 @@
 									Your email has been updated successfully. Please log in with the new email address.
 								</div>
 							</c:if>
+							<c:if test="${param.accountCreated != null }">
+								<div class="alert alert-success">
+									Your account has been created successfully. Please log in to create your budget.
+								</div>
+							</c:if>
 							<c:if test="${param.accountDeleted != null}">
 								<div class="alert alert-success">
 									Your account has been deleted successfully.

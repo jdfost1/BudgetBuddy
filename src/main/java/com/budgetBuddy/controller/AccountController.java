@@ -87,7 +87,7 @@ public class AccountController {
 		userService.save(registration);
 
 		// Bring the user to create budget page
-		return "redirect:/budget/budget-form";
+		return "redirect:/account/login?accountCreated";
 	}
 
 	@GetMapping("/update")
