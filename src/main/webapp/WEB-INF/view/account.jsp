@@ -80,8 +80,7 @@
 		onclick="openPage('budgetAdvice', this, 'green')">Budget
 		Advice</button>
 	<button class="tablink"
-		onclick="openPage('estimated401k', this, 'green')">Estimated
-		401k</button>
+		onclick="openPage('estimated401k', this, 'green')">Savings Target</button>
 
 	<div id="currentBudget" class="tabcontent">
 		<h3>Current Budget</h3>
@@ -90,29 +89,29 @@
 			<a href="${pageContext.request.contextPath}/account/budget-form">Update Budget</a>
 			
 			
+			<p> Housing: $${newBudget.rent }</p>
+			<p>Car Payment: $${newBudget.carPayment}</p>
+			<p>Car Insurance: $${newBudget.carInsurance}</p>
+			<p>Utilities: $${newBudget.utilities}</p>
+			<p>Other Bills: $${newBudget.remainingExpenses}</p>
 			
-			<p>Car Payment: ${newBudget.carPayment}</p>
-			<p>Car Insurance: ${newBudget.carInsurance}</p>
-			<p>Utilities: ${newBudget.utilities}</p>
-			<p>Other Bills: ${newBudget.remainingExpenses}</p>
-			
-			<p>Savings Target: ${newBudget.savingsTarget}</p>
-			<p>General Savings: ${newBudget.generalSavings}</p>
-			<p>Retirement: ${newBudget.retirement}</p>
-			<p>Spending: ${newBudget.spending}</p>
+			<p>Savings Target: $${newBudget.savingsTarget}</p>
+			<p>General Savings: $${newBudget.generalSavings}</p>
+			<p>Retirement: $${newBudget.retirement}</p>
+			<p>Spending: $${newBudget.spending}</p>
 	</div>
 
 	<div id="suggestedBudget" class="tabcontent">
 		<h3>Suggest Budget</h3>
 		<p>Budget calculated with only user income (quick budget)</p>
-		<p>Housing: ${suggestedBudget.housing} </p>
-		<p>Utilities: ${suggestedBudget.utilities}</p>
-		<p>Transportation: ${suggestedBudget.transportation}</p>
-		<p>Insurance: ${suggestedBudget.insurance}</p>
-		<p>Spending: ${suggestedBudget.spending}</p>
-		<p>Food: ${suggestedBudget.food }</p>
-		<p>Savings: ${suggestedBudget.savings }</p>
-		<p>Miscellaneous: ${suggestedBudget.miscellaneous }</p>
+		<p>Housing: $${suggestedBudget.housing} </p>
+		<p>Utilities: $${suggestedBudget.utilities}</p>
+		<p>Transportation: $${suggestedBudget.transportation}</p>
+		<p>Insurance: $${suggestedBudget.insurance}</p>
+		<p>Spending: $${suggestedBudget.spending}</p>
+		<p>Food: $${suggestedBudget.food }</p>
+		<p>Savings: $${suggestedBudget.savings }</p>
+		<p>Miscellaneous: $${suggestedBudget.miscellaneous }</p>
 	</div>
 
 	<div id="budgetAdvice" class="tabcontent">
@@ -121,9 +120,9 @@
 			user's fixed expenses too high? for what categories?</p>
 	</div>
 
-	<div id="estimated401k" class="tabcontent">
-		<h3>Estimated 401k</h3>
-		<p>Estimated 401k calculated with quick 401k calculator</p>
+	<div id="savingsTarget" class="tabcontent">
+		<h3>Savings Target</h3>
+		<p>Real Time of Savings Target Status</p>
 	</div>
 
 	<script>
