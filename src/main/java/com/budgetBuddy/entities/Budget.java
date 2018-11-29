@@ -2,10 +2,10 @@ package com.budgetBuddy.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.budgetBuddy.model.BudgetForm;
 import com.budgetBuddy.model.SavingsTarget;
@@ -13,9 +13,11 @@ import com.budgetBuddy.model.SavingsTarget;
 @Entity
 @Table(name = "budget")
 public class Budget {
+	
 	@Id
-	@Column(name = "email")//primary key
-	private String email;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long id;
 
 	@Column(name = "savings_target")
 	private double savingsTarget;
@@ -52,16 +54,13 @@ public class Budget {
 		this.utilities = budgetForm.getUtilities();
 		this.remainingExpenses = budgetForm.getRemainingExpenses();
 		this.savingsTarget = savingsTarget.getMonthlySavingsTarget();
-		this.email = SecurityContextHolder.getContext().getAuthentication().getName();
-
+		
 		//calculate monthly leftover income after subtracting user's monthly savings target
 		double monthlyIncome = budgetForm.getIncome()/12;
 		double monthlyExpenses = this.rent + this.carPayment + this.carInsurance + this.utilities + this.remainingExpenses;
 		double leftOver = monthlyIncome - monthlyExpenses;
 		leftOver = leftOver - this.savingsTarget;
 		
-		
-
 		// calculate remaining budget categories with the remaining leftover
 		this.retirement = leftOver * .2;
 		this.spending = leftOver * .5;
@@ -70,13 +69,6 @@ public class Budget {
 	}//end of calculate budget
 
 	// getters and setters--------------------------------------------------------------------------------
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email= email;
-	}
 
 	public double getRemainingExpenses() {
 		return remainingExpenses;

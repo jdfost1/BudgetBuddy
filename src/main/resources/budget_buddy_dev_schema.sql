@@ -10,7 +10,6 @@ USE `budget_buddy_dev`;
 DROP TABLE IF EXISTS `budget`;
 CREATE TABLE `budget` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(50) NOT NULL UNIQUE,
   `savings_target` decimal(10,2) NOT NULL,
   `rent` decimal(10,2) NOT NULL,
   `car_payment` decimal(10,2) NOT NULL,

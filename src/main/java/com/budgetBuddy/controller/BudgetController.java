@@ -1,39 +1,39 @@
 package com.budgetBuddy.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.budgetBuddy.DAO.BudgetDAOImpl;
 import com.budgetBuddy.entities.Budget;
+import com.budgetBuddy.entities.User;
 import com.budgetBuddy.model.BudgetForm;
 import com.budgetBuddy.model.SavingsTarget;
-
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import com.budgetBuddy.service.UserService;
 
 @Controller
 @SessionAttributes("budgetForm")//need budget form to hold data for entire session
 @RequestMapping("/budget")
 public class BudgetController {
 	
+	@Autowired
+	private UserService userService;
+	
 	@GetMapping
 	public String showBudget(Model model) {
-		// Get email of current user
+		//Retrieve the current user's budget
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
-	
-		
-		//Retrieve budget object that matches with current users email
-		Budget newBudget = BudgetDAOImpl.findByEmail(email);
-	
+		User user = userService.findByEmail(email);
+		Budget budget = user.getBudget();
 	
 		// Add budget object to the model
-		model.addAttribute("newBudget", newBudget);
+		model.addAttribute("newBudget", budget);
 		
-	
 		return "account";
 	}
 	
@@ -72,11 +72,13 @@ public class BudgetController {
 
 		// set the new calculated budget to the model
 		model.addAttribute("newBudget", newBudget);
-
-		// save the new calculated budget to the database
 		
-		BudgetDAOImpl.saveBudget(newBudget);
-
+		// Retrieve the user, set their budget, and save to database
+		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		User user = userService.findByEmail(email);
+		user.setBudget(newBudget);
+		userService.save(user);
+		
 		return "account";
 	}
 }
