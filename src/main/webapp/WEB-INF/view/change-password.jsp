@@ -22,6 +22,9 @@
 								<label for="currentPasswordInput">Current Password</label>
 								<form:input type="password" path="currentPassword" id="currentPasswordInput" cssClass="form-control"/>
 								<form:errors path="currentPassword" element="div" cssClass="invalid-feedback"/>
+								<c:if test="${incorrectCurrentPassword}">
+									<div class="invalid-feedback">The password you entered does not match your current password.</div>
+								</c:if>
 							</div>
 							<div class="form-group">
 								<label for="newPasswordInput">New Password</label>
