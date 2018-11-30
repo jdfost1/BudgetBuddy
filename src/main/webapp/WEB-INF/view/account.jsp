@@ -80,7 +80,7 @@
 		onclick="openPage('budgetAdvice', this, 'green')">Budget
 		Advice</button>
 	<button class="tablink"
-		onclick="openPage('estimated401k', this, 'green')">Savings Target</button>
+		onclick="openPage('savingsTarget', this, 'green')">Savings Target</button>
 
 	<div id="currentBudget" class="tabcontent">
 		<h3>Current Budget</h3>
@@ -123,6 +123,12 @@
 	<div id="savingsTarget" class="tabcontent">
 		<h3>Savings Target</h3>
 		<p>Real Time of Savings Target Status</p>
+			<p>Savings Target Total: $${savingsTarget.savingsTargetTotal}</p>
+		<p>Monthly Savings Target: $${savingsTarget.monthlySavingsTarget}</p>
+		<p>Start Date: ${savingsTarget.startDate}</p>
+		<p>End Date: ${savingsTarget.endDate }</p>
+		<p>Days Remaining: ${savingsTarget.daysLeft }</p>
+		
 	</div>
 
 	<script>

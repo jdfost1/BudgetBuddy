@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.budgetBuddy.model.BudgetForm;
-import com.budgetBuddy.model.SavingsTarget;
 
 @Entity
 @Table(name = "budget")

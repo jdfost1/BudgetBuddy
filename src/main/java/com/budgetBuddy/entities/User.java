@@ -51,8 +51,20 @@ public class User {
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "suggested_budget_id")
 	private SuggestedBudget suggestedBudget;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "savings_target_id")
+	private SavingsTarget savingsTarget;
 
 	
+	public SavingsTarget getSavingsTarget() {
+		return savingsTarget;
+	}
+
+	public void setSavingsTarget(SavingsTarget savingsTarget) {
+		this.savingsTarget = savingsTarget;
+	}
+
 	public Long getId() {
 		return id;
 	}

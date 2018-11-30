@@ -3,7 +3,17 @@ DROP DATABASE  IF EXISTS `budget_buddy_dev`;
 CREATE DATABASE  IF NOT EXISTS `budget_buddy_dev`;
 USE `budget_buddy_dev`;
 
-
+DROP TABLE IF EXISTS `savings_target`;
+CREATE TABLE `savings_target` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `monthly_savings_target` decimal(10,2) NOT NULL,
+  `savings_target_months` decimal(10,2) NOT NULL,
+  `savings_target_total` decimal(10,2) NOT NULL,
+  `starting_date` decimal(10,2) NOT NULL,
+  `end_date` decimal(10,2) NOT NULL,
+  `days_left` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Table structure for table `budget`
 --
@@ -53,6 +63,7 @@ CREATE TABLE `user` (
   `age` tinyint NOT NULL,
   `budget_id` int(11),
    `suggested_budget_id` int(11),
+   `savings_target_id` int(11),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
   FOREIGN KEY (`suggested_budget_id`) REFERENCES `Suggested_Budget` (`id`)
