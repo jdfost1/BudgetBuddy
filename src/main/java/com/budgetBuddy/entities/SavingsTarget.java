@@ -41,25 +41,45 @@ public class SavingsTarget {
 	private int daysLeft;
 
 	
-
+	@Column(name="monthly_income")
 	private double monthlyIncome;
+	
+	@Column(name="leftOver_income")
 	private double leftOverIncome;
-	private static final DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
 
 	// Percentage of leftover income options (5%,10%,15%,20%,and 25% of user's
 	// leftover income)
+	@Column(name="monthly_savings_target_five")
 	public double monthlySavingsTargetFive;
+	
+	@Column(name="monthly_savings_target_ten")
 	private double monthlySavingsTargetTen;
+	
+	@Column(name="monthly_savings_target_fifteen")
 	private double monthlySavingsTargetFifteen;
+	
+	@Column(name="monthly_savings_target_twenty")
 	private double monthlySavingsTargetTwenty;
+	
+	@Column(name="monthly_savings_target_twenty_five")
 	private double monthlySavingsTargetTwentyFive;
 
 	// Number of months needed to hit savings target goal using (5%,10%,15%,20%,and
 	// 25% of user's leftover income)
+	@Column(name="months_five")
 	private double monthsFivePercent;
+	
+	@Column(name="months_ten")
 	private double monthsTenPercent;
+	
+	@Column(name="months_fifteen")
 	private double monthsFifteenPercent;
+	
+	@Column(name="months_twenty")
 	private double monthsTwentyPercent;
+	
+	@Column(name="months_twenty_five")
 	private double monthsTwentyFivePercent;
 
 	public void calculateSavingsTargetOptions(BudgetForm form) {

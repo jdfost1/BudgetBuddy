@@ -12,6 +12,18 @@ CREATE TABLE `savings_target` (
   `starting_date` decimal(10,2) NOT NULL,
   `end_date` decimal(10,2) NOT NULL,
   `days_left` decimal(10,2) NOT NULL,
+  `monthly_income` decimal(10,2) ,
+  `leftOver_income` decimal(10,2),
+  `monthly_savings_target_five` decimal(10,2) ,
+  `monthly_savings_target_ten` decimal(10,2) ,
+  `monthly_savings_target_fifteen` decimal(10,2),
+  `monthly_savings_target_twenty` decimal(10,2),
+  `monthly_savings_target_twenty_five` decimal(10,2) ,
+  `months_five` decimal(10,2) ,
+  `months_ten` decimal(10,2) ,
+  `months_fifteen` decimal(10,2) ,
+  `months_twenty` decimal(10,2) ,
+  `months_twenty_five` decimal(10,2) ,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
