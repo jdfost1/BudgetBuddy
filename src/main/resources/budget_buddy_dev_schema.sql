@@ -22,11 +22,12 @@ CREATE TABLE `budget` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+--
 -- Table structure for table `suggested budget`
 --
-
-DROP TABLE IF EXISTS `Suggested_Budget`;
-CREATE TABLE `Suggested_Budget` (
+DROP TABLE IF EXISTS `suggested_budget`;
+CREATE TABLE `suggested_budget` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `housing` decimal(10,2) NOT NULL,
   `utilities` decimal(10,2) NOT NULL,
@@ -55,7 +56,7 @@ CREATE TABLE `user` (
    `suggested_budget_id` int(11),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
-  FOREIGN KEY (`suggested_budget_id`) REFERENCES `Suggested_Budget` (`id`)
+  FOREIGN KEY (`suggested_budget_id`) REFERENCES `suggested_budget` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
