@@ -2,6 +2,11 @@ package com.budgetBuddy.model;
 
 import javax.validation.constraints.NotNull;
 
+import com.budgetBuddy.validation.FieldMatch;
+
+@FieldMatch.List({
+	@FieldMatch(first = "newPassword", second = "matchingNewPassword", message = "The new passwords do not match.")
+})
 public class UserPasswordUpdate {
 
 	@NotNull

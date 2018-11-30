@@ -5,6 +5,11 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.budgetBuddy.validation.FieldMatch;
+
+@FieldMatch.List({
+	@FieldMatch(first = "password", second = "matchingPassword", message = "The passwords do not match.")
+})
 public class UserRegistration {
 	
 	@NotNull
@@ -13,11 +18,9 @@ public class UserRegistration {
 	private String email;
 	
 	@NotNull
-	@Size(min = 1)
 	private String password;
 	
 	@NotNull
-	@Size(min = 1)
 	private String matchingPassword;
 	
 	@NotNull
