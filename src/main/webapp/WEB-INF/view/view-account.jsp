@@ -23,6 +23,11 @@
 									Your account details have been updated successfully.
 								</div>
 							</c:if>
+							<c:if test="${param.passwordChanged != null}">
+								<div class="alert alert-success" role="alert">
+									Your password has been changed successfully. You will need to use it the next time you log in.
+								</div>
+							</c:if>
 							<div class="form-group">
 								<label for="emailInput">Email Address</label>
 								<input type="email" value="${user.email}" id="emailInput" class="form-control" readonly/>

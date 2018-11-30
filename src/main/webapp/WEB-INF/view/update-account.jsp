@@ -29,6 +29,11 @@
 								<form:errors path="email" element="div"	cssClass="invalid-feedback"/>
 							</div>
 							<div class="form-group">
+								<label for="changePasswordButton">Password</label>
+								<br>
+								<a href="${pageContext.request.contextPath}/account/change-password" id="changePasswordButton" class="btn btn-outline-success" role="button">Change Password</a>
+							</div>
+							<div class="form-group">
 								<label for="nameInput">Name</label>
 								<form:input path="name" id="nameInput" cssClass="form-control"/>
 								<form:errors path="name" element="div" cssClass="invalid-feedback"/>

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.budgetBuddy.entities.User;
 import com.budgetBuddy.model.UserDelete;
+import com.budgetBuddy.model.UserPasswordUpdate;
 import com.budgetBuddy.model.UserRegistration;
 import com.budgetBuddy.model.UserUpdate;
 import com.budgetBuddy.service.EmailService;
@@ -146,6 +147,36 @@ public class AccountController {
 
 		// Bring the user to the account page
 		return "redirect:/account?updated";
+	}
+	
+	@GetMapping("/change-password") 
+	public String showChangePasswordPage(Model model) {
+		model.addAttribute("userPasswordUpdate", new UserPasswordUpdate());
+		return "change-password";
+	}
+	
+	@PostMapping("/change-password")
+	public String processChangePassword(@Valid @ModelAttribute("userPasswordUpdate") UserPasswordUpdate passwordUpdate,
+			BindingResult bindingResult, Model model) {
+		// If the form was not filled out properly return the form
+		if (bindingResult.hasErrors())
+			return "change-password";
+		
+		// Retrieve the current user
+		User user = userService.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
+		
+		// Check that the current password supplied matches the user's actual current password
+		if (!passwordEncoder.matches(passwordUpdate.getCurrentPassword(), user.getPassword())) 
+		{
+			model.addAttribute("incorrectCurrentPassword", true);
+			return "change-password";
+		}
+		
+		// Change the user's password
+		user.setPassword(passwordEncoder.encode(passwordUpdate.getNewPassword()));
+		userService.save(user);
+		
+		return "redirect:/account?passwordChanged";
 	}
 
 	@GetMapping("/delete")
