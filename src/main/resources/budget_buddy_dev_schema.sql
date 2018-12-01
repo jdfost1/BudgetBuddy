@@ -53,11 +53,26 @@ CREATE TABLE `Suggested_Budget` (
   `housing` decimal(10,2) NOT NULL,
   `utilities` decimal(10,2) NOT NULL,
   `transportation` decimal(10,2) NOT NULL,
-  `insurance` decimal(10,2) NOT NULL,
+  `retirement` decimal(10,2) NOT NULL,
   `spending` decimal(10,2) NOT NULL,
   `food` decimal(10,2) NOT NULL,
   `savings` decimal(10,2) NOT NULL,
    `miscellaneous` decimal(10,2) NOT NULL,
+  
+  
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Table structure for table 'budget_advice`
+--
+
+DROP TABLE IF EXISTS `Budget_Advice`;
+CREATE TABLE `Budget_Advice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `housing_message` varchar(300) NOT NULL,
+  `utilities_message` varchar(300) NOT NULL,
+  `transportation_message` varchar(300) NOT NULL,
+  
   
   
   PRIMARY KEY (`id`)
@@ -76,6 +91,7 @@ CREATE TABLE `user` (
   `budget_id` int(11),
    `suggested_budget_id` int(11),
    `savings_target_id` int(11),
+   `budget_advice_id` int(11),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
   FOREIGN KEY (`suggested_budget_id`) REFERENCES `Suggested_Budget` (`id`)

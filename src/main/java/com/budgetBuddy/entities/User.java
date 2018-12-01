@@ -53,6 +53,12 @@ public class User {
 	private SuggestedBudget suggestedBudget;
 	
 	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "budget_advice_id")
+	private BudgetAdvice budgetAdvice;
+	
+	
+
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "savings_target_id")
 	private SavingsTarget savingsTarget;
 
@@ -130,5 +136,12 @@ public class User {
 	
 	public void setSuggestedBudget(SuggestedBudget budget) {
 		this.suggestedBudget = budget;
+	}
+	public BudgetAdvice getBudgetAdvice() {
+		return budgetAdvice;
+	}
+
+	public void setBudgetAdvice(BudgetAdvice budgetAdvice) {
+		this.budgetAdvice = budgetAdvice;
 	}
 }

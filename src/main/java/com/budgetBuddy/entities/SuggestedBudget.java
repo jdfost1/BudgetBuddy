@@ -24,8 +24,8 @@ public class SuggestedBudget {
 	@Column(name = "transportation")
 	private double transportation;
 
-	@Column(name = "insurance")
-	private double insurance;
+	@Column(name = "retirement")
+	private double retirement;
 
 	@Column(name = "spending")
 	private double spending;
@@ -71,12 +71,12 @@ public class SuggestedBudget {
 		this.transportation = transportation;
 	}
 
-	public double getInsurance() {
-		return insurance;
+	public double getRetirement() {
+		return retirement;
 	}
 
-	public void setInsurance(double insurance) {
-		this.insurance = insurance;
+	public void setRetirement(double insurance) {
+		this.retirement = insurance;
 	}
 
 	public double getSpending() {
@@ -111,17 +111,18 @@ public class SuggestedBudget {
 		this.miscellaneous = miscellaneous;
 	}
 
+	//generete the budget that will be suggested from budget buddy to the user
 	public void calculateSuggestedBudget(double income) {
 		// calculate suggested monthly budget
         income = income/12;
-		this.setHousing(income * .25);
+		this.setHousing(income * .30);
 		this.setUtilities(income * .1);
-		this.setTransportation(income * .1);
-		this.setInsurance(income * .15);
+		this.setTransportation(income * .15);
 		this.setSpending(income * .1);
-		this.setFood(income * .15);
+		this.setFood(income * .1);
 		this.setSavings(income * .1);
 		this.setMiscellaneous(income * .05);
+		this.setRetirement(income * .1);
 
 	}
 

@@ -15,7 +15,7 @@
 				<div id="card" class="card">
 					<h5 class="card-header">Suggested Monthly Budget</h5>
 					<div class="card-body">
-						<p><b>Annual Income:</b> <fmt:formatNumber type="currency" value="${budget.income}"/></p>
+						<p><b>Monthly Income:</b> <fmt:formatNumber type="currency" value="${budget.income}"/></p>
 						<hr>
 						<p><b>Rent / Mortgage:</b> <fmt:formatNumber type="currency" value="${budgetResult.rentValue}"/></p>
 						<p><b>Other Bills:</b> <fmt:formatNumber type="currency" value="${budgetResult.otherBillsValue}"/></p>

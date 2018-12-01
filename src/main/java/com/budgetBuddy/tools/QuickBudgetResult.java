@@ -13,7 +13,7 @@ public class QuickBudgetResult {
 	
 	
 	public QuickBudgetResult(QuickBudget budget) {
-		double budgetIncome = budget.getIncome()/12;
+		double budgetIncome = budget.getIncome();
 		rentValue = budgetIncome * .3;
 		funValue = budgetIncome * .1;
 		educationValue = budgetIncome * .1;

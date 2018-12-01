@@ -140,5 +140,9 @@ public class Budget {
 	public void setRetirement(double retirement) {
 		this.retirement = retirement;
 	}
+	
+	public double getTransportation() {
+	return this.carInsurance + this.getCarPayment();
+	}
 
 }
