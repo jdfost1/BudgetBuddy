@@ -25,27 +25,27 @@
 								
 							</div>
 							<div class="form-group">
-								<label for="annualIncome">Enter your desired savings target</label>
+								<label for="annualIncome">Enter the total amount for your desired savings goal </label>
 								<form:input  path="savingsTarget" id="savingsTarget" cssClass="form-control"/>
 								
 							</div>
 							<div class="form-group">
-								<label for="annualIncome">Enter the amount you pay monthly for rent or mortgage</label>
+								<label for="annualIncome">Enter the amount you currently pay monthly for housing (rent/mortgage)</label>
 								<form:input  path="rent" id="rent" cssClass="form-control"/>
 								
 							</div>
 							<div class="form-group">
-								<label for="annualIncome">Enter the amount you pay monthly for financing your vehicle</label>
+								<label for="annualIncome">Enter the amount you currently pay monthly for your auto loan </label>
 								<form:input  path="carPayment" id="carPayment" cssClass="form-control"/>
 								
 							</div>
 							<div class="form-group">
-								<label for="annualIncome">Enter the amount you pay monthly for vehicle insurance</label>
+								<label for="annualIncome">Enter the amount you pay monthly for auto insurance</label>
 								<form:input  path="carInsurance" id="carInsurance" cssClass="form-control"/>
 								
 							</div>
 							<div class="form-group">
-								<label for="annualIncome">Enter the amount you pay monthly for utilities</label>
+								<label for="annualIncome">Enter the amount you pay monthly for utilities (gas, electric, water, etc.)</label>
 								<form:input  path="utilities" id="utilities" cssClass="form-control"/>
 								
 							</div>

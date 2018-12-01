@@ -80,19 +80,20 @@
 		onclick="openPage('budgetAdvice', this, 'green')">Budget
 		Advice</button>
 	<button class="tablink"
-		onclick="openPage('estimated401k', this, 'green')">Savings Target</button>
+		onclick="openPage('savingsTarget', this, 'green')">Savings Target</button>
 
 	<div id="currentBudget" class="tabcontent">
 		<h3>Current Budget</h3>
-		<p>Budget calculated with user income, fixed expenses, and savings
+		<p>Budget generated with your current income, fixed expenses, and savings
 			target</p>
 			<a href="${pageContext.request.contextPath}/account/budget-form">Update Budget</a>
 			
 			
 			<p> Housing: $${newBudget.rent }</p>
+			<p>Utilities: $${newBudget.utilities}</p>
 			<p>Car Payment: $${newBudget.carPayment}</p>
 			<p>Car Insurance: $${newBudget.carInsurance}</p>
-			<p>Utilities: $${newBudget.utilities}</p>
+			
 			<p>Other Bills: $${newBudget.remainingExpenses}</p>
 			
 			<p>Savings Target: $${newBudget.savingsTarget}</p>
@@ -103,11 +104,11 @@
 
 	<div id="suggestedBudget" class="tabcontent">
 		<h3>Suggest Budget</h3>
-		<p>Budget calculated with only user income (quick budget)</p>
+		<p>Budget suggested by Budget Buddy</p>
 		<p>Housing: $${suggestedBudget.housing} </p>
 		<p>Utilities: $${suggestedBudget.utilities}</p>
 		<p>Transportation: $${suggestedBudget.transportation}</p>
-		<p>Insurance: $${suggestedBudget.insurance}</p>
+		<p>Retirement: $${suggestedBudget.retirement}</p>
 		<p>Spending: $${suggestedBudget.spending}</p>
 		<p>Food: $${suggestedBudget.food }</p>
 		<p>Savings: $${suggestedBudget.savings }</p>
@@ -117,12 +118,21 @@
 	<div id="budgetAdvice" class="tabcontent">
 		<h3>Budget Advice</h3>
 		<p>Advice based off suggested budget and current budget.Is the
-			user's fixed expenses too high? for what categories?</p>
+			your fixed expenses too high? If so,for what categories?</p>
+			<p>${budgetAdvice.housingMessage }</p>
+			<p>${budgetAdvice.transportationMessage }</p>
+			<p>${budgetAdvice.utilitiesMessage }</p>
 	</div>
 
 	<div id="savingsTarget" class="tabcontent">
 		<h3>Savings Target</h3>
 		<p>Real Time of Savings Target Status</p>
+			<p>Savings Target Total: $${savingsTarget.savingsTargetTotal}</p>
+		<p>Monthly Savings Target: $${savingsTarget.monthlySavingsTarget}</p>
+		<p>Start Date: ${savingsTarget.startDate}</p>
+		<p>End Date: ${savingsTarget.endDate }</p>
+		<p>Days Remaining: ${savingsTarget.daysLeft }</p>
+		
 	</div>
 
 	<script>

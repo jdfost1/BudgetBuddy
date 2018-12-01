@@ -18,7 +18,7 @@
 				  <div class="card-body">
 				    <form:form action="${userActionUrl}" modelAttribute="budget">
 					 	<div class="form-group">
-							<label for="incomeInput">Annual Income</label>
+							<label for="incomeInput">Monthly Income</label>
 						    <form:input path="income" id="incomeInput" cssClass="form-control"/>
 						    <form:errors path="income" element="div" cssClass="invalid-feedback"/>
 						</div>		

@@ -3,7 +3,29 @@ DROP DATABASE  IF EXISTS `budget_buddy_dev`;
 CREATE DATABASE  IF NOT EXISTS `budget_buddy_dev`;
 USE `budget_buddy_dev`;
 
-
+DROP TABLE IF EXISTS `savings_target`;
+CREATE TABLE `savings_target` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `monthly_savings_target` decimal(10,2) NOT NULL,
+  `savings_target_months` decimal(10,2) NOT NULL,
+  `savings_target_total` decimal(10,2) NOT NULL,
+  `starting_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `days_left` decimal(10,2) NOT NULL,
+  `monthly_income` decimal(10,2) ,
+  `leftOver_income` decimal(10,2),
+  `monthly_savings_target_five` decimal(10,2) ,
+  `monthly_savings_target_ten` decimal(10,2) ,
+  `monthly_savings_target_fifteen` decimal(10,2),
+  `monthly_savings_target_twenty` decimal(10,2),
+  `monthly_savings_target_twenty_five` decimal(10,2) ,
+  `months_five` decimal(10,2) ,
+  `months_ten` decimal(10,2) ,
+  `months_fifteen` decimal(10,2) ,
+  `months_twenty` decimal(10,2) ,
+  `months_twenty_five` decimal(10,2) ,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Table structure for table `budget`
 --
@@ -32,11 +54,26 @@ CREATE TABLE `suggested_budget` (
   `housing` decimal(10,2) NOT NULL,
   `utilities` decimal(10,2) NOT NULL,
   `transportation` decimal(10,2) NOT NULL,
-  `insurance` decimal(10,2) NOT NULL,
+  `retirement` decimal(10,2) NOT NULL,
   `spending` decimal(10,2) NOT NULL,
   `food` decimal(10,2) NOT NULL,
   `savings` decimal(10,2) NOT NULL,
    `miscellaneous` decimal(10,2) NOT NULL,
+  
+  
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Table structure for table 'budget_advice`
+--
+
+DROP TABLE IF EXISTS `Budget_Advice`;
+CREATE TABLE `Budget_Advice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `housing_message` varchar(300) NOT NULL,
+  `utilities_message` varchar(300) NOT NULL,
+  `transportation_message` varchar(300) NOT NULL,
+  
   
   
   PRIMARY KEY (`id`)
@@ -54,6 +91,8 @@ CREATE TABLE `user` (
   `age` tinyint NOT NULL,
   `budget_id` int(11),
    `suggested_budget_id` int(11),
+   `savings_target_id` int(11),
+   `budget_advice_id` int(11),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
   FOREIGN KEY (`suggested_budget_id`) REFERENCES `suggested_budget` (`id`)

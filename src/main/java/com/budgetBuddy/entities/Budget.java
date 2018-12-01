@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.budgetBuddy.model.BudgetForm;
-import com.budgetBuddy.model.SavingsTarget;
 
 @Entity
 @Table(name = "budget")
@@ -140,6 +139,10 @@ public class Budget {
 
 	public void setRetirement(double retirement) {
 		this.retirement = retirement;
+	}
+	
+	public double getTransportation() {
+	return this.carInsurance + this.getCarPayment();
 	}
 
 }
