@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -49,16 +50,14 @@ public class BudgetController {
 		return "account";
 	}
 	
-	// show user budget form to start creating a budget
-	@GetMapping("/budget-form")
+	@GetMapping("/create")
 	public String showBudgetForm(Model model) {
 		// create budgetForm object and set to model
 		model.addAttribute("budgetForm", new BudgetForm());
 		return "budget-form";
 	}
 	
-	//after submitting budget form, show user their savings target plan options
-	@RequestMapping("/budget-form-complete")
+	@PostMapping("/create/savings-target")
 	public String showSavingsTargetPlanOptions(@ModelAttribute("budgetForm") BudgetForm budgetForm,
 			BindingResult bindingResult, Model model) {
 		// create new savings target object
@@ -73,8 +72,7 @@ public class BudgetController {
 		return "savings-target-options";
 	}
 	
-	//after choosing savings target plan, calculate users budget and return to account page
-	@RequestMapping("/completeBudget")
+	@PostMapping("/create/complete")
 	public String completeBudget(@ModelAttribute("SavingsTarget") SavingsTarget savingsTarget, BindingResult result,
 			@ModelAttribute("budgetForm") BudgetForm budgetForm, BindingResult bindingResult, Model model) {
 
@@ -109,8 +107,6 @@ public class BudgetController {
 		user.setBudgetAdvice(budgetAdvice);
 		userService.save(user);
 		
-		
-		
-		return "account";
+		return "redirect:/budget";
 	}
 }
