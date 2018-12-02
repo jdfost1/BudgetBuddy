@@ -23,35 +23,46 @@
 									You must create your budget before you can view it.
 								</div>
 							</c:if>
+							<div class="progress">
+								<div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Step 1 of 2</div>
+							</div>
+							<br>
 							<div class="form-group">
-								<label for="annualIncome">Enter your annual income</label>
+								<label for="annualIncome">Annual Income</label>
 								<form:input  path="income" id="income" cssClass="form-control"/>
+								<form:errors path="income" element="div"	cssClass="invalid-feedback"/>
 							</div>
 							<div class="form-group">
-								<label for="annualIncome">Enter the total amount for your desired savings goal </label>
+								<label for="annualIncome">Savings Goal Amount</label>
 								<form:input  path="savingsTarget" id="savingsTarget" cssClass="form-control"/>
+								<form:errors path="savingsTarget" element="div"	cssClass="invalid-feedback"/>
 							</div>
 							<div class="form-group">
-								<label for="annualIncome">Enter the amount you currently pay monthly for housing (rent/mortgage)</label>
+								<label for="annualIncome">Monthly Housing Payment (Rent/Mortgage)</label>
 								<form:input  path="rent" id="rent" cssClass="form-control"/>
+								<form:errors path="rent" element="div"	cssClass="invalid-feedback"/>
 							</div>
 							<div class="form-group">
-								<label for="annualIncome">Enter the amount you currently pay monthly for your auto loan </label>
+								<label for="annualIncome">Monthly Auto Loan Payment</label>
 								<form:input  path="carPayment" id="carPayment" cssClass="form-control"/>
+								<form:errors path="carPayment" element="div"	cssClass="invalid-feedback"/>
 							</div>
 							<div class="form-group">
-								<label for="annualIncome">Enter the amount you pay monthly for auto insurance</label>
+								<label for="annualIncome">Monthly Auto Insurance Payment</label>
 								<form:input  path="carInsurance" id="carInsurance" cssClass="form-control"/>
+								<form:errors path="carInsurance" element="div"	cssClass="invalid-feedback"/>
 							</div>
 							<div class="form-group">
-								<label for="annualIncome">Enter the amount you pay monthly for utilities (gas, electric, water, etc.)</label>
+								<label for="annualIncome">Monthly Utility Payment</label>
 								<form:input  path="utilities" id="utilities" cssClass="form-control"/>
+								<form:errors path="utilities" element="div"	cssClass="invalid-feedback"/>
 							</div>
 							<div class="form-group">
-								<label for="annualIncome">Enter the amount you pay monthly for the total of any remaining fixed expenses</label>
+								<label for="annualIncome">Remaining Monthly Fixed Expenses Total</label>
 								<form:input  path="remainingExpenses" id="remainingExpenses" cssClass="form-control"/>
+								<form:errors path="remainingExpenses" element="div"	cssClass="invalid-feedback"/>
 							</div>
-							<button type="submit" id="submitButton" class="btn btn-block btn-success">Submit</button>
+							<button type="submit" id="submitButton" class="btn btn-block btn-success">Continue</button>
 						</form:form>
 					</div>
 				</div>

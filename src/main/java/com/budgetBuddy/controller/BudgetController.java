@@ -2,15 +2,21 @@ package com.budgetBuddy.controller;
 
 import java.util.Date;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.budgetBuddy.entities.Budget;
 import com.budgetBuddy.entities.BudgetAdvice;
@@ -21,11 +27,18 @@ import com.budgetBuddy.model.BudgetForm;
 import com.budgetBuddy.service.UserService;
 
 @Controller
+@SessionAttributes("budgetForm")
 @RequestMapping("/budget")
 public class BudgetController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@InitBinder
+	public void initBinder(WebDataBinder dataBinder) {
+		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+	}
 	
 	@GetMapping
 	public String showBudget(Model model) {
@@ -58,8 +71,11 @@ public class BudgetController {
 	}
 	
 	@PostMapping("/create/savings-target")
-	public String showSavingsTargetPlanOptions(@ModelAttribute("budgetForm") BudgetForm budgetForm,
+	public String showSavingsTargetPlanOptions(@Valid @ModelAttribute("budgetForm") BudgetForm budgetForm,
 			BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors())
+			return "budget-form";
+		
 		// create new savings target object
 		SavingsTarget savingsTarget = new SavingsTarget();
 

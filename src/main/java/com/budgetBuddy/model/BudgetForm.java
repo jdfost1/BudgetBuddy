@@ -1,73 +1,95 @@
 package com.budgetBuddy.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.context.annotation.Scope;
 
 @Scope("session")
 public class BudgetForm {
-	//values collected from user to use for budget
-	private double income;
-	private double savingsTarget;
-	private double rent;
-	private double carPayment;
-	private double carInsurance;
-	private double utilities;
-	private double remainingExpenses;
+	
+	@NotNull
+	@Min(0)
+	private Double income;
+	
+	@NotNull
+	@Min(0)
+	private Double savingsTarget;
+	
+	@NotNull
+	@Min(0)
+	private Double rent;
+	
+	@NotNull
+	@Min(0)
+	private Double carPayment;
+	
+	@NotNull
+	@Min(0)
+	private Double carInsurance;
+	
+	@NotNull
+	@Min(0)
+	private Double utilities;
+	
+	@NotNull
+	@Min(0)
+	private Double remainingExpenses;
 	
 
-	//getters and setters
-	public double getIncome() {
+	public Double getIncome() {
 		return income;
 	}
 
-	public void setIncome(double income) {
+	public void setIncome(Double income) {
 		this.income = income;
 	}
 
-	public double getSavingsTarget() {
+	public Double getSavingsTarget() {
 		return savingsTarget;
 	}
 
-	public void setSavingsTarget(double savingsTarget) {
+	public void setSavingsTarget(Double savingsTarget) {
 		this.savingsTarget = savingsTarget;
 	}
 
-	public double getRent() {
+	public Double getRent() {
 		return rent;
 	}
 
-	public void setRent(double rent) {
+	public void setRent(Double rent) {
 		this.rent = rent;
 	}
 
-	public double getCarPayment() {
+	public Double getCarPayment() {
 		return carPayment;
 	}
 
-	public void setCarPayment(double carPayment) {
+	public void setCarPayment(Double carPayment) {
 		this.carPayment = carPayment;
 	}
 
-	public double getCarInsurance() {
+	public Double getCarInsurance() {
 		return carInsurance;
 	}
 
-	public void setCarInsurance(double carInsurance) {
+	public void setCarInsurance(Double carInsurance) {
 		this.carInsurance = carInsurance;
 	}
 
-	public double getUtilities() {
+	public Double getUtilities() {
 		return utilities;
 	}
 
-	public void setUtilities(double utilities) {
+	public void setUtilities(Double utilities) {
 		this.utilities = utilities;
 	}
 
-	public double getRemainingExpenses() {
+	public Double getRemainingExpenses() {
 		return remainingExpenses;
 	}
 
-	public void setRemainingExpenses(double remainingExpenses) {
+	public void setRemainingExpenses(Double remainingExpenses) {
 		this.remainingExpenses = remainingExpenses;
 	}
 
