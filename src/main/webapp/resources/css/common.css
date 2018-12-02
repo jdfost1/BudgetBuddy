@@ -36,3 +36,67 @@
 .top-50 {
 	margin-top: 50px;
 }
+
+.hero {
+	width: 100%;
+	height: 300px;
+	background-image: url("../img/hero-sm.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #000;
+	padding-top: 20px;
+	padding-left: 20px;
+}
+
+@media (min-width: 576px) {
+	.hero {
+		height: 400px;
+		background-image: url("../img/hero-md.jpg");
+	}
+}
+
+@media (min-width: 768px) {
+	.hero {
+		height: 500px;
+		background-image: url("../img/hero-md.jpg");
+		background-position: center center;
+	}
+}
+
+@media (min-width: 992px) {
+	.hero {
+		height: 550px;
+		background-image: url("../img/hero-lg.jpg");
+	}
+}
+
+footer {
+	background-color: #1e7e34;
+	color: #fff;
+	text-align: center;
+	padding: 15px;
+}
+
+footer ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+
+footer ul li {
+	display: inline;
+}
+
+footer ul li:not(:last-child):after {
+	content: " | ";
+}
+
+footer a {
+	color: white;
+}
+
+.quick-tool { margin-top: 20px;}
+
+.quick-tool .card-title {
+	text-align: center;
+}
