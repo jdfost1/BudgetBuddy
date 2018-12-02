@@ -17,17 +17,19 @@
 <body>
 	<jsp:include page="template/header.jsp" />
 	<div class="hero">
-		<h4>Organize your life.</h4>
+		<h1 class="hero-heading align-middle">Achieve your financial freedom.</h1>
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col mt-3">
+			<div class="col mt-5 mb-3">
 				<h2>Budget Buddy</h2>
 				<p>This is budgeting done right. Tools for breaking down your budget
 					into key areas and giving you advice on how to achieve your goals.</p>
-				<a class="btn btn-success btn-block" href="${pageContext.request.contextPath}/account/sign-up" role="button">Sign Up Free</a>
-				<div class="mt-2 mb-2" style="text-align:center;">OR</div>
-				<a class="btn btn-outline-success btn-block" href="${pageContext.request.contextPath}/account/login" role="button">Log In</a>
+				<div class="sl">
+					<a class="btn btn-success sl-btn" href="${pageContext.request.contextPath}/account/sign-up" role="button">Sign Up Free</a>
+					<span class="mt-2 mb-2" style="text-align:center;">OR</span>
+					<a class="btn btn-outline-success sl-btn" href="${pageContext.request.contextPath}/account/login" role="button">Log In</a>
+				</div>
 			</div>
 		</div>
 		<hr>

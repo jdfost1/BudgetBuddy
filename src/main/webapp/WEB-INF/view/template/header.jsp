@@ -49,8 +49,11 @@
 					</div>
 				</c:when>
 				<c:otherwise>
-					<a class="btn btn-outline-success btn-lg my-2 my-sm-0"
+					<a class="btn btn-outline-success btn-lg nav-btn-login"
 						href="${pageContext.request.contextPath}/account/login" role="button">Log In</a>
+					
+					<a class="btn btn-success btn-lg"
+						href="${pageContext.request.contextPath}/account/sign-up" role="button">Sign Up</a>
 				</c:otherwise>
 			</c:choose>
 		</div>
