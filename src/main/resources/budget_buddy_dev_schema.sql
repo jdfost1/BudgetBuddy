@@ -59,23 +59,18 @@ CREATE TABLE `suggested_budget` (
   `food` decimal(10,2) NOT NULL,
   `savings` decimal(10,2) NOT NULL,
    `miscellaneous` decimal(10,2) NOT NULL,
-  
-  
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Table structure for table 'budget_advice`
 --
 
-DROP TABLE IF EXISTS `Budget_Advice`;
-CREATE TABLE `Budget_Advice` (
+DROP TABLE IF EXISTS `budget_advice`;
+CREATE TABLE `budget_advice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `housing_message` varchar(300) NOT NULL,
   `utilities_message` varchar(300) NOT NULL,
   `transportation_message` varchar(300) NOT NULL,
-  
-  
-  
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
@@ -90,9 +85,9 @@ CREATE TABLE `user` (
   `name` varchar(50) NOT NULL,
   `age` tinyint NOT NULL,
   `budget_id` int(11),
-   `suggested_budget_id` int(11),
-   `savings_target_id` int(11),
-   `budget_advice_id` int(11),
+  `suggested_budget_id` int(11),
+  `savings_target_id` int(11),
+  `budget_advice_id` int(11),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`budget_id`) REFERENCES `budget` (`id`),
   FOREIGN KEY (`suggested_budget_id`) REFERENCES `suggested_budget` (`id`)
