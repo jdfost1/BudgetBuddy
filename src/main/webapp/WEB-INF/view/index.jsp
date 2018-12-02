@@ -21,46 +21,47 @@
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col mt-5 mb-3">
-				<h2>Budget Buddy</h2>
-				<p>This is budgeting done right. Tools for breaking down your budget
-					into key areas and giving you advice on how to achieve your goals.</p>
-				<div class="sl">
-					<a class="btn btn-success sl-btn" href="${pageContext.request.contextPath}/account/sign-up" role="button">Sign Up Free</a>
-					<span class="mt-2 mb-2" style="text-align:center;">OR</span>
-					<a class="btn btn-outline-success sl-btn" href="${pageContext.request.contextPath}/account/login" role="button">Log In</a>
+			<c:if test="${auth}">
+				<c:if test="${budget == null}">
+					<div class="col mt-5 mb-3">
+						<h2>Create Your Budget</h2>
+						<p>Ready to start creating your budget and handling your finances? Click the button below to get started.</p>
+						<a class="btn btn-success btn-lg" href="${pageContext.request.contextPath}/budget/create" role="button">Create Budget</a>
+					</div>
+				</c:if>
+				<c:if test="${budget != null}">
+					<div class="col mt-5 mb-3">
+						<h2>My Budget</h2>
+						<p>Jump back in and view your budget. Get a handle on your personal finances.</p>
+						<a class="btn btn-success btn-lg" href="${pageContext.request.contextPath}/budget" role="button">View Budget</a>
+					</div>
+				</c:if>
+			</c:if>
+			<c:if test="${!auth}">
+				<div class="col mt-5 mb-3">
+					<h2>Budget Buddy</h2>
+					<p>This is budgeting done right. Tools for breaking down your budget
+						into key areas and giving you advice on how to achieve your goals.</p>
+					<div class="sl">
+						<a class="btn btn-success sl-btn" href="${pageContext.request.contextPath}/account/sign-up" role="button">Sign Up Free</a>
+						<span class="mt-2 mb-2" style="text-align:center;">OR</span>
+						<a class="btn btn-outline-success sl-btn" href="${pageContext.request.contextPath}/account/login" role="button">Log In</a>
+					</div>
 				</div>
-			</div>
+			</c:if>
 		</div>
 		<hr>
 		<div class="row">
 			<div class="col mt-3 mb-4">
-				<h2>Not ready to sign up?</h2>
-				<p>Try our financial quick tools! These tools give you quick insight into your finances without needing an account.</p>
-				<div class="card-deck mt-0">
-					<div class="card quick-tool">
-						<img class="card-img-top" src="${pageContext.request.contextPath}/resources/img/placeholder.png" alt="Quick Budget icon">
-						<div class="card-body">
-							<h5 class="card-title"><a href="${pageContext.request.contextPath}/tools/quick-budget">Quick Budget</a></h5>
-							<p class="card-text">Here you can create a quick budget breakdown based on your annual income.</p>
-						</div>
-					</div>
-					<div class="card quick-tool">
-						<img class="card-img-top" src="${pageContext.request.contextPath}/resources/img/placeholder.png" alt="401k Calculator icon">
-						<div class="card-body">
-							<h5 class="card-title "><a href="${pageContext.request.contextPath}/tools/401k-calculator">401k Calculator</a></h5>
-							<p class="card-text">This card has supporting text below as a
-								natural lead-in to additional content.</p>
-						</div>
-					</div>
-					<div class="card quick-tool">
-						<img class="card-img-top" src="${pageContext.request.contextPath}/resources/img/placeholder.png" alt="Compound Interest Calculator">
-						<div class="card-body">
-							<h5 class="card-title"><a href="${pageContext.request.contextPath}/tools/compound-interest-calculator">Compound Interest Calculator</a></h5>
-							<p class="card-text">Here you can quickly calculate compound interest to predict the value of an investment.</p>
-						</div>
-					</div>
-				</div>
+				<c:if test="${auth}">
+					<h2>Financial Quick Tools</h2>
+					<p>Try out our financial quick tools to gain fast insight into your finances.</p>
+				</c:if>
+				<c:if test="${!auth}">
+					<h2>Not ready to sign up?</h2>
+					<p>Try our financial quick tools! These tools give you quick insight into your finances without needing an account.</p>
+				</c:if>
+				<jsp:include page="template/quick-tools-cards.jsp"/>
 			</div>
 		</div>
 	</div>

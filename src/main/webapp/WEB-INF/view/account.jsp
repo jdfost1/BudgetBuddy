@@ -89,17 +89,17 @@
 			<a href="${pageContext.request.contextPath}/account/budget-form">Update Budget</a>
 			
 			
-			<p> Housing: $${newBudget.rent }</p>
-			<p>Utilities: $${newBudget.utilities}</p>
-			<p>Car Payment: $${newBudget.carPayment}</p>
-			<p>Car Insurance: $${newBudget.carInsurance}</p>
+			<p> Housing: $${budget.rent }</p>
+			<p>Utilities: $${budget.utilities}</p>
+			<p>Car Payment: $${budget.carPayment}</p>
+			<p>Car Insurance: $${budget.carInsurance}</p>
 			
-			<p>Other Bills: $${newBudget.remainingExpenses}</p>
+			<p>Other Bills: $${budget.remainingExpenses}</p>
 			
-			<p>Savings Target: $${newBudget.savingsTarget}</p>
-			<p>General Savings: $${newBudget.generalSavings}</p>
-			<p>Retirement: $${newBudget.retirement}</p>
-			<p>Spending: $${newBudget.spending}</p>
+			<p>Savings Target: $${budget.savingsTarget}</p>
+			<p>General Savings: $${budget.generalSavings}</p>
+			<p>Retirement: $${budget.retirement}</p>
+			<p>Spending: $${budget.spending}</p>
 	</div>
 
 	<div id="suggestedBudget" class="tabcontent">
