@@ -33,6 +33,8 @@ public class BudgetController {
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 		User user = userService.findByEmail(email);
 		Budget budget = user.getBudget();
+		if (budget == null)
+			return "redirect:/budget/create?notCreated";
 		SuggestedBudget suggestedBudget = user.getSuggestedBudget();
 		SavingsTarget savingsTarget = user.getSavingsTarget();
 		BudgetAdvice budgetAdvice = user.getBudgetAdvice();

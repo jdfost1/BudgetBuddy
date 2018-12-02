@@ -18,6 +18,11 @@
 					<h5 class="card-header">Create New Budget</h5>
 					<div class="card-body">
 						<form:form action="${pageContext.request.contextPath}/budget/create/savings-target" modelAttribute="budgetForm">
+							<c:if test="${param.notCreated != null}">
+								<div class="alert alert-warning">
+									You must create your budget before you can view it.
+								</div>
+							</c:if>
 							<div class="form-group">
 								<label for="annualIncome">Enter your annual income</label>
 								<form:input  path="income" id="income" cssClass="form-control"/>
