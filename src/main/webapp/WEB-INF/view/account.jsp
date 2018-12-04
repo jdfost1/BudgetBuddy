@@ -37,7 +37,7 @@
 								<h3>Current Budget</h3>
 								<p>Budget generated with your current income, fixed expenses, and savings
 									target</p>
-								<a href="${pageContext.request.contextPath}/account/budget-form">Update Budget</a>
+								<a href="${pageContext.request.contextPath}/budget/create">Update Budget</a>
 								<p> Housing: $${budget.rent }</p>
 								<p>Utilities: $${budget.utilities}</p>
 								<p>Car Payment: $${budget.carPayment}</p>
