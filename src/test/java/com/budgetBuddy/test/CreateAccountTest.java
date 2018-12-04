@@ -45,35 +45,41 @@ public class CreateAccountTest {
 	
 	@Test
 	public void testUserRegistrationValid() {
-		Set<ConstraintViolation<UserRegistration>> violations = validator.validate(registration);
-		assertTrue(violations.isEmpty());
+		assertTrue(isValid(registration));
 	}
 	
 	@Test
 	public void testUserRegistrationEmpty() {
-		UserRegistration reg = new UserRegistration();
-		Set<ConstraintViolation<UserRegistration>> violations = validator.validate(reg);
-		assertFalse(violations.isEmpty());
+		UserRegistration userRegistration = new UserRegistration();
+		assertFalse(isValid(userRegistration));
 	}
 	
 	@Test
 	public void testUserRegistrationBadEmail() {
 		registration.setEmail("john234");
-		Set<ConstraintViolation<UserRegistration>> violations = validator.validate(registration);
-		assertFalse(violations.isEmpty());
+		assertFalse(isValid(registration));
+	}
+	
+	@Test
+	public void testUserRegistrationNoName() {
+		registration.setName(null);
+		assertFalse(isValid(registration));
 	}
 	
 	@Test
 	public void testUserRegistrationNegativeAge() {
 		registration.setAge(-40);
-		Set<ConstraintViolation<UserRegistration>> violations = validator.validate(registration);
-		assertFalse(violations.isEmpty());
+		assertFalse(isValid(registration));
 	}
 	
 	@Test
 	public void testUserRegistrationPasswordsNotMatch() {
 		registration.setMatchingPassword("pass1");
-		Set<ConstraintViolation<UserRegistration>> violations = validator.validate(registration);
-		assertFalse(violations.isEmpty());
+		assertFalse(isValid(registration));
+	}
+	
+	private boolean isValid(UserRegistration userRegistration) {
+		Set<ConstraintViolation<UserRegistration>> violations = validator.validate(userRegistration);
+		return violations.isEmpty();
 	}
 }
