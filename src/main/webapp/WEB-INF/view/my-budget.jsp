@@ -52,7 +52,7 @@
 							</div>
 						  	<div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 						  		<h3>Suggested Budget</h3>
-								<p>Budget suggested by Budget Buddy</p>
+								<p>Budget suggested by Budget Buddy</p><br>
 								<p>Housing: $${suggestedBudget.housing} </p>
 								<p>Utilities: $${suggestedBudget.utilities}</p>
 								<p>Transportation: $${suggestedBudget.transportation}</p>
@@ -64,20 +64,19 @@
 						  	</div>
 						  	<div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
 						  		<h3>Budget Advice</h3>
-								<p>Advice based off suggested budget and current budget.Is the
-									your fixed expenses too high? If so,for what categories?</p>
+								<p>Advice based off suggested budget and current budget.</p><br>
 								<p>${budgetAdvice.housingMessage }</p>
 								<p>${budgetAdvice.transportationMessage }</p>
 								<p>${budgetAdvice.utilitiesMessage }</p>
 						  	</div>
 						  	<div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-						  		<h3>Savings Goal</h3>
-								<p>Real Time of Savings Target Status</p>
-								<p>Savings Target Total: $${savingsTarget.savingsTargetTotal}</p>
-								<p>Monthly Savings Target: $${savingsTarget.monthlySavingsTarget}</p>
-								<p>Start Date: ${savingsTarget.startDate}</p>
-								<p>End Date: ${savingsTarget.endDate }</p>
-								<p>Days Remaining: ${savingsTarget.daysLeft }</p>
+						  		<h3>Savings Goal Summary</h3>
+								<p>Real Time of Savings Target Status</p><br>
+								<p>Savings Goal: $${savingsTarget.savingsTargetTotal}</p>
+								<p>Monthly Savings Goal: $${savingsTarget.monthlySavingsTarget}</p>
+								<p>Savings Goal Start Date: ${savingsTarget.getFormattedStartDate(savingsTarget.startDate)}</p>
+								<p>Savings Goal End Date: ${savingsTarget.getFormattedEndDate(savingsTarget.endDate) }</p>
+								<p>Days Remaining to reach Savings Goal: ${savingsTarget.daysLeft }</p>
 						  	</div>
 						</div>
 					</div>
