@@ -11,23 +11,23 @@
 	<jsp:include page="template/header.jsp"/>
 	<div class="container">
 		<div class="row">
-			<div class="col">
+			<div class="col-sm-10 offset-sm-1">
 				<div id="card" class="card">
 					<h2 class="card-header">My Budget</h2>
 					<div class="card-body">
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
 							<li class="nav-item">
-						    	<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Current Budget</a>
+						    	<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Current</a>
 							</li>
 						  	<li class="nav-item">
-						    	<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Suggested Budget</a>
+						    	<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Suggested</a>
 						  	</li>
 						  	<li class="nav-item">
-						    	<a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Budget Advice</a>
+						    	<a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Advice</a>
 						  	</li>
 						  	<li class="nav-item">
-						    	<a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Savings Goal</a>
+						    	<a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Goal</a>
 						  	</li>
 						</ul>
 						

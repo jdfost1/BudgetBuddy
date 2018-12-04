@@ -63,7 +63,7 @@ public class BudgetController {
 		model.addAttribute("suggestedBudget", suggestedBudget);
 		model.addAttribute("savingsTarget", savingsTarget);
 		model.addAttribute("budgetAdvice",budgetAdvice);
-		return "account";
+		return "my-budget";
 	}
 	
 	@GetMapping("/create")

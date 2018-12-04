@@ -143,3 +143,11 @@ footer a {
 .quick-tool .card-title {
 	text-align: center;
 }
+
+.tab-content {
+	padding: 20px; 
+}
+
+.tab-content h3 {
+	text-align: center;
+}
