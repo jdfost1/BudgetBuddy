@@ -1,5 +1,7 @@
 package com.budgetBuddy.entities;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
@@ -13,6 +15,7 @@ import javax.persistence.Table;
 import org.springframework.context.annotation.Scope;
 
 import com.budgetBuddy.model.BudgetForm;
+
 @Scope("session")
 @Entity
 @Table(name = "savings_target")
@@ -36,50 +39,48 @@ public class SavingsTarget {
 
 	@Column(name = "end_date")
 	private Date endDate;
-	
-	@Column(name="days_left")
+
+	@Column(name = "days_left")
 	private int daysLeft;
 
-	
-	@Column(name="monthly_income")
+	@Column(name = "monthly_income")
 	private double monthlyIncome;
-	
-	@Column(name="leftOver_income")
-	private double leftOverIncome;
 
+	@Column(name = "leftOver_income")
+	private double leftOverIncome;
 
 	// Percentage of leftover income options (5%,10%,15%,20%,and 25% of user's
 	// leftover income)
-	@Column(name="monthly_savings_target_five")
+	@Column(name = "monthly_savings_target_five")
 	public double monthlySavingsTargetFive;
-	
-	@Column(name="monthly_savings_target_ten")
+
+	@Column(name = "monthly_savings_target_ten")
 	private double monthlySavingsTargetTen;
-	
-	@Column(name="monthly_savings_target_fifteen")
+
+	@Column(name = "monthly_savings_target_fifteen")
 	private double monthlySavingsTargetFifteen;
-	
-	@Column(name="monthly_savings_target_twenty")
+
+	@Column(name = "monthly_savings_target_twenty")
 	private double monthlySavingsTargetTwenty;
-	
-	@Column(name="monthly_savings_target_twenty_five")
+
+	@Column(name = "monthly_savings_target_twenty_five")
 	private double monthlySavingsTargetTwentyFive;
 
 	// Number of months needed to hit savings target goal using (5%,10%,15%,20%,and
 	// 25% of user's leftover income)
-	@Column(name="months_five")
+	@Column(name = "months_five")
 	private double monthsFivePercent;
-	
-	@Column(name="months_ten")
+
+	@Column(name = "months_ten")
 	private double monthsTenPercent;
-	
-	@Column(name="months_fifteen")
+
+	@Column(name = "months_fifteen")
 	private double monthsFifteenPercent;
-	
-	@Column(name="months_twenty")
+
+	@Column(name = "months_twenty")
 	private double monthsTwentyPercent;
-	
-	@Column(name="months_twenty_five")
+
+	@Column(name = "months_twenty_five")
 	private double monthsTwentyFivePercent;
 
 	public void calculateSavingsTargetOptions(BudgetForm form) {
@@ -88,7 +89,7 @@ public class SavingsTarget {
 		// calculate leftover income after deducting expenses from income
 		this.leftOverIncome = monthlyIncome - (form.getRent() + form.getCarPayment() + form.getCarInsurance()
 				+ form.getUtilities() + form.getRemainingExpenses());
- 
+
 		this.savingsTargetTotal = form.getSavingsTarget();
 		double savingsTarget = form.getSavingsTarget();
 
@@ -139,7 +140,7 @@ public class SavingsTarget {
 		// get current date
 		Date currentDate = new Date();
 
-		//calculate days between current date and target date
+		// calculate days between current date and target date
 		int daysRemaining = (int) ChronoUnit.DAYS.between(currentDate.toInstant(), endDate.toInstant());
 		return daysRemaining;
 	}
@@ -281,12 +282,29 @@ public class SavingsTarget {
 	public void setSavingsTargetMonths(double savingsTargetMonths) {
 		this.savingsTargetMonths = savingsTargetMonths;
 	}
+
 	public int getDaysLeft() {
 		return daysLeft;
 	}
 
 	public void setDaysLeft(int daysLeft) {
 		this.daysLeft = daysLeft;
+	}
+
+	public String getFormattedStartDate(Date startDate) {
+
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+
+		String dateString = dateFormat.format(startDate); // 2016/11/16 12:08:43
+		return dateString;
+	}
+
+	public String getFormattedEndDate(Date endDate) {
+
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+
+		String dateString = dateFormat.format(endDate); // 2016/11/16 12:08:43
+		return dateString;
 	}
 
 }

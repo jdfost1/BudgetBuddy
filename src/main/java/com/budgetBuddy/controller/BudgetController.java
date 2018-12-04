@@ -111,6 +111,7 @@ public class BudgetController {
 		savingsTarget.setStartDate(new Date());
 		savingsTarget.setEndDate(SavingsTarget.calculateEndDate((int)savingsTarget.getSavingsTargetMonths()));
 		savingsTarget.setDaysLeft(SavingsTarget.calculateDaysRemaining(savingsTarget.getEndDate()));
+		savingsTarget.calculateSavingsTargetOptions(budgetForm);
 		
 
 		// set the new calculated budget to the model
