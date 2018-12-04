@@ -42,20 +42,23 @@ public class BudgetController {
 	
 	@GetMapping
 	public String showBudget(Model model) {
-		//Retrieve the current user's budget
+		//authenticate and get users email to search for user's info in db tables
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		//Retrieve the user's budget
 		User user = userService.findByEmail(email);
 		Budget budget = user.getBudget();
 		if (budget == null)
 			return "redirect:/budget/create?notCreated";
+		
+		//Retrieve user's info from the suggested_budget,savings_target, and budget_advice tables in the database
 		SuggestedBudget suggestedBudget = user.getSuggestedBudget();
 		SavingsTarget savingsTarget = user.getSavingsTarget();
 		BudgetAdvice budgetAdvice = user.getBudgetAdvice();
 		
-		//get days left to hit savings goal using current date
+		//get days left to hit savings goal by getting current date and end date
 		savingsTarget.setDaysLeft(SavingsTarget.calculateDaysRemaining(savingsTarget.getEndDate()));
 	
-		// Add budget object to the model
+		// Add budget,suggestedBudget, and budgetAdvice objects to the model
 		model.addAttribute("budget", budget);
 		model.addAttribute("suggestedBudget", suggestedBudget);
 		model.addAttribute("savingsTarget", savingsTarget);
@@ -79,7 +82,7 @@ public class BudgetController {
 		// create new savings target object
 		SavingsTarget savingsTarget = new SavingsTarget();
 
-		// pass user's budgetForm data into savings target calculator method
+		// calculate user's savings target options using the info from budget form
 		savingsTarget.calculateSavingsTargetOptions(budgetForm);
 
 		// after calculating, set savings target object with calculated values to model
@@ -96,9 +99,11 @@ public class BudgetController {
 		Budget budget = new Budget();
 		budget.createBudget(savingsTarget, budgetForm);
 		
+		//calculate user's suggested budget with just their income
 		SuggestedBudget suggestedBudget = new SuggestedBudget();
 		suggestedBudget.calculateSuggestedBudget(budgetForm.getIncome());
 		
+		//calculate user's budget advice info by comparing their current budget with suggested budget
 		BudgetAdvice budgetAdvice = new BudgetAdvice();
 		budgetAdvice.generateBudgetAdvice(budget, suggestedBudget);
 		
@@ -114,7 +119,7 @@ public class BudgetController {
 		model.addAttribute("savingsTarget",savingsTarget);
 		model.addAttribute("budgetAdvice");
 		
-		// Retrieve the user, set their budget, and save to database
+		// Retrieve the user, set their budget,suggestedBudget,savingsTarget,and budgetAdvice.. then save user to database
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
 		User user = userService.findByEmail(email);
 		user.setBudget(budget);

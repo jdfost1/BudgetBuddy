@@ -1,7 +1,5 @@
 package com.budgetBuddy.entities;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,8 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.budgetBuddy.model.BudgetForm;
+import org.springframework.context.annotation.Scope;
 
+import com.budgetBuddy.model.BudgetForm;
+@Scope("session")
 @Entity
 @Table(name = "savings_target")
 public class SavingsTarget {
@@ -88,7 +88,8 @@ public class SavingsTarget {
 		// calculate leftover income after deducting expenses from income
 		this.leftOverIncome = monthlyIncome - (form.getRent() + form.getCarPayment() + form.getCarInsurance()
 				+ form.getUtilities() + form.getRemainingExpenses());
-
+ 
+		this.savingsTargetTotal = form.getSavingsTarget();
 		double savingsTarget = form.getSavingsTarget();
 
 		// calculate 5%,10%,15%,20%,and 25% of users monthly leftover income
