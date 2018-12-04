@@ -46,6 +46,7 @@ public class UpdateAccountTest {
 		assertTrue(isValid(update));
 	}
 	
+	@Test
 	public void testUserUpdateEmpty() {
 		UserUpdate userUpdate = new UserUpdate();
 		assertFalse(isValid(userUpdate));
