@@ -63,6 +63,12 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
+		<dependency>
+		   <groupId>org.glassfish</groupId>
+		   <artifactId>javax.el</artifactId>
+		   <version>3.0.1-b08</version>
+		</dependency>
+		
 		
 		<!-- MySQL and C3P0 -->
 		<dependency>
