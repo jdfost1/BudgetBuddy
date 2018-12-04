@@ -65,6 +65,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<%@ include file="template/js-include.html"%>
 </body>
 </html>

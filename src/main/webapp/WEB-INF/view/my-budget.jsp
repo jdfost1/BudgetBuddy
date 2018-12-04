@@ -35,8 +35,8 @@
 						<div class="tab-content">
 							<div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
 								<h3>Current Budget</h3>
-								<p>Budget generated with your current income, fixed expenses, and savings
-									target</p>
+								<p>Monthly budget generated with your current income, fixed expenses, and savings
+									target.</p>
 								<a href="${pageContext.request.contextPath}/budget/create">Update Budget</a>
 								<p> Housing: $${budget.rent }</p>
 								<p>Utilities: $${budget.utilities}</p>
@@ -52,7 +52,7 @@
 							</div>
 						  	<div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 						  		<h3>Suggested Budget</h3>
-								<p>Budget suggested by Budget Buddy</p><br>
+								<p>Monthly budget suggested by Budget Buddy based off your income. Each category is the maximum you should be spending each month.</p><br>
 								<p>Housing: $${suggestedBudget.housing} </p>
 								<p>Utilities: $${suggestedBudget.utilities}</p>
 								<p>Transportation: $${suggestedBudget.transportation}</p>
@@ -64,14 +64,14 @@
 						  	</div>
 						  	<div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
 						  		<h3>Budget Advice</h3>
-								<p>Advice based off suggested budget and current budget.</p><br>
+								<p>Advice from Budget Buddy based of your calculated suggested budget and current budget.</p><br>
 								<p>${budgetAdvice.housingMessage }</p>
 								<p>${budgetAdvice.transportationMessage }</p>
 								<p>${budgetAdvice.utilitiesMessage }</p>
 						  	</div>
 						  	<div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
 						  		<h3>Savings Goal Summary</h3>
-								<p>Real Time of Savings Target Status</p><br>
+								<p>Real Time of Savings Goal Status</p><br>
 								<p>Savings Goal: $${savingsTarget.savingsTargetTotal}</p>
 								<p>Monthly Savings Goal: $${savingsTarget.monthlySavingsTarget}</p>
 								<p>Savings Goal Start Date: ${savingsTarget.getFormattedStartDate(savingsTarget.startDate)}</p>
