@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.budgetBuddy.entities.Budget;
 import com.budgetBuddy.entities.BudgetAdvice;
-import com.budgetBuddy.entities.SavingsTarget;
+import com.budgetBuddy.entities.SavingsGoal;
 import com.budgetBuddy.entities.SuggestedBudget;
 import com.budgetBuddy.entities.User;
 import com.budgetBuddy.model.BudgetForm;
@@ -52,16 +52,16 @@ public class BudgetController {
 		
 		//Retrieve user's info from the suggested_budget,savings_target, and budget_advice tables in the database
 		SuggestedBudget suggestedBudget = user.getSuggestedBudget();
-		SavingsTarget savingsTarget = user.getSavingsTarget();
+		SavingsGoal savingsGoal = user.getSavingsTarget();
 		BudgetAdvice budgetAdvice = user.getBudgetAdvice();
 		
 		//get days left to hit savings goal by getting current date and end date
-		savingsTarget.setDaysLeft(SavingsTarget.calculateDaysRemaining(savingsTarget.getEndDate()));
+		savingsGoal.setDaysLeft(SavingsGoal.calculateDaysRemaining(savingsGoal.getEndDate()));
 	
 		// Add budget,suggestedBudget, and budgetAdvice objects to the model
 		model.addAttribute("budget", budget);
 		model.addAttribute("suggestedBudget", suggestedBudget);
-		model.addAttribute("savingsTarget", savingsTarget);
+		model.addAttribute("savingsTarget", savingsGoal);
 		model.addAttribute("budgetAdvice",budgetAdvice);
 		return "my-budget";
 	}
@@ -80,24 +80,24 @@ public class BudgetController {
 			return "budget-form";
 		
 		// create new savings target object
-		SavingsTarget savingsTarget = new SavingsTarget();
+		SavingsGoal savingsGoal = new SavingsGoal();
 
 		// calculate user's savings target options using the info from budget form
-		savingsTarget.calculateSavingsTargetOptions(budgetForm);
+		savingsGoal.calculateSavingsTargetOptions(budgetForm);
 
 		// after calculating, set savings target object with calculated values to model
-		model.addAttribute("savingsTarget", savingsTarget);
+		model.addAttribute("savingsTarget", savingsGoal);
 		
 		return "savings-target-options";
 	}
 	
 	@PostMapping("/create/complete")
-	public String completeBudget(@ModelAttribute("SavingsTarget") SavingsTarget savingsTarget, BindingResult result,
+	public String completeBudget(@ModelAttribute("SavingsTarget") SavingsGoal savingsGoal, BindingResult result,
 			@ModelAttribute("budgetForm") BudgetForm budgetForm, BindingResult bindingResult, Model model) {
 
 		// pass savings target info and budgetForm info into Budget constructor to calculate budget
 		Budget budget = new Budget();
-		budget.createBudget(savingsTarget, budgetForm);
+		budget.createBudget(savingsGoal, budgetForm);
 		
 		//calculate user's suggested budget with just their income
 		SuggestedBudget suggestedBudget = new SuggestedBudget();
@@ -108,16 +108,16 @@ public class BudgetController {
 		budgetAdvice.generateBudgetAdvice(budget, suggestedBudget);
 		
 		//calculate end date and days left for savings target
-		savingsTarget.setStartDate(new Date());
-		savingsTarget.setEndDate(SavingsTarget.calculateEndDate((int)savingsTarget.getSavingsTargetMonths()));
-		savingsTarget.setDaysLeft(SavingsTarget.calculateDaysRemaining(savingsTarget.getEndDate()));
-		savingsTarget.calculateSavingsTargetOptions(budgetForm);
+		savingsGoal.setStartDate(new Date());
+		savingsGoal.setEndDate(SavingsGoal.calculateEndDate((int)savingsGoal.getSavingsTargetMonths()));
+		savingsGoal.setDaysLeft(SavingsGoal.calculateDaysRemaining(savingsGoal.getEndDate()));
+		savingsGoal.calculateSavingsTargetOptions(budgetForm);
 		
 
 		// set the new calculated budget to the model
 		model.addAttribute("budget", budget);
 		model.addAttribute("suggestedBudget",suggestedBudget);
-		model.addAttribute("savingsTarget",savingsTarget);
+		model.addAttribute("savingsTarget",savingsGoal);
 		model.addAttribute("budgetAdvice");
 		
 		// Retrieve the user, set their budget,suggestedBudget,savingsTarget,and budgetAdvice.. then save user to database
@@ -125,7 +125,7 @@ public class BudgetController {
 		User user = userService.findByEmail(email);
 		user.setBudget(budget);
 		user.setSuggestedBudget(suggestedBudget);
-		user.setSavingsTarget(savingsTarget);
+		user.setSavingsTarget(savingsGoal);
 		user.setBudgetAdvice(budgetAdvice);
 		userService.save(user);
 		

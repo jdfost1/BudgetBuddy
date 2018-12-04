@@ -19,7 +19,7 @@ import com.budgetBuddy.model.BudgetForm;
 @Scope("session")
 @Entity
 @Table(name = "savings_target")
-public class SavingsTarget {
+public class SavingsGoal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

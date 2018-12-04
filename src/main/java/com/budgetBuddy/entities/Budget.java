@@ -45,14 +45,14 @@ public class Budget {
 	@Column(name = "remaining_expenses")
 	private double remainingExpenses;
 
-	public void createBudget(SavingsTarget savingsTarget, BudgetForm budgetForm) {
+	public void createBudget(SavingsGoal savingsGoal, BudgetForm budgetForm) {
 		// set budget model with values from budget form
 		this.rent = budgetForm.getRent();
 		this.carPayment = budgetForm.getCarPayment();
 		this.carInsurance = budgetForm.getCarInsurance();
 		this.utilities = budgetForm.getUtilities();
 		this.remainingExpenses = budgetForm.getRemainingExpenses();
-		this.savingsTarget = savingsTarget.getMonthlySavingsTarget();
+		this.savingsTarget = savingsGoal.getMonthlySavingsTarget();
 		
 		//calculate monthly leftover income after subtracting user's monthly savings target
 		double monthlyIncome = budgetForm.getIncome()/12;

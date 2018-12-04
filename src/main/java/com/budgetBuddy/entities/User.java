@@ -60,15 +60,15 @@ public class User {
 
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "savings_target_id")
-	private SavingsTarget savingsTarget;
+	private SavingsGoal savingsGoal;
 
 	
-	public SavingsTarget getSavingsTarget() {
-		return savingsTarget;
+	public SavingsGoal getSavingsTarget() {
+		return savingsGoal;
 	}
 
-	public void setSavingsTarget(SavingsTarget savingsTarget) {
-		this.savingsTarget = savingsTarget;
+	public void setSavingsTarget(SavingsGoal savingsGoal) {
+		this.savingsGoal = savingsGoal;
 	}
 
 	public Long getId() {
