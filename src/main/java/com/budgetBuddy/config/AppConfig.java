@@ -121,7 +121,7 @@ public class AppConfig implements WebMvcConfigurer {
 		
 		return mailSender;
 	}
-	/*
+	
 	@Bean
 	public HandlerExceptionResolver handlerExceptionResolver() {
 		HandlerExceptionResolver resolver = new HandlerExceptionResolver() {
@@ -136,7 +136,7 @@ public class AppConfig implements WebMvcConfigurer {
 		};
 		return resolver;
 	}
-	*/
+	
 	private final Properties hibernateProperties() {
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
