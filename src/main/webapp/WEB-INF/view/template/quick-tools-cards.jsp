@@ -10,8 +10,7 @@
 		<img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/img/401k-icon.png" alt="401k Calculator icon">
 		<div class="card-body">
 			<h5 class="card-title "><a href="${pageContext.request.contextPath}/tools/401k-calculator">401k Calculator</a></h5>
-			<p class="card-text">This card has supporting text below as a
-				natural lead-in to additional content.</p>
+			<p class="card-text">Here you can get an estimate of your 401k value at retirement.</p>
 		</div>
 	</div>
 	<div class="card quick-tool">
