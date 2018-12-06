@@ -148,6 +148,22 @@ footer a {
 	padding: 20px; 
 }
 
-.tab-content h3 {
+.tab-pane h3 {
 	text-align: center;
+	margin-bottom: 20px;
+}
+
+.tab-pane h3 + p{
+	margin-bottom: 30px;
+}
+
+.nav-pills .nav-link {
+	color: #28a745;
+	border: 1px solid #343a40;
+	margin: 3px 3px;
+}
+
+.nav-pills .nav-link.active {
+	color: #fff;
+	background-color: #28a745;
 }
