@@ -52,7 +52,7 @@
 		</div>
 		<hr>
 		<div class="row">
-			<div class="col mt-3 mb-4">
+			<div class="col mt-3">
 				<c:if test="${auth}">
 					<h2>Financial Quick Tools</h2>
 					<p>Try out our financial quick tools to gain fast insight into your finances.</p>
@@ -61,6 +61,10 @@
 					<h2>Not ready to sign up?</h2>
 					<p>Try our financial quick tools! These tools give you quick insight into your finances without needing an account.</p>
 				</c:if>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-10 col-sm-12 col-md-10 offset-1 offset-sm-0 offset-md-1 mb-4">
 				<jsp:include page="template/quick-tools-cards.jsp"/>
 			</div>
 		</div>
